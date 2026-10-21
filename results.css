@@ -1,0 +1,86 @@
+/* 07 Results — Figma 324:999. Keep chapter styles isolated. */
+@font-face { font-family: "Chiron GoRound TC Results"; font-style: normal; font-weight: 400; font-display: swap; src: url("./public/assets/chiron-results-400.ttf") format("truetype"); }
+@font-face { font-family: "Chiron GoRound TC Results"; font-style: normal; font-weight: 500; font-display: swap; src: url("./public/assets/chiron-results-500.ttf") format("truetype"); }
+@font-face { font-family: "Chiron GoRound TC Results"; font-style: normal; font-weight: 700; font-display: swap; src: url("./public/assets/chiron-results-700.ttf") format("truetype"); }
+
+.results {
+  --results-line: #d4d7cc;
+  --results-tint: #e3edde;
+  --results-orange: #ff9e42;
+  max-width: 1440px;
+  margin-inline: auto;
+  font-family: "Chiron GoRound TC Results", "Microsoft JhengHei", sans-serif;
+}
+.results :is(p,h2,h3,h4,ul) { margin: 0; }
+.results-panel { display: flex; flex-direction: column; gap: 44px; min-height: 814px; padding: 28px 64px 24px; }
+.results-heading { display: flex; flex-direction: column; gap: 8px; }
+.results h2 { font-size: 44px; font-weight: 700; line-height: 58px; }
+.results-card { min-width: 0; border: 1px solid var(--results-line); border-radius: 20px; background: var(--bubu-card); }
+.results-number { align-self: flex-start; flex-shrink: 0; padding: 3px 12px; border: 1.5px solid var(--bubu-secondary); border-radius: 999px; color: var(--bubu-secondary); font-size: 18px; font-weight: 500; line-height: 26px; }
+.results-product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.results-product-card { display: flex; flex-direction: column; gap: 10px; min-height: 330px; padding: 26px 28px; }
+.results-product-card h3 { font-size: 32px; font-weight: 700; line-height: 58px; }
+.results-product-card p { color: var(--bubu-secondary); font-size: 24px; line-height: 40px; }
+.results-learning { gap: 22px; }
+.results-learning-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.results-learning-card { display: flex; flex-direction: column; justify-content: center; gap: 8px; min-height: 201px; padding: 22px 30px; }
+.results-learning-heading { display: flex; align-items: center; gap: 12px; }
+.results-learning-heading .results-number { align-self: auto; padding-block: 2px; font-weight: 700; line-height: normal; }
+.results-learning-heading h3 { min-width: 0; font-size: 30px; font-weight: 700; line-height: 39px; }
+.results-learning-card h4 { color: var(--bubu-primary); font-size: 20px; font-weight: 700; line-height: 27px; }
+.results-learning-card p { color: var(--bubu-secondary); font-size: 26px; line-height: 33px; }
+.results-team { gap: 56px; }
+.results-team-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.results-team-card { display: flex; flex-direction: column; gap: 14px; padding: 32px 36px; }
+.results-label { display: flex; align-items: center; gap: 10px; color: var(--bubu-primary); font-size: 20px; font-weight: 700; line-height: 30px; }
+.results :is(.results-label,.chapter-label) img { display: block; flex-shrink: 0; }
+.results-team-card h3 { font-size: 44px; font-weight: 700; line-height: 58px; }
+.results-team-card > p:not(.results-label) { color: var(--bubu-secondary); font-size: 26px; line-height: 40px; }
+.results-collaboration { padding: 20px 32px; font-size: 24px; line-height: 36px; }
+.results-future-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.results-future-card { display: flex; flex-direction: column; gap: 16px; min-height: 351px; padding: 30px 32px; }
+.results-priority { border: 2px solid var(--bubu-primary); }
+.results-future-card h3 { font-size: 24px; line-height: 32px; }
+.results-future-card ul { display: flex; flex-direction: column; gap: 16px; padding: 0; list-style: none; }
+.results-future-card li { padding: 14px 20px; border-radius: 14px; background: var(--results-tint); font-size: 24px; font-weight: 700; line-height: 41px; }
+.results-closing { justify-content: center; gap: 40px; }
+.results-closing h2 { padding-left: 32px; border-left: 6px solid var(--results-orange); font-size: 48px; line-height: 72px; }
+.results-closing h2 span { display: block; }
+.results-signature { display: flex; align-items: center; gap: 20px; padding-left: 32px; }
+.results-signature img { display: block; flex: 0 0 60px; }
+.results-signature p { color: var(--bubu-primary); font-size: 28px; font-weight: 700; line-height: 40px; }
+
+@media (max-width: 1100px) {
+  .results-panel { min-height: 0; padding: 40px 32px 64px; gap: 28px; }
+  .results h2 { font-size: 36px; line-height: 48px; }
+  .results-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .results-product-card { min-height: 0; }
+  .results-product-card h3 { font-size: 30px; line-height: 42px; }
+  .results-learning-card { padding: 24px; }
+  .results-learning-heading h3 { font-size: 26px; line-height: 36px; }
+  .results-learning-card p { font-size: 24px; }
+  .results-team-card { padding: 28px; }
+  .results-future-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .results-future-card { min-height: 0; }
+  .results-closing { min-height: 500px; }
+  .results-closing h2 { font-size: 40px; line-height: 60px; }
+}
+@media (max-width: 700px) {
+  .results-panel { padding: 28px 20px 48px; gap: 24px; }
+  .results h2 { font-size: 30px; line-height: 42px; }
+  .results-heading h2, .results-closing h2 span { text-wrap: balance; }
+  .results-product-grid, .results-learning-grid, .results-team-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .results-product-card, .results-learning-card, .results-team-card, .results-future-card { min-height: 0; padding: 24px 20px; }
+  .results-product-card h3, .results-learning-heading h3 { font-size: 26px; line-height: 36px; }
+  .results-learning-heading { align-items: flex-start; }
+  .results-learning-heading .results-number { align-self: flex-start; margin-top: 4px; }
+  .results-team-card h3 { font-size: 32px; line-height: 44px; }
+  .results-product-card p, .results-learning-card p, .results-team-card > p:not(.results-label), .results-collaboration { font-size: 20px; line-height: 32px; }
+  .results-collaboration { padding: 20px; }
+  .results-future-card h3 { font-size: 22px; line-height: 32px; }
+  .results-future-card li { padding: 12px 16px; font-size: 20px; line-height: 32px; }
+  .results-closing { min-height: 480px; gap: 28px; }
+  .results-closing h2 { padding-left: 20px; font-size: 30px; line-height: 48px; }
+  .results-signature { gap: 12px; padding-left: 20px; }
+  .results-signature p { font-size: 20px; line-height: 32px; }
+}
