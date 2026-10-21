@@ -1,0 +1,111 @@
+/** Chapter 03 browser checks. Usage: node scripts/verify-insights.cjs <playwright-module> <output-dir> [url] */
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+
+async function main() {
+  const [modulePath, output, url = 'http://127.0.0.1:5173'] = process.argv.slice(2);
+  if (!modulePath || !output) throw new Error('Provide the Playwright module path and screenshot output directory.');
+  const { chromium, devices } = require(modulePath);
+  fs.mkdirSync(output, { recursive: true });
+  const browser = await chromium.launch({ channel: 'msedge', headless: true });
+  const errors = [];
+  const results = [];
+  const monitor = page => {
+    page.on('pageerror', error => errors.push(String(error)));
+    page.on('response', response => {
+      if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`);
+    });
+  };
+  try {
+    const page = await browser.newPage();
+    monitor(page);
+    for (const width of [320, 390, 700, 768, 1024, 1280, 1440, 1920]) {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto(url, { waitUntil: 'networkidle' });
+      await page.evaluate(() => document.fonts.ready);
+      await page.locator('.chapter-list a[href="#insights"]').click();
+      await page.waitForFunction(() => location.hash === '#insights');
+      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '03 洞察');
+      const layout = await page.evaluate(() => {
+        const chapter = document.querySelector('#insights');
+        const cards = [...chapter.querySelectorAll('.insight-card')];
+        const clipped = [...chapter.querySelectorAll('h2,h3,p,span,strong')].filter(el =>
+          el.clientWidth && (el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + 1)
+        ).map(el => el.textContent.trim());
+        return {
+          width: innerWidth,
+          documentWidth: document.documentElement.scrollWidth,
+          chapterTop: chapter.getBoundingClientRect().top,
+          headerBottom: document.querySelector('.site-header').getBoundingClientRect().bottom,
+          cardCount: cards.length,
+          columns: getComputedStyle(document.querySelector('.insight-grid')).gridTemplateColumns.split(' ').length,
+          clipped,
+          images: [...chapter.querySelectorAll('img')].map(img => ({
+            valid: img.complete && img.naturalWidth > 0,
+            width: img.getBoundingClientRect().width,
+            height: img.getBoundingClientRect().height,
+            source: img.getAttribute('src'),
+          })),
+          font: getComputedStyle(chapter).fontFamily,
+        };
+      });
+      assert(layout.documentWidth <= width, JSON.stringify(layout));
+      assert(layout.chapterTop >= layout.headerBottom, JSON.stringify(layout));
+      assert.equal(layout.cardCount, 3);
+      assert.equal(layout.columns, width <= 1100 ? 1 : 3);
+      assert.deepEqual(layout.clipped, []);
+      assert.equal(layout.images.length, 5);
+      assert(layout.images.every(img => img.valid && img.width === 10 && img.height === 10 && img.source === './public/assets/chapter-dot.svg'));
+      if ([390, 1440].includes(width)) {
+        await page.screenshot({ path: path.join(output, `${width}-insights-viewport.png`) });
+        for (const panel of ['overview', 'definition']) {
+          const clip = await page.locator(`.insights-${panel}`).evaluate(el => {
+            const rect = el.getBoundingClientRect();
+            return { x: rect.left + scrollX, y: rect.top + scrollY, width: rect.width, height: rect.height };
+          });
+          await page.screenshot({
+            path: path.join(output, `${width}-insights-${panel}.png`),
+            fullPage: true,
+            clip,
+            style: '.site-header { visibility: hidden; }',
+          });
+        }
+      }
+      // Existing chapter links, browser history, and the homepage still work.
+      await page.locator('.chapter-list a[href="#research"]').click();
+      await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]').hash === '#research');
+      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '02 研究');
+      await page.goBack();
+      await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]').hash === '#insights');
+      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '03 洞察');
+      await page.goForward();
+      await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]').hash === '#research');
+      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '02 研究');
+      assert.equal(await page.locator('.research-heading h2').count(), 4);
+      await page.locator('.brand').click();
+      await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]').hash === '#problem');
+      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '01 問題');
+      results.push(layout);
+    }
+    // Touch-enabled mobile viewport, direct URL entry, and reduced motion.
+    const mobile = await browser.newContext({ ...devices['iPhone 13'], reducedMotion: 'reduce' });
+    const phone = await mobile.newPage();
+    monitor(phone);
+    await phone.goto(`${url}/#insights`, { waitUntil: 'networkidle' });
+    assert.equal(await phone.locator('.chapter-list a[aria-current]').textContent(), '03 洞察');
+    assert(await phone.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+    await phone.screenshot({ path: path.join(output, '390-insights-touch.png') });
+    await mobile.close();
+    await page.setViewportSize({ width: 720, height: 450 });
+    await page.goto(`${url}/#insights`, { waitUntil: 'networkidle' });
+    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+    assert.deepEqual(errors, []);
+    const report = { browser: 'Microsoft Edge', results, mobileTouch: 'passed', reflow720: 'passed', errors };
+    fs.writeFileSync(path.join(output, 'report.json'), JSON.stringify(report, null, 2));
+    console.log(JSON.stringify({ widths: results.map(r => r.width), mobileTouch: 'passed', errors }, null, 2));
+  } finally {
+    await browser.close();
+  }
+}
+main().catch(error => { console.error(error); process.exitCode = 1; });

@@ -1,0 +1,157 @@
+/* 04 — Figma 317:538. Styles are scoped to the new chapter and its image viewer. */
+@font-face { font-family: "Chiron GoRound TC Solution"; font-style: normal; font-weight: 400; font-display: swap; src: url("./public/assets/chiron-solution-400.ttf") format("truetype"); }
+@font-face { font-family: "Chiron GoRound TC Solution"; font-style: normal; font-weight: 500; font-display: swap; src: url("./public/assets/chiron-solution-500.ttf") format("truetype"); }
+@font-face { font-family: "Chiron GoRound TC Solution"; font-style: normal; font-weight: 700; font-display: swap; src: url("./public/assets/chiron-solution-700.ttf") format("truetype"); }
+.solution {
+  --solution-line: #d4d7cc;
+  --solution-tint: #e3edde;
+  max-width: 1440px;
+  margin-inline: auto;
+  font-family: "Chiron GoRound TC Solution", "Chiron GoRound TC", "Microsoft JhengHei", sans-serif;
+}
+.solution :is(p,h2,h3,h4) { margin: 0; }
+.solution-panel { display: flex; flex-direction: column; gap: 36px; min-height: 814px; padding: 28px 64px 24px; }
+.solution-heading { display: flex; flex-direction: column; gap: 8px; }
+.solution-heading h2, .direction-card h3, .tradeoff-card h3 { font-size: 44px; line-height: 58px; font-weight: 700; }
+.solution-directions { gap: 40px; }
+.direction-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; }
+.direction-card { position: relative; display: flex; flex-direction: column; align-items: start; gap: 14px; min-width: 0; min-height: 400px; padding: 28px 32px 24px; border: 1px solid var(--solution-line); border-radius: 20px; background: var(--bubu-card); }
+.direction-core { border: 2px solid var(--bubu-primary); }
+.direction-card > .insight-badge { margin-right: 96px; }
+.direction-card h3 { margin-top: 0; }
+.direction-card p, .tradeoff-card > p:not(.chapter-label) { color: var(--bubu-secondary); font-size: 26px; line-height: 40px; }
+.direction-card h4 { color: var(--bubu-primary); font-size: 20px; line-height: 30px; }
+.direction-illustration { position: absolute; right: 34px; top: 30px; }
+.direction-card:first-child .direction-illustration { top: 31px; right: 36px; }
+.direction-card h3 { position: relative; }
+.solution-note { padding: 12px 20px; border-radius: 10px; background: var(--solution-tint); font-size: 20px; line-height: 30px; font-weight: 500; }
+.solution-architecture { gap: 28px; min-height: 842px; padding-block: 24px; }
+.solution-architecture .solution-heading h2 { font-size: 40px; }
+.architecture-tree { display: flex; align-items: center; min-width: 0; }
+.architecture-login { flex-shrink: 0; position: relative; padding: 9px 20px; margin-right: 60px !important; border-radius: 999px; background: var(--bubu-dark); color: white; font-size: 20px; line-height: 28px; font-weight: 700; }
+.architecture-login::after { content: ""; position: absolute; width: 60px; height: 2px; left: 100%; top: 50%; background: #b9b3a5; }
+.architecture-branches { position: relative; display: flex; flex: 1; flex-direction: column; gap: 18px; min-width: 0; }
+.architecture-branches::before { content: ""; position: absolute; left: -32px; top: 30px; bottom: 205px; width: 2px; background: #b9b3a5; }
+.architecture-branch { display: flex; align-items: start; min-width: 0; }
+.architecture-primary { position: relative; flex: 0 0 250px; margin-right: 24px; }
+.architecture-primary::before, .architecture-primary::after { content: ""; position: absolute; top: 29px; height: 2px; background: #b9b3a5; }
+.architecture-primary::before { width: 32px; right: 100%; }
+.architecture-primary::after { width: 24px; left: 100%; }
+.architecture-node { min-width: 0; padding: 9px 16px; border: 1.5px solid var(--bubu-primary); border-radius: 10px; background: #f8fbf6; }
+.architecture-node h4 { font-size: 20px; line-height: 28px; }
+.architecture-node p { color: var(--bubu-secondary); font-size: 18px; line-height: 25px; }
+.architecture-node.architecture-primary { background: var(--bubu-primary); border-color: var(--bubu-primary); color: white; }
+.architecture-primary h4 { font-size: 24px; line-height: 34px; }
+.architecture-primary p { color: var(--solution-tint); }
+.architecture-pages { display: grid; flex: 1; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; min-width: 0; }
+.architecture-column { position: relative; display: flex; flex-direction: column; gap: 8px; }
+.architecture-column:not(:first-child)::before { content: ""; position: absolute; right: 100%; top: 29px; width: 18px; height: 2px; background: #b9b3a5; }
+.architecture-child { margin-left: 24px; }
+.architecture-function { background: #fff4e8; border-color: #f2b472; }
+.architecture-shortcut { display: flex; gap: 16px; align-items: center; padding: 12px 20px; border-radius: 16px; background: var(--solution-tint); font-size: 20px; line-height: 30px; font-weight: 500; }
+.architecture-shortcut img { flex-shrink: 0; }
+.architecture-legend { flex-shrink: 0; font-size: 14px; line-height: 22px; color: var(--bubu-secondary); }
+.solution-flow { gap: 18px; padding-block: 26px 20px; }
+.flow-summary { display: flex; align-items: center; gap: 32px; padding: 12px 32px; border: 1px solid var(--solution-line); border-radius: 20px; background: var(--bubu-card); }
+.flow-summary .solution-heading { flex-shrink: 0; gap: 2px; }
+.flow-summary h2 { white-space: nowrap; }
+.flow-context, .flow-purpose { flex: 1; min-width: 0; padding-left: 32px; border-left: 2px solid var(--solution-line); }
+.flow-summary h3 { color: var(--bubu-primary); font-size: 18px; line-height: 30px; }
+.flow-summary > div > p { font-size: 26px; line-height: 40px; }
+.flow-context p { color: var(--bubu-secondary); }
+.flow-steps { display: flex; flex: 1; align-items: center; justify-content: center; gap: 80px; margin: 0; padding: 16px 24px; border-radius: 28px; background: rgb(255 255 255 / 60%); list-style: none; }
+.flow-step { position: relative; min-width: 0; }
+.flow-step:not(:last-child)::after { content: ""; position: absolute; width: 80px; height: 2px; background: #b8bdad; top: 17px; left: 100%; }
+.flow-preview { display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: 100%; padding: 0; border: 0; color: inherit; font: inherit; background: transparent; cursor: zoom-in; }
+.flow-preview:focus-visible, .image-dialog-close:focus-visible { outline: 3px solid var(--bubu-primary); outline-offset: 6px; border-radius: 8px; }
+.flow-step-heading { display: flex; align-items: center; gap: 12px; font-size: 24px; line-height: 36px; text-align: left; }
+.flow-step-heading img { flex-shrink: 0; }
+.flow-number { display: grid; place-items: center; flex: 0 0 36px; height: 36px; border-radius: 50%; background: var(--bubu-primary); color: var(--bubu-card); font-size: 20px; font-weight: 700; }
+.phone-frame { display: block; flex-shrink: 0; width: 260.905px; height: 546px; padding: 8px; border-radius: 38px; background: #292e29; }
+.phone-screen { display: block; width: 244.905px; height: 530px; border-radius: 30px; object-fit: cover; }
+.tradeoff-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+.tradeoff-card { display: flex; flex-direction: column; gap: 12px; min-width: 0; padding: 32px 36px; border: 1px solid var(--solution-line); border-radius: 20px; background: var(--bubu-card); box-shadow: 0 6px 8px rgb(0 0 0 / 10%); }
+.solution-next { display: flex; flex-direction: column; gap: 10px; padding: 28px 36px; border: 2px solid var(--bubu-primary); border-radius: 20px; background: var(--bubu-card); }
+.solution-next h3 { color: var(--bubu-primary); font-size: 20px; line-height: 30px; }
+.solution-next p { color: var(--bubu-secondary); font-size: 24px; line-height: 36px; }
+.solution-next .solution-next-title { color: var(--bubu-dark); font-size: 28px; line-height: 40px; font-weight: 700; }
+.image-dialog { width: min(640px, calc(100% - 32px)); max-height: calc(100svh - 32px); padding: 0; border: 1px solid #d4d7cc; border-radius: 20px; color: var(--bubu-dark); background: var(--bubu-card); font-family: "Chiron GoRound TC Solution", "Microsoft JhengHei", sans-serif; }
+.image-dialog::backdrop { background: rgb(20 35 24 / 78%); }
+body:has(.image-dialog[open]) { overflow: hidden; }
+.image-dialog-toolbar { position: sticky; top: 0; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 16px; background: var(--bubu-card); }
+.image-dialog-toolbar p { margin: 0; font-size: 16px; line-height: 26px; }
+.image-dialog-close { flex-shrink: 0; min-height: 44px; padding: 8px 12px; border: 1px solid #d4d7cc; border-radius: 8px; color: inherit; background: white; font: inherit; cursor: pointer; }
+.image-dialog-content { display: block; width: auto; max-width: 100%; height: auto; margin-inline: auto; }
+@media (max-width: 1399px) {
+  .direction-card h3 { font-size: 36px; line-height: 50px; }
+  .direction-card { padding: 28px; }
+  .direction-illustration { right: 20px; }
+  .direction-card:first-child .direction-illustration { right: 20px; }
+  .direction-card h3 { margin-top: 80px; }
+  .architecture-tree { flex-direction: column; align-items: stretch; gap: 24px; }
+  .architecture-login { align-self: start; margin-right: 0 !important; }
+  .architecture-login::after, .architecture-branches::before, .architecture-primary::before { display: none; }
+  .architecture-primary { flex-basis: 210px; }
+  .flow-steps { gap: 28px; }
+  .flow-step:not(:last-child)::after { width: 28px; }
+  .flow-summary { gap: 20px; padding-inline: 24px; }
+  .flow-summary h2 { font-size: 32px; line-height: 46px; }
+  .flow-context, .flow-purpose { padding-left: 20px; }
+  .flow-summary > div > p { font-size: 22px; line-height: 34px; }
+  .flow-step-heading { font-size: 20px; line-height: 30px; gap: 8px; }
+  .architecture-shortcut { flex-wrap: wrap; }
+}
+@media (max-width: 1100px) {
+  .solution-panel { min-height: 0; padding: 40px 32px; }
+  .solution-heading h2, .solution-architecture .solution-heading h2, .tradeoff-card h3 { font-size: 36px; line-height: 50px; }
+  .direction-grid { grid-template-columns: minmax(0,1fr); }
+  .direction-card { min-height: 230px; padding-right: 160px; }
+  .direction-card h3 { margin-top: 0; }
+  .direction-card > .insight-badge { margin-right: 0; }
+  .direction-illustration, .direction-card:first-child .direction-illustration { right: 32px; }
+  .architecture-branch { flex-direction: column; gap: 12px; }
+  .architecture-primary { flex-basis: auto; width: 100%; margin-right: 0; }
+  .architecture-primary::after { display: none; }
+  .architecture-pages { width: 100%; padding-left: 24px; border-left: 2px solid #b9b3a5; }
+  .flow-summary { align-items: stretch; flex-wrap: wrap; }
+  .flow-summary .solution-heading { flex-basis: 100%; }
+  .flow-context { border-left: 0; padding-left: 0; }
+  .flow-steps { flex-direction: column; gap: 36px; padding: 28px 20px; }
+  .flow-step:not(:last-child)::after { width: 2px; height: 20px; top: calc(100% + 8px); left: 50%; }
+  .flow-step-heading { font-size: 24px; line-height: 36px; }
+  .tradeoff-grid { grid-template-columns: minmax(0,1fr); }
+}
+@media (max-width: 700px) {
+  .solution-panel { padding: 36px 24px; gap: 28px; }
+  .solution-heading h2, .solution-architecture .solution-heading h2, .direction-card h3, .tradeoff-card h3 { font-size: 28px; line-height: 42px; }
+  .direction-card { padding: 24px 20px; }
+  .direction-illustration, .direction-card:first-child .direction-illustration { right: 20px; top: 22px; }
+  .direction-card > .insight-badge { margin-right: 110px; }
+  .direction-card h3 { margin-top: 70px; }
+  .direction-card p, .tradeoff-card > p:not(.chapter-label) { font-size: 20px; line-height: 32px; }
+  .solution-note { font-size: 18px; line-height: 28px; }
+  .architecture-pages { grid-template-columns: minmax(0,1fr); gap: 12px; padding-left: 12px; }
+  .architecture-column:not(:first-child)::before { display: none; }
+  .architecture-child { margin-left: 16px; }
+  .architecture-shortcut { align-items: start; gap: 12px; font-size: 18px; line-height: 28px; }
+  .architecture-shortcut > p:not(.architecture-legend) { flex: 1; min-width: 0; }
+  .architecture-legend { flex-basis: 100%; flex-shrink: 1; }
+  .flow-summary { flex-direction: column; padding: 20px; gap: 16px; }
+  .flow-summary .solution-heading { flex-basis: auto; }
+  .flow-summary h2 { white-space: normal; }
+  .flow-context, .flow-purpose { border: 0; border-top: 1px solid var(--solution-line); padding: 16px 0 0; }
+  .flow-summary > div > p { font-size: 20px; line-height: 32px; }
+  .flow-steps { padding: 24px 0; }
+  .flow-step { width: 100%; }
+  .flow-preview { width: 100%; }
+  .flow-step-heading { gap: 6px; padding-inline: 8px; font-size: 18px; line-height: 28px; }
+  .flow-number { flex-basis: 30px; height: 30px; font-size: 18px; }
+  .tradeoff-card, .solution-next { padding: 24px 20px; }
+  .solution-next .solution-next-title { font-size: 24px; line-height: 36px; }
+  .solution-next p { font-size: 20px; line-height: 32px; }
+}
+@media (max-width: 370px) {
+  .direction-card > .insight-badge { margin-right: 0; }
+  .direction-illustration, .direction-card:first-child .direction-illustration { top: 74px; }
+  .direction-card h3 { margin-top: 130px; }
+}

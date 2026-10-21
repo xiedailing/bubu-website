@@ -1,0 +1,70 @@
+/* Chiron GoRound TC, SIL Open Font License; homepage character subset. */
+@font-face {
+  font-family: "Chiron GoRound TC";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./chiron-goround-tc-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Chiron GoRound TC";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./chiron-goround-tc-500.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Chiron GoRound TC";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./chiron-goround-tc-700.ttf") format("truetype");
+}
+
+/* Research character subset; the original homepage font files stay intact. */
+@font-face {
+  font-family: "Chiron GoRound TC Research";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./chiron-research-400.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Chiron GoRound TC Research";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./chiron-research-500.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Chiron GoRound TC Research";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./chiron-research-700.ttf") format("truetype");
+}
+
+/* Chapter 03 character subset. */
+@font-face {
+  font-family: "Chiron GoRound TC Insights";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./chiron-insights-400.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Chiron GoRound TC Insights";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./chiron-insights-500.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Chiron GoRound TC Insights";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./chiron-insights-700.ttf") format("truetype");
+}

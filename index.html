@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fcfbf8">
+    <title>補補 Bubu｜居家消耗品補貨管理</title>
+    <link rel="icon" href="./public/assets/bubu-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./solution.css">
+    <link rel="stylesheet" href="./iteration.css">
+    <link rel="stylesheet" href="./demo.css">
+    <script src="./navigation.js" defer></script>
+    <script src="./solution.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header" data-node-id="291:232">
+      <nav class="site-nav" aria-label="章節導覽">
+        <a class="brand" href="#problem" aria-label="補補 Bubu 首頁">
+          <img class="brand-logo" src="./public/assets/bubu-logo.svg" width="60" height="45" alt="">
+          <span class="brand-name">補補 Bubu</span>
+        </a>
+        <div class="chapter-scroll" tabindex="0" aria-label="章節連結，可左右捲動">
+          <ul class="chapter-list">
+            <li><a href="#problem" aria-current="location">01 問題</a></li>
+            <li><a href="#research">02 研究</a></li>
+            <li><a href="#insights">03 洞察</a></li>
+            <li><a href="#solution">04 解法</a></li>
+            <li><a href="#iteration">05 迭代</a></li>
+            <li><a href="#demo">06 Demo</a></li>
+            <li><a href="#results">07 成果</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main id="main-content" aria-label="補補 Bubu 專題介紹">
+      <section id="problem" class="overview" aria-labelledby="overview-label" data-node-id="291:273">
+        <p class="chapter-label" id="overview-label">
+          <img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">
+          01 / 問題
+        </p>
+        <div class="hero" data-node-id="305:359">
+          <div class="hero-intro">
+            <div class="hero-brand">
+              <div class="hero-logo" data-node-id="336:1428">
+                <img src="./public/assets/bubu-hero-logo.svg" width="94.222" height="69.427" alt="">
+              </div>
+              <div class="hero-heading">
+                <h1>補補 Bubu</h1>
+                <p class="product-type">居家消耗品補貨管理 <span class="nowrap">Web App</span></p>
+              </div>
+            </div>
+            <div class="hero-description">
+              <p class="product-promise">把想到要買的用品留下來，<br>等方便的時候，再安心買齊。</p>
+              <p class="team-credit">謝岱凌・鄭梅芳｜UX人機介面網頁設計師養成班</p>
+            </div>
+          </div>
+          <img class="hero-image" src="./public/assets/01-overview-hero.png" width="690" height="426" alt="溫暖的家中，一人查看手機與日用品存量，另一人帶著採買的用品回家。" fetchpriority="high" data-node-id="291:282">
+        </div>
+        <div class="everyday-moments" aria-label="日常補貨的兩個時刻" data-node-id="291:283">
+          <article class="moment-card" data-node-id="337:1216">
+            <img class="moment-image" src="./public/assets/01-running-out.png" width="240" height="180" alt="準備使用盥洗用品時，才發現瓶子已經空了。">
+            <div class="moment-copy">
+              <h2>正要用，才發現沒了。</h2>
+              <p>使用時才察覺用品不足。</p>
+            </div>
+          </article>
+          <article class="moment-card" data-node-id="337:1221">
+            <img class="moment-image" src="./public/assets/01-forgot-to-buy.png" width="240" height="180" alt="出門前想到需要補貨，卻因趕時間而延後採買。">
+            <div class="moment-copy">
+              <h2>想著晚點買，後來忘了。</h2>
+              <p>當下無法買，延後卻忘記。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section id="research" class="research" aria-label="02 研究方法與研究發現" data-node-id="312:423">
+        <div class="research-panel research-methods" aria-labelledby="research-title" data-node-id="312:443">
+          <div class="research-heading">
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">02 / 研究</p>
+            <h2 id="research-title">我們如何理解生活中的補貨？</h2>
+          </div>
+          <div class="method-grid">
+            <article class="method-card" data-node-id="312:490">
+              <h3><span class="method-number">47</span> 份問卷</h3>
+              <p>了解補貨習慣與<br>過去三個月遇過的困難。</p>
+            </article>
+            <article class="method-card" data-node-id="312:497">
+              <h3><span class="method-number">6</span> 位深入訪談</h3>
+              <p>理解延後購買、記錄與<br>交辦的實際經過。</p>
+            </article>
+            <article class="method-card" data-node-id="312:504">
+              <h3><span class="method-number">3</span> 款直接競品</h3>
+              <p>比較現有解法。</p>
+            </article>
+          </div>
+          <div class="research-scenarios">
+            <h3 class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">兩種目標使用情境</h3>
+            <div class="scenario-grid">
+              <article class="scenario-card" data-node-id="312:516">
+                <h4>自己發現，稍後自己買</h4>
+                <p>等有空、下班或順路時，再處理。</p>
+              </article>
+              <article class="scenario-card" data-node-id="312:519">
+                <h4>發現的人，與購買的人不同</h4>
+                <p>交給家人或同住者，也需要確認進度。</p>
+              </article>
+            </div>
+          </div>
+          <p class="research-note">以行為情境理解需求；問卷透過社群招募，結果反映本次填答者的經驗。</p>
+        </div>
+
+        <div class="research-panel research-competition" aria-labelledby="competition-title" data-node-id="329:1086">
+          <div class="research-heading">
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">02 / 競品分析</p>
+            <h2 id="competition-title">有提醒、有共享，還要關注哪些環節？</h2>
+          </div>
+          <div class="comparison-scroll" role="region" aria-labelledby="competition-title" tabindex="0">
+            <table class="comparison-table" aria-label="三款直接競品與 LINE 的補貨方式比較" data-node-id="329:1089">
+              <colgroup><col class="tool-column"><col class="setup-column"><col></colgroup>
+              <thead><tr><th scope="col">工具</th><th scope="col">建立資料／後續確認</th><th scope="col">補貨判斷／交代方式</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">買いドキ</th><td>先設定消耗週期</td><td>依設定的消耗週期預測並提醒</td></tr>
+                <tr><th scope="row">該換了吧</th><td>先建立用品與用量／週期</td><td>追蹤用量與更換週期</td></tr>
+                <tr><th scope="row">ZaikoPilot</th><td>先設定消耗速度</td><td>消耗速度倒數，依補貨紀錄修正</td></tr>
+                <tr><th scope="row">LINE</th><td>不用建檔；是否已買需彼此確認</td><td>直接傳訊，靠人察覺補貨需求</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="research-takeaways">
+            <h3>從競品比較，整理出三個設計問題</h3>
+            <div class="takeaway-grid">
+              <article class="takeaway-card" data-node-id="347:1089"><h4>01&nbsp; 保留待買需求</h4><p>提醒之後，需求怎麼留到完成？</p></article>
+              <article class="takeaway-card" data-node-id="347:1092"><h4>02&nbsp; 減少建檔負擔</h4><p>建立用品資料，能不能更簡單？</p></article>
+              <article class="takeaway-card" data-node-id="347:1095"><h4>03&nbsp; 清楚交接</h4><p>誰會買、買完了沒，如何確認？</p></article>
+            </div>
+          </div>
+        </div>
+
+        <div class="research-panel research-findings" aria-labelledby="findings-title" data-node-id="312:463">
+          <div class="research-heading">
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">02 / 發現</p>
+            <h2 id="findings-title">從察覺需要，到真正買到，中間會發生什麼？</h2>
+          </div>
+          <div class="finding-grid">
+            <article class="finding-card finding-primary" data-node-id="312:542">
+              <h3>研究發現 01｜問卷 47 位填答者</h3>
+              <p class="finding-number">35／47</p>
+              <p class="finding-summary">用品快用完才發現，可能來不及補貨。</p>
+              <p class="finding-detail">曾在用品用完或快用完時，才發現需要補充</p>
+            </article>
+            <article class="finding-card finding-primary" data-node-id="312:530">
+              <h3>研究發現 02｜問卷 47 位填答者</h3>
+              <p class="finding-number">32／47</p>
+              <p class="finding-summary">知道要買，卻在真正購買前忘記。</p>
+              <p class="finding-detail">曾知道需要購買用品，後來卻忘記</p>
+            </article>
+          </div>
+          <div class="finding-grid">
+            <article class="finding-card finding-secondary" data-node-id="312:550">
+              <p class="finding-number">8／47</p>
+              <div><h3>研究發現 03｜問卷 47 位填答者</h3><p>想記下要買的東西，但覺得麻煩。</p></div>
+            </article>
+            <article class="finding-card finding-secondary" data-node-id="312:558">
+              <p class="finding-number">6／37</p>
+              <div><h3>研究發現 04｜共居填答者 37 位</h3><p>請別人幫忙買，卻不確定有沒有處理。</p></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="research-panel research-journey" aria-labelledby="journey-title" data-node-id="312:483">
+          <div class="research-heading">
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">02 / 使用者旅程</p>
+            <h2 id="journey-title">補貨這件小事，跨越了好幾個生活時刻。</h2>
+          </div>
+          <ol class="journey-list" aria-label="補貨的五階段旅程">
+            <li class="journey-card" data-node-id="312:572"><div class="journey-marker"><span>01</span></div><h3>發現快沒了</h3><p>發現時，可能已經太晚。</p></li>
+            <li class="journey-card" data-node-id="312:579"><div class="journey-marker"><span>02</span></div><h3>判斷要不要買</h3><p>看剩餘量、備品與用品重要性。</p></li>
+            <li class="journey-card journey-highlight" data-node-id="312:586"><div class="journey-marker"><span>03</span></div><h3>記住或交代</h3><p>靠記憶、備忘錄或訊息。</p></li>
+            <li class="journey-card" data-node-id="312:593"><div class="journey-marker"><span>04</span></div><h3>決定購買時間</h3><p>可能等假日、順路或優惠。</p></li>
+            <li class="journey-card" data-node-id="312:600"><div class="journey-marker"><span>05</span></div><h3>購買與完成</h3><p>完成後，也可能沒有回報。</p></li>
+          </ol>
+          <div class="journey-takeaway" data-node-id="312:606">
+            <h3>我們特別關注「記住或交代」之後，需求如何接續</h3>
+            <p>延後購買可能是合理安排；等待時仍可能忘記，交辦後也可能不知道是否已買好。</p>
+          </div>
+        </div>
+      </section>
+      <section id="insights" class="insights" aria-label="03 洞察與問題定義" data-node-id="315:492">
+        <div class="insights-panel insights-overview" aria-labelledby="insights-title" data-node-id="315:512">
+          <div class="insights-heading">
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">03 / 洞察</p>
+            <h2 id="insights-title">從研究中，我們收斂出三個設計考量。</h2>
+          </div>
+          <div class="insight-grid" data-node-id="315:538">
+            <article class="insight-card" data-node-id="315:539">
+              <div class="insight-label">
+                <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">洞察 01</p>
+                <span class="insight-badge insight-badge-core">核心</span>
+              </div>
+              <h3>保留待買需求</h3>
+              <p class="insight-description">延後購買時，需求要留得住，<br>記錄也不該增加負擔。</p>
+              <p class="insight-evidence"><span>依據</span><strong>研究發現 02、03</strong></p>
+            </article>
+            <article class="insight-card" data-node-id="315:551">
+              <div class="insight-label">
+                <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">洞察 02</p>
+                <span class="insight-badge">輔助</span>
+              </div>
+              <h3>提供補貨時間參考</h3>
+              <p class="insight-description">提早知道有助於安排；<br>是否馬上買，仍看用品與情境。</p>
+              <p class="insight-evidence"><span>依據</span><strong>研究發現 01</strong></p>
+            </article>
+            <article class="insight-card" data-node-id="315:563">
+              <div class="insight-label">
+                <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">洞察 03</p>
+                <span class="insight-badge">情境延伸</span>
+              </div>
+              <h3>讓多人交接更清楚</h3>
+              <p class="insight-description">發現的人不一定是購買者，<br>要知道誰接手、買好了沒。</p>
+              <p class="insight-evidence"><span>依據</span><strong>研究發現 04</strong></p>
+            </article>
+          </div>
+          <p class="insights-note" data-node-id="315:574">以上為研究整合與團隊決策。</p>
+        </div>
+        <div class="insights-panel insights-definition" aria-labelledby="definition-title" data-node-id="315:532">
+          <div class="insights-heading">
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">03 / 定義問題</p>
+            <h2 id="definition-title">我們要優先解決的問題</h2>
+          </div>
+          <div class="problem-definition" data-node-id="315:581">
+            <p class="definition-context">想到要補貨，卻無法立即購買，或需要請別人幫忙時——</p>
+            <p class="definition-question"><span>如何輕鬆<strong>記下補貨需求</strong>，</span><span>讓自己或他人接續處理，<strong>直到完成補貨</strong>？</span></p>
+          </div>
+          <p class="definition-note" data-node-id="410:1190">以上為研究整合與團隊決策。</p>
+        </div>
+      </section>
+      <section id="solution" class="solution" aria-label="04 設計回應、核心流程與取捨" data-node-id="317:538">
+      <div class="solution-panel solution-directions" aria-labelledby="directions-title" data-node-id="317:558">
+      <div class="solution-heading"><p class="chapter-label"><img src="./public/assets/chapter-dot.svg" alt="" width="10" height="10">04 / 設計方向</p><h2 id="directions-title">先記下來、掌握時機，也讓交接更清楚。</h2></div>
+      <div class="direction-grid">
+      <article class="direction-card direction-core" data-node-id="317:645"><span class="insight-badge insight-badge-core">N1｜核心</span><img src="./public/assets/04-note.svg" alt="" class="direction-illustration"><h3>先記下來</h3><p>將用品加入購買清單，稍後回看，直到完成補貨。</p></article>
+      <article class="direction-card " data-node-id="317:651"><span class="insight-badge ">N2｜輔助</span><img src="./public/assets/04-timing.svg" alt="" class="direction-illustration"><h3>掌握時機</h3><div><h4>日期參考</h4><p>來自歷史補貨紀錄，作為判斷的參考。</p></div><div><h4>延後提醒</h4><p>配合購買安排，延後再處理。</p></div></article>
+      <article class="direction-card " data-node-id="317:661"><span class="insight-badge ">N3｜情境延伸</span><img src="./public/assets/04-handoff.svg" alt="" class="direction-illustration"><h3>清楚交接</h3><p>共享清單、認領與接手，呈現採買責任與完成狀態。</p></article>
+      </div><p class="solution-note">日期參考來自歷史補貨紀錄，不是即時庫存，也不是精準預測。</p></div>
+      <div class="solution-panel solution-architecture" aria-labelledby="architecture-title" data-node-id="375:1066">
+      <div class="solution-heading"><p class="chapter-label"><img src="./public/assets/chapter-dot.svg" alt="" width="10" height="10">04 / 資訊架構</p><h2 id="architecture-title">三個主要入口，加上「＋」快捷按鈕</h2></div>
+      <div class="architecture-tree" data-node-id="380:1069"><p class="architecture-login">起點｜登入</p><div class="architecture-branches">
+      <div class="architecture-branch">
+      <div class="architecture-node architecture-primary "><h4>我的用品</h4><p>查看用品與補貨狀態</p></div>
+      <div class="architecture-pages">
+      <div class="architecture-column">
+      <div class="architecture-node  "><h4>記錄補貨</h4><p>選擇用品並記錄補貨</p></div>
+      <div class="architecture-node  architecture-child"><h4>新增用品</h4><p>建立新的用品資料</p></div>
+      </div>
+      <div class="architecture-column">
+      <div class="architecture-node  "><h4>補貨明細</h4><p>查看單項用品狀況與紀錄</p></div>
+      <div class="architecture-node  architecture-child"><h4>補貨紀錄</h4><p>查看該用品的補貨紀錄</p></div>
+      </div>
+      <div class="architecture-column">
+      <div class="architecture-node architecture-function "><h4>長按多選</h4><p>批次加入購買清單</p></div>
+      </div>
+      </div></div>
+      <div class="architecture-branch">
+      <div class="architecture-node architecture-primary "><h4>購買清單</h4><p>管理待買用品</p></div>
+      <div class="architecture-pages">
+      <div class="architecture-column">
+      <div class="architecture-node  "><h4>個人清單</h4><p>自己的待買用品</p></div>
+      <div class="architecture-node  architecture-child"><h4>共享清單</h4><p>與家人共用的待買用品</p></div>
+      </div>
+      <div class="architecture-column">
+      <div class="architecture-node  "><h4>延後提醒</h4><p>暫時延後購買提醒</p></div>
+      <div class="architecture-node  architecture-child"><h4>通知</h4><p>從鈴鐺進入</p></div>
+      </div>
+      </div></div>
+      <div class="architecture-branch">
+      <div class="architecture-node architecture-primary "><h4>設定</h4><p>個人、空間與用品設定</p></div>
+      <div class="architecture-pages">
+      <div class="architecture-column">
+      <div class="architecture-node  "><h4>編輯個人資料</h4><p>修改個人資料</p></div>
+      </div>
+      <div class="architecture-column">
+      <div class="architecture-node  "><h4>空間管理</h4><p>管理空間與邀請成員</p></div>
+      <div class="architecture-node  architecture-child"><h4>新增空間</h4><p>建立新的空間</p></div>
+      <div class="architecture-node  architecture-child"><h4>編輯空間</h4><p>修改空間資訊與成員</p></div>
+      </div>
+      <div class="architecture-column">
+      <div class="architecture-node  "><h4>用品管理</h4><p>管理用品分類</p></div>
+      <div class="architecture-node  architecture-child"><h4>分類用品</h4><p>查看與新增該分類的用品</p></div>
+      </div>
+      </div></div>
+      </div></div><div class="architecture-shortcut">
+      <img src="./public/assets/04-plus.svg" alt="" width="32" height="32">
+      <p>「＋」快捷按鈕　位於底部導覽右側，可快速進入「記錄補貨」與「新增空間」。</p><p class="architecture-legend">綠底＝主分頁　白底＝頁面　橘底＝頁內功能</p></div></div>
+      <div class="solution-panel solution-flow" aria-labelledby="flow-1-title" data-node-id="317:578"><div class="flow-summary">
+      <div class="solution-heading"><p class="chapter-label"><img src="./public/assets/chapter-dot.svg" alt="" width="10" height="10">04 / 核心流程-01</p><h2 id="flow-1-title">加入購買清單</h2></div>
+      <div class="flow-context"><h3>情境</h3><p>發現需要補貨，但現在不方便買。</p></div><div class="flow-purpose"><h3>設計目的</h3><p>保留待買需求，方便之後接續處理。</p></div></div><ol class="flow-steps">
+      <li class="flow-step"><button class="flow-preview" type="button" data-image="./public/assets/04-flow-1.png" data-caption="加入購買清單：察覺需要" aria-label="放大檢視：加入購買清單：察覺需要"><span class="flow-step-heading"><span class="flow-number">1</span><span>察覺需要</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="phone-frame"><img src="./public/assets/04-flow-1.png" alt="加入購買清單：察覺需要" loading="lazy" class="phone-screen"></span></button></li>
+      <li class="flow-step"><button class="flow-preview" type="button" data-image="./public/assets/04-flow-2.png" data-caption="加入購買清單：加入購買清單" aria-label="放大檢視：加入購買清單：加入購買清單"><span class="flow-step-heading"><span class="flow-number">2</span><span>加入購買清單</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="phone-frame"><img src="./public/assets/04-flow-2.png" alt="加入購買清單：加入購買清單" loading="lazy" class="phone-screen"></span></button></li>
+      <li class="flow-step"><button class="flow-preview" type="button" data-image="./public/assets/04-flow-3.png" data-caption="加入購買清單：稍後回看與處理" aria-label="放大檢視：加入購買清單：稍後回看與處理"><span class="flow-step-heading"><span class="flow-number">3</span><span>稍後回看與處理</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="phone-frame"><img src="./public/assets/04-flow-3.png" alt="加入購買清單：稍後回看與處理" loading="lazy" class="phone-screen"></span></button></li>
+      </ol></div>
+      <div class="solution-panel solution-flow" aria-labelledby="flow-2-title" data-node-id="317:598"><div class="flow-summary">
+      <div class="solution-heading"><p class="chapter-label"><img src="./public/assets/chapter-dot.svg" alt="" width="10" height="10">04 / 核心流程-02</p><h2 id="flow-2-title">共享清單的認領與接手</h2></div>
+      <div class="flow-context"><h3>情境</h3><p>需要共同生活的人協助採買。</p></div><div class="flow-purpose"><h3>設計目的</h3><p>讓採買責任與完成狀態看得見。</p></div></div><ol class="flow-steps">
+      <li class="flow-step"><button class="flow-preview" type="button" data-image="./public/assets/04-flow-4.png" data-caption="共享清單的認領與接手：查看共用需求" aria-label="放大檢視：共享清單的認領與接手：查看共用需求"><span class="flow-step-heading"><span class="flow-number">1</span><span>查看共用需求</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="phone-frame"><img src="./public/assets/04-flow-4.png" alt="共享清單的認領與接手：查看共用需求" loading="lazy" class="phone-screen"></span></button></li>
+      <li class="flow-step"><button class="flow-preview" type="button" data-image="./public/assets/04-flow-5.png" data-caption="共享清單的認領與接手：認領／必要時接手" aria-label="放大檢視：共享清單的認領與接手：認領／必要時接手"><span class="flow-step-heading"><span class="flow-number">2</span><span>認領／必要時接手</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="phone-frame"><img src="./public/assets/04-flow-5.png" alt="共享清單的認領與接手：認領／必要時接手" loading="lazy" class="phone-screen"></span></button></li>
+      <li class="flow-step"><button class="flow-preview" type="button" data-image="./public/assets/04-flow-6.png" data-caption="共享清單的認領與接手：購買後完成補貨" aria-label="放大檢視：共享清單的認領與接手：購買後完成補貨"><span class="flow-step-heading"><span class="flow-number">3</span><span>購買後完成補貨</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="phone-frame"><img src="./public/assets/04-flow-6.png" alt="共享清單的認領與接手：購買後完成補貨" loading="lazy" class="phone-screen"></span></button></li>
+      </ol></div>
+      <div class="solution-panel solution-flow" aria-labelledby="flow-3-title" data-node-id="317:618"><div class="flow-summary">
+      <div class="solution-heading"><p class="chapter-label"><img src="./public/assets/chapter-dot.svg" alt="" width="10" height="10">04 / 核心流程-03</p><h2 id="flow-3-title">記錄補貨</h2></div>
+      <div class="flow-context"><h3>情境</h3><p>已經買好，直接留下這次補貨紀錄。</p></div><div class="flow-purpose"><h3>設計目的</h3><p>買好之後，一次留下紀錄。</p></div></div><ol class="flow-steps">
+      <li class="flow-step"><button class="flow-preview" type="button" data-image="./public/assets/04-flow-7.png" data-caption="記錄補貨：點「＋」，選記錄補貨" aria-label="放大檢視：記錄補貨：點「＋」，選記錄補貨"><span class="flow-step-heading"><span class="flow-number">1</span><span>點「＋」，選記錄補貨</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="phone-frame"><img src="./public/assets/04-flow-7.png" alt="記錄補貨：點「＋」，選記錄補貨" loading="lazy" class="phone-screen"></span></button></li>
+      <li class="flow-step"><button class="flow-preview" type="button" data-image="./public/assets/04-flow-8.png" data-caption="記錄補貨：選擇用品、記錄日期與數量" aria-label="放大檢視：記錄補貨：選擇用品、記錄日期與數量"><span class="flow-step-heading"><span class="flow-number">2</span><span>選擇用品、記錄日期與數量</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="phone-frame"><img src="./public/assets/04-flow-8.png" alt="記錄補貨：選擇用品、記錄日期與數量" loading="lazy" class="phone-screen"></span></button></li>
+      <li class="flow-step"><button class="flow-preview" type="button" data-image="./public/assets/04-flow-9.png" data-caption="記錄補貨：更新紀錄與日期參考" aria-label="放大檢視：記錄補貨：更新紀錄與日期參考"><span class="flow-step-heading"><span class="flow-number">3</span><span>更新紀錄與日期參考</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="phone-frame"><img src="./public/assets/04-flow-9.png" alt="記錄補貨：更新紀錄與日期參考" loading="lazy" class="phone-screen"></span></button></li>
+      </ol></div>
+      <div class="solution-panel solution-tradeoffs" aria-labelledby="tradeoffs-title" data-node-id="317:638">
+      <div class="solution-heading"><p class="chapter-label"><img src="./public/assets/chapter-dot.svg" alt="" width="10" height="10">04 / 設計取捨</p><h2 id="tradeoffs-title">讓流程完整，也控制日常管理負擔。</h2></div>
+      <div class="tradeoff-grid">
+      <article class="tradeoff-card"><p class="chapter-label"><img src="./public/assets/chapter-dot.svg" alt="" width="10" height="10">設計取捨 01</p><h3>不追蹤完整庫存</h3><p>只在購買時留下紀錄，不要求持續維護剩餘數量。</p></article>
+      <article class="tradeoff-card"><p class="chapter-label"><img src="./public/assets/chapter-dot.svg" alt="" width="10" height="10">設計取捨 02</p><h3>完成購買，同時留下紀錄</h3><p>合併完成與記錄兩個動作，減少重複操作。</p></article>
+      </div><p class="solution-note">這些是設計考量；是否降低負擔、促進持續使用，仍需驗證。</p><div class="solution-next"><h3>接下來｜05 測試與迭代</h3><p class="solution-next-title">剛才看到的是目前版本。回到第一輪測試，看哪些觀察促成了調整。</p><p>修改後的效果，仍待第二輪測試確認。</p></div></div></section>
+      <section id="iteration" class="iteration" aria-label="05 設計迭代 A" data-node-id="289:244">
+        <div class="iteration-panel iteration-observations" aria-labelledby="iteration-title" data-node-id="300:251">
+          <div class="iteration-heading">
+            <div class="iteration-meta"><p class="chapter-label"><img src="./public/assets/chapter-dot.svg" alt="" width="10" height="10">05 / 設計迭代 A</p><p class="iteration-test">7 位使用者・8 項情境任務・<time datetime="2026-10-15">2026.10.15</time></p></div>
+            <h2 id="iteration-title">A｜不只找得到入口，也要理解「空間」</h2>
+          </div>
+          <div class="iteration-overview">
+            <div class="iteration-findings">
+              <div class="iteration-stats">
+                <article class="iteration-stat"><strong>5／7</strong><h3>將新增空間列為最卡任務</h3><p>入口在哪裡？</p></article>
+                <article class="iteration-stat"><strong>4／7</strong><h3>不理解空間或用品歸屬</h3><p>用品與空間有什麼關係？</p></article>
+              </div>
+              <div class="iteration-response" data-node-id="354:1090"><h3>調整導覽、空間切換與新增入口。</h3><dl><div><dt class="iteration-version">舊版設計</dt><dd>首頁：四項主要導覽</dd></div><div><dt class="iteration-version iteration-current">目前部署版</dt><dd>我的用品：三項主要導覽與空間切換入口</dd></div></dl></div>
+              <p class="iteration-note">移除首頁另依有限回饋決定；改版效果尚待第二輪測試。</p>
+            </div>
+            <div class="iteration-comparison iteration-pair" aria-label="主要導覽的新舊版畫面對照" data-node-id="414:1188">
+              <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05a-screen-1.png" data-caption="舊版設計：首頁・四項主要導覽" aria-label="放大檢視：舊版設計，首頁・四項主要導覽"><span class="iteration-version-row"><span class="iteration-version">舊版設計</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="iteration-phone"><img src="./public/assets/05a-screen-1.png" alt="舊版首頁，底部四項主要導覽與中央新增按鈕" width="231" height="500" loading="lazy"></span></button><figcaption>首頁・四項主要導覽</figcaption></figure>
+              <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05a-screen-2.png" data-caption="目前部署版：我的用品・三項主要導覽" aria-label="放大檢視：目前部署版，我的用品・三項主要導覽"><span class="iteration-version-row"><span class="iteration-version iteration-current">目前部署版</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="iteration-phone"><img src="./public/assets/05a-screen-2.png" alt="目前部署版我的用品，頂端空間切換、底部三項主要導覽與右側新增按鈕" width="231" height="500" loading="lazy"></span></button><figcaption>我的用品・三項主要導覽</figcaption></figure>
+            </div>
+          </div>
+        </div>
+        <div class="iteration-panel iteration-detail" aria-labelledby="iteration-detail-title" data-node-id="415:1061">
+          <div class="iteration-heading"><p class="chapter-label"><img src="./public/assets/chapter-dot.svg" alt="" width="10" height="10">05 / 設計迭代 A</p><h2 id="iteration-detail-title">我的用品：頂端與新增入口</h2></div>
+          <div class="iteration-comparison iteration-trio" aria-label="空間切換與新增入口的畫面對照" data-node-id="415:1067">
+            <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05a-screen-3.png" data-caption="舊版設計：「所有用品」選單" aria-label="放大檢視：舊版設計，「所有用品」選單"><span class="iteration-version-row"><span class="iteration-version">舊版設計</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="iteration-phone"><img src="./public/assets/05a-screen-3.png" alt="舊版所有用品選單，包含個人、家庭、公司、客廳與新增空間" width="250" height="540" loading="lazy"></span></button><figcaption>「所有用品」選單</figcaption></figure>
+            <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05a-screen-4.png" data-caption="目前部署版：頂端顯示目前空間「個人」" aria-label="放大檢視：目前部署版，頂端顯示目前空間「個人」"><span class="iteration-version-row"><span class="iteration-version iteration-current">目前部署版</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="iteration-phone"><img src="./public/assets/05a-screen-4.png" alt="目前部署版，從頂端個人標籤展開空間切換選單" width="250" height="540" loading="lazy"></span></button><figcaption>頂端顯示目前空間「個人」</figcaption></figure>
+            <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05a-screen-5.png" data-caption="目前部署版：「＋」展開選單" aria-label="放大檢視：目前部署版，「＋」展開選單"><span class="iteration-version-row"><span class="iteration-version iteration-current">目前部署版</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="iteration-phone"><img src="./public/assets/05a-screen-5.png" alt="目前部署版，右下角加號展開記錄補貨與新增空間選單" width="250" height="540" loading="lazy"></span></button><figcaption>「＋」展開選單</figcaption></figure>
+          </div>
+        </div>
+        <div class="iteration-panel iteration-b" aria-labelledby="iteration-b-title" data-node-id="320:755">
+          <div class="iteration-heading">
+            <div class="iteration-meta"><p class="chapter-label"><img src="./public/assets/chapter-dot.svg" alt="" width="10" height="10">05 / 設計迭代 B</p><p class="iteration-test">7 位使用者・8 項情境任務・2026.10.15</p></div>
+            <h2 id="iteration-b-title">B｜「認購」改為「認領」，表達承接採買責任</h2>
+          </div>
+          <div class="iteration-overview">
+            <div class="iteration-findings">
+            <article class="iteration-stat"><strong>3／7</strong><h3>對「認購」產生不同理解</h3><p>其中 2 位以為已經買好</p></article>
+            <article class="iteration-response">
+              <h3>按鈕文字：我要認購 → 我要認領</h3>
+              <p class="iteration-response-copy">「認領」表達承接採買責任，不代表已經買好。</p>
+              <dl>
+                <div><dt><span class="iteration-version">舊版設計</span></dt><dd>共用購買清單：按鈕為「我要認購」</dd></div>
+                <div><dt><span class="iteration-version iteration-current">目前部署版</span></dt><dd>共享清單：按鈕為「我要認領」</dd></div>
+              </dl>
+            </article>
+              <p class="iteration-note">已完成調整；效果將於第二輪測試確認。</p>
+            </div>
+            <div class="iteration-comparison iteration-pair" aria-label="認購改為認領的畫面對照">
+            <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05b-screen-1.png" data-caption="舊版設計：共用購買清單・我要認購" aria-label="放大檢視：舊版設計，共用購買清單・我要認購"><span class="iteration-version-row"><span class="iteration-version">舊版設計</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="iteration-phone"><img src="./public/assets/05b-screen-1.png" alt="舊版共用購買清單，洗衣精卡片顯示「我要認購」按鈕" width="231" height="500" loading="lazy"></span></button><figcaption>共用購買清單・我要認購</figcaption></figure>
+            <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05b-screen-2.png" data-caption="目前部署版：共享清單・我要認領" aria-label="放大檢視：目前部署版，共享清單・我要認領"><span class="iteration-version-row"><span class="iteration-version iteration-current">目前部署版</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="iteration-phone"><img src="./public/assets/05b-screen-2.png" alt="目前共享清單，漂白水卡片顯示「我要認領」按鈕，並區分待認領與已認領用品" width="231" height="500" loading="lazy"></span></button><figcaption>共享清單・我要認領</figcaption></figure>
+            </div>
+          </div>
+        </div>
+        <div class="iteration-panel iteration-c" aria-labelledby="iteration-c-title" data-node-id="320:910">
+          <div class="iteration-heading">
+            <div class="iteration-meta"><p class="chapter-label"><img src="./public/assets/chapter-dot.svg" alt="" width="10" height="10">05 / 設計迭代 C</p><p class="iteration-test">7 位使用者・8 項情境任務・2026.10.15</p></div>
+            <h2 id="iteration-c-title">C｜不用在新增時，先猜下次補貨日期</h2>
+          </div>
+          <div class="iteration-overview">
+            <div class="iteration-findings">
+            <article class="iteration-stat"><strong>至少 2／7</strong><h3>難以自行估算補貨日期</h3></article>
+            <article class="iteration-response">
+              <h3>從「先估日期」<br>到「累積紀錄」</h3>
+              <p>取消新增時手填日期，改由補貨紀錄提供參考。</p>
+              <p class="iteration-response-copy">紀錄足夠才提供參考；不足時顯示對應提示。</p>
+            </article>
+              <p class="iteration-note">已完成調整；效果將於第二輪測試確認。</p>
+            </div>
+            <div class="iteration-comparison iteration-pair" aria-label="日期設定的畫面對照">
+            <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05c-screen-1.png" data-caption="舊版設計：新增用品・選擇預計補貨日" aria-label="放大檢視：舊版設計，新增用品・選擇預計補貨日"><span class="iteration-version-row"><span class="iteration-version">舊版設計</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="iteration-phone"><img src="./public/assets/05c-screen-1.png" alt="舊版新增用品表單，要求設定補貨提醒及預計補貨日期" width="231" height="500" loading="lazy"></span></button><figcaption>新增用品・選擇預計補貨日</figcaption></figure>
+            <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05c-screen-2.png" data-caption="目前部署版：新增用品・精簡表單" aria-label="放大檢視：目前部署版，新增用品・精簡表單"><span class="iteration-version-row"><span class="iteration-version iteration-current">目前部署版</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="iteration-phone"><img src="./public/assets/05c-screen-2.png" alt="目前新增用品表單，保留名稱、類別與單位，取消手填補貨日期" width="231" height="500" loading="lazy"></span></button><figcaption>新增用品・精簡表單</figcaption></figure>
+            <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05c-screen-3.png" data-caption="目前部署版：補貨明細・歷史紀錄" aria-label="放大檢視：目前部署版，補貨明細・歷史紀錄"><span class="iteration-version-row"><span class="iteration-version iteration-current">目前部署版</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="iteration-phone"><img src="./public/assets/05c-screen-3.png" alt="目前洗衣精補貨明細，顯示預計補貨日、上次補貨及三筆補貨紀錄" width="231" height="500" loading="lazy"></span></button><figcaption>補貨明細・歷史紀錄</figcaption></figure>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="demo" class="demo" aria-labelledby="demo-title" data-node-id="324:921">
+        <div class="demo-heading">
+          <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">06 / LIVE DEMO</p>
+          <h2 id="demo-title">從想到要買，到完成這次補貨。</h2>
+        </div>
+        <div class="demo-scenarios" data-node-id="324:947">
+          <article class="demo-scenario" aria-labelledby="demo-personal-title" data-node-id="324:948">
+            <p class="demo-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">情境 A</p>
+            <h3 id="demo-personal-title">個人補貨</h3>
+            <ol class="demo-steps">
+              <li>補貨狀態與紀錄推算</li>
+              <li>加入待買</li>
+              <li>延後提醒</li>
+              <li>完成補貨</li>
+            </ol>
+          </article>
+          <article class="demo-scenario" aria-labelledby="demo-family-title" data-node-id="324:970">
+            <p class="demo-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">情境 B</p>
+            <h3 id="demo-family-title">家庭共同採買</h3>
+            <ol class="demo-steps">
+              <li>查看共用需求</li>
+              <li>認領與接手</li>
+              <li>完成補貨</li>
+            </ol>
+          </article>
+        </div>
+        <a class="demo-launch" href="https://home-restock-app.vercel.app/login" target="_blank" rel="noopener noreferrer" aria-label="開啟補補，開始情境示範（另開新分頁）" data-node-id="324:989">
+          <span class="demo-launch-title">開啟補補，開始情境示範 <span aria-hidden="true">↗</span></span>
+          <span class="demo-launch-url">home-restock-app.vercel.app/login</span>
+        </a>
+        <p class="demo-backup" data-node-id="324:992"><strong>備援</strong><span>90 秒備用錄影／重點截圖</span></p>
+        <p class="demo-note" data-node-id="324:997">共享交接以單機示範資料呈現（localStorage 單機模擬），不跨裝置即時同步。</p>
+      </section>
+      <section id="results" aria-label="07 成果"></section>
+    </main>
+    <dialog class="image-dialog" aria-labelledby="image-dialog-title">
+      <div class="image-dialog-toolbar"><p id="image-dialog-title"></p><button type="button" class="image-dialog-close" autofocus>關閉 <span aria-hidden="true">×</span></button></div>
+      <img class="image-dialog-content" alt="">
+    </dialog>
+  </body>
+</html>

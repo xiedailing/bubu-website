@@ -1,0 +1,93 @@
+/* 05A — Figma 289:244. Existing chapter styles remain independent. */
+@font-face { font-family: "Chiron GoRound TC Iteration"; font-style: normal; font-weight: 400; font-display: swap; src: url("./public/assets/chiron-iteration-400.ttf") format("truetype"); }
+@font-face { font-family: "Chiron GoRound TC Iteration"; font-style: normal; font-weight: 500; font-display: swap; src: url("./public/assets/chiron-iteration-500.ttf") format("truetype"); }
+@font-face { font-family: "Chiron GoRound TC Iteration"; font-style: normal; font-weight: 700; font-display: swap; src: url("./public/assets/chiron-iteration-700.ttf") format("truetype"); }
+.iteration { --iteration-line: #d4d7cc; max-width: 1440px; margin-inline: auto; font-family: "Chiron GoRound TC Iteration", "Chiron GoRound TC", "Microsoft JhengHei", sans-serif; }
+.iteration :is(p,h2,h3,figure,dl,dd) { margin: 0; }
+.iteration-panel { display: flex; flex-direction: column; gap: 16px; min-height: 814px; padding: 24px 64px; }
+.iteration-heading { display: flex; flex-direction: column; gap: 8px; }
+.iteration-heading h2 { font-size: 44px; line-height: 58px; font-weight: 700; }
+.iteration-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.iteration-test { padding-left: 16px; border-left: 1px solid var(--iteration-line); color: var(--bubu-secondary); font-size: 24px; line-height: 36px; }
+.iteration-overview { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 48px; flex: 1; }
+.iteration-findings { display: flex; flex-direction: column; justify-content: space-between; gap: 32px; min-width: 0; }
+.iteration-stats { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+.iteration-stat { padding: 24px 28px; border: 1px solid var(--iteration-line); border-radius: 20px; background: var(--bubu-card); }
+.iteration-stat::before { content: ""; display: block; width: 40px; height: 4px; margin-bottom: 4px; border-radius: 2px; background: #ff9e42; }
+.iteration-stat strong { display: block; font-size: 56px; line-height: 64px; }
+.iteration-stat h3 { margin-top: 4px; font-size: 24px; line-height: 36px; font-weight: 400; }
+.iteration-stat p { margin-top: 4px; color: var(--bubu-secondary); font-size: 20px; line-height: 30px; font-weight: 500; }
+.iteration-response { padding: 24px 32px; border: 2px solid var(--bubu-primary); border-radius: 20px; background: var(--bubu-card); }
+.iteration-response h3 { margin-bottom: 24px; color: var(--bubu-primary); font-size: 28px; line-height: 40px; }
+.iteration-response dl { display: flex; flex-direction: column; gap: 10px; }
+.iteration-response dl > div { display: flex; align-items: center; gap: 16px; }
+.iteration-response dt { flex-shrink: 0; }
+.iteration-response dd { font-size: 24px; line-height: 36px; }
+.iteration-version { display: inline-block; padding: 4px 14px; border-radius: 999px; background: var(--iteration-line); color: var(--bubu-dark); font-size: 20px; line-height: 30px; font-weight: 700; white-space: nowrap; }
+.iteration-current { color: var(--bubu-card); background: var(--bubu-primary); }
+.iteration-note { padding: 14px 20px; border-radius: 10px; background: #e3edde; font-size: 20px; line-height: 30px; font-weight: 500; }
+.iteration-comparison { display: flex; align-items: start; justify-content: center; border-radius: 28px; background: rgba(255,255,255,.6); }
+.iteration-pair { align-self: start; gap: 20px; padding: 16px 24px; }
+.iteration-screen { display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 0; }
+.iteration .iteration-preview { display: flex; flex-direction: column; align-items: center; gap: 8px; width: auto; padding: 0; border: 0; border-radius: 12px; color: inherit; background: transparent; cursor: pointer; font: inherit; }
+.iteration-preview:hover .iteration-version-row { opacity: .75; }
+.iteration-preview:active { transform: translateY(1px); }
+.iteration-preview:focus-visible { outline: 3px solid var(--bubu-primary); outline-offset: 4px; }
+.iteration-version-row { display: flex; justify-content: center; align-items: center; gap: 8px; }
+.iteration-phone { display: block; width: 245.043px; height: 514px; padding: 7px; border-radius: 32px; background: #292e29; }
+.iteration-phone > img { display: block; width: 231.043px; height: 500px; border-radius: 26px; object-fit: cover; }
+.iteration-screen figcaption { width: 245.043px; text-align: center; font-size: 20px; line-height: 30px; font-weight: 500; }
+.iteration-detail { gap: 10px; padding-block: 14px; }
+.iteration-detail h2 { font-size: 40px; }
+.iteration-trio { gap: 56px; padding: 10px 32px; }
+.iteration-trio .iteration-phone { width: 263.526px; height: 554px; }
+.iteration-trio .iteration-phone > img { width: 249.526px; height: 540px; }
+.iteration-trio figcaption { width: 263.526px; }
+@media (max-width: 1250px) {
+  .iteration-overview { grid-template-columns: minmax(0,1fr); gap: 28px; }
+  .iteration-findings { gap: 24px; }
+  .iteration-pair { justify-self: stretch; }
+  .iteration-trio { gap: 24px; padding-inline: 16px; }
+  .iteration-panel { min-height: auto; padding-bottom: 40px; }
+}
+@media (max-width: 1050px) {
+  .iteration-trio { flex-wrap: wrap; gap: 32px; }
+}
+@media (max-width: 700px) {
+  .iteration-panel { padding: 36px 24px; gap: 24px; }
+  .iteration-heading h2, .iteration-detail h2 { font-size: 28px; line-height: 42px; }
+  .iteration-test { flex-basis: 100%; padding-left: 0; border: 0; font-size: 18px; line-height: 28px; }
+  .iteration-meta { gap: 8px; }
+  .iteration-stats { grid-template-columns: minmax(0,1fr); gap: 16px; }
+  .iteration-stat { padding: 20px; }
+  .iteration-stat strong { font-size: 48px; line-height: 56px; }
+  .iteration-stat h3 { font-size: 22px; line-height: 34px; }
+  .iteration-response { padding: 24px 20px; }
+  .iteration-response h3 { font-size: 24px; line-height: 36px; }
+  .iteration-response dl > div { align-items: start; flex-direction: column; gap: 8px; }
+  .iteration-response dl { gap: 20px; }
+  .iteration-response dd { font-size: 20px; line-height: 32px; }
+  .iteration-note { font-size: 18px; line-height: 28px; }
+  .iteration-comparison { flex-direction: column; align-items: center; gap: 32px; padding: 24px 4px; }
+}
+
+/* 05B / 05C — Figma 320:755 and 320:910. Scoped to preserve 05A. */
+.iteration-b .iteration-stat { padding-inline: 32px; }
+.iteration-b .iteration-response h3 { margin-bottom: 6px; }
+.iteration-b .iteration-response-copy { margin-bottom: 18px; }
+.iteration-b .iteration-response-copy,
+.iteration-c .iteration-response p { font-size: 24px; line-height: 36px; }
+.iteration-response-copy { color: var(--bubu-secondary); }
+.iteration-c .iteration-overview { gap: 44px; }
+.iteration-c .iteration-response { padding-inline: 28px; }
+.iteration-c .iteration-response h3 { margin-bottom: 8px; }
+.iteration-c .iteration-response-copy { margin-top: 8px; }
+.iteration-b .iteration-note,
+.iteration-c .iteration-note { padding-block: 12px; }
+@media (max-width: 700px) {
+  .iteration-b .iteration-stat { padding-inline: 20px; }
+  .iteration-c .iteration-overview { gap: 28px; }
+  .iteration-c .iteration-response { padding-inline: 20px; }
+  .iteration-b .iteration-response-copy,
+  .iteration-c .iteration-response p { font-size: 20px; line-height: 32px; }
+}
