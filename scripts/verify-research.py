@@ -50,6 +50,12 @@ def main():
             assert not layout["clipped"], layout
             assert layout["imagesValid"], layout
             assert len(layout["headings"]) == 4, layout
+            assert page.locator('.method-card h3').all_text_contents() == ['1.競品分析', '2.問卷調查', '3.深入訪談']
+            assert page.locator('.method-number').all_text_contents() == ['3', '47', '6']
+            assert page.locator('.comparison-table thead th').count() == 5
+            assert page.locator('.comparison-table tbody tr').count() == 4
+            assert page.locator('.research-note,.research-takeaways,.journey-takeaway').count() == 0
+            assert page.locator('.finding-card').count() == 2
             if width == 390:
                 table = page.locator('.comparison-scroll')
                 table.focus()
@@ -61,7 +67,7 @@ def main():
             if width in (390, 1440):
                 page.locator('#research').evaluate("el => window.scrollTo(0, el.offsetTop - document.querySelector('.site-header').offsetHeight)")
                 page.screenshot(path=str(args.output / f"{width}-research-viewport.png"))
-                for panel in ("methods", "competition", "findings", "journey"):
+                for panel in ("methods", "competition", "opportunities", "findings", "journey"):
                     page.locator(f'.research-{panel}').screenshot(
                         path=str(args.output / f"{width}-{panel}.png"),
                         style=".site-header { visibility: hidden; }",

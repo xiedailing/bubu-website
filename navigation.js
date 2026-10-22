@@ -1,27 +1,30 @@
-const chapterLinks = [...document.querySelectorAll('.chapter-list a')];
+﻿const chapterLinks = [...document.querySelectorAll('.chapter-list a')];
+const header = document.querySelector('.site-header');
+const chapters = chapterLinks.map((link) => document.querySelector(link.hash));
+let scheduled = false;
 
 function updateCurrentChapter() {
-  const current = chapterLinks.find((link) => link.hash === location.hash)
-    ?? chapterLinks[0];
-
-  for (const link of chapterLinks) {
-    if (link === current) link.setAttribute('aria-current', 'location');
+  // The chapter crossing the line below the persistent header is current.
+  const boundary = header.getBoundingClientRect().bottom + 32;
+  let current = 0;
+  chapters.forEach((chapter, index) => {
+    if (chapter.getBoundingClientRect().top <= boundary) current = index;
+  });
+  chapterLinks.forEach((link, index) => {
+    if (index === current) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
-  }
+  });
+  scheduled = false;
 }
-
-// Hide the header while scrolling down, show it when scrolling up or at the top.
-const header = document.querySelector('.site-header');
-let lastY = window.scrollY;
-
-window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-  const delta = y - lastY;
-  if (y <= 0) header.classList.remove('is-hidden');
-  else if (delta > 4) header.classList.add('is-hidden');
-  else if (delta < -4) header.classList.remove('is-hidden');
-  lastY = y;
-}, { passive: true });
-
-window.addEventListener('hashchange', updateCurrentChapter);
+function scheduleUpdate() {
+  if (scheduled) return;
+  scheduled = true;
+  requestAnimationFrame(updateCurrentChapter);
+}
+window.addEventListener('scroll', scheduleUpdate, { passive: true });
+window.addEventListener('resize', scheduleUpdate);
+window.addEventListener('hashchange', scheduleUpdate);
+window.addEventListener('pageshow', scheduleUpdate);
+window.addEventListener('load', scheduleUpdate);
+document.fonts.ready.then(scheduleUpdate);
 updateCurrentChapter();

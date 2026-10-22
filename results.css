@@ -84,3 +84,38 @@
   .results-signature { gap: 12px; padding-left: 20px; }
   .results-signature p { font-size: 20px; line-height: 32px; }
 }
+/* Confirmed product, tools, and detailed team content. */
+.results-product-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.tools-summary { font-size: 24px; line-height: 36px; }
+.tools-table { width: 100%; border-collapse: collapse; border-top: 3px solid var(--bubu-primary); text-align: left; font-size: 24px; line-height: 36px; }
+.tools-table th, .tools-table td { padding: 16px 12px; border-bottom: 1px solid var(--results-line); vertical-align: top; }
+.tools-table th { width: 45%; color: var(--bubu-primary); }
+.tools-table thead th { color: var(--bubu-secondary); font-size: 20px; }
+.results-team { gap: 24px; }
+.results-collaboration { padding: 0; }
+.results-collaboration h3, .individual-contributions-title { font-size: 28px; line-height: 40px; border-left: 4px solid var(--bubu-primary); padding-left: 16px; }
+.results-collaboration small { display: inline-block; font-size: 20px; font-weight: 400; color: var(--bubu-secondary); }
+.results-collaboration ul { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px 40px; margin-top: 16px; padding-left: 1.2em; font-size: 24px; line-height: 36px; }
+.results-team-card { border-top: 3px solid var(--bubu-primary); padding: 20px 0; gap: 20px; }
+.results-team-card h4 { color: var(--bubu-primary); font-size: 24px; line-height: 36px; }
+.results-team-card p { color: var(--bubu-secondary); font-size: 24px; line-height: 38px; }
+.results-future-grid { display: block; }
+.results-future-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; padding: 0; list-style: none; }
+.results-future-list li { border: 1px solid var(--results-line); border-radius: 14px; background: var(--results-tint); padding: 20px 24px; font-size: 24px; line-height: 36px; }
+@media (max-width: 1100px) {
+  .results-product-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 700px) {
+  .results-product-grid, .results-collaboration ul, .results-future-list { grid-template-columns: minmax(0,1fr); }
+  .results-collaboration h3, .individual-contributions-title { font-size: 24px; line-height: 36px; }
+  .results-team-card { padding: 20px 0; }
+  .results-team-card h4 { font-size: 22px; line-height: 34px; }
+  .tools-summary, .tools-table, .results-team-card p, .results-collaboration ul, .results-future-list li { font-size: 20px; line-height: 32px; }
+  .tools-table th, .tools-table td { padding: 12px 8px; overflow-wrap: anywhere; }
+  .tools-table th { width: 46%; }
+}
+
+/* Product cards size to content; tools fit a single screen. */
+.results-product-card { min-height: 0; }
+.results-tools { gap: 20px; }
+.tools-table th, .tools-table td { padding: 8px 12px; }

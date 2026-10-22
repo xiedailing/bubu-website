@@ -27,10 +27,8 @@ a:focus-visible, .chapter-scroll:focus-visible {
   top: 0;
   z-index: 10;
   background: var(--bubu-card);
-  transition: transform 0.3s ease;
 }
 
-.site-header.is-hidden { transform: translateY(-100%); }
 
 .site-nav {
   display: flex;
@@ -325,14 +323,12 @@ main section { scroll-margin-top: 96px; }
 }
 .comparison-scroll:focus-visible { outline: 2px solid var(--bubu-primary); outline-offset: 4px; }
 .comparison-table { width: 100%; min-width: 1000px; border-collapse: separate; border-spacing: 0 8px; text-align: left; table-layout: fixed; }
-.tool-column { width: 16.5%; }
-.setup-column { width: 42.5%; }
+.dimension-column { width: 14%; }
 .comparison-table th, .comparison-table td { padding: 12px 16px; line-height: 30px; }
 .comparison-table thead th { padding-block: 8px; background: var(--bubu-dark); color: var(--bubu-card); font-size: 20px; font-weight: 700; }
 .comparison-table thead th:first-child { border-radius: 8px 0 0 8px; }
 .comparison-table thead th:last-child { border-radius: 0 8px 8px 0; }
-.comparison-table tbody th, .comparison-table td { border-bottom: 1px solid var(--research-line); font-size: 24px; }
-.comparison-table tbody tr:last-child > * { border-bottom: 0; }
+.comparison-table tbody th, .comparison-table td { border-bottom: 1px solid #c5c8c1; font-size: 24px; }
 .comparison-table td { color: var(--bubu-secondary); }
 .research-takeaways { display: flex; flex-direction: column; gap: 12px; }
 .research-takeaways > h3 { color: var(--bubu-primary); font-size: 28px; line-height: 39px; }
@@ -473,3 +469,64 @@ main section { scroll-margin-top: 96px; }
   .problem-definition { gap: 20px; padding: 24px 20px; }
   .definition-question { font-size: 28px; line-height: 44px; }
 }
+/* Confirmed presentation revision, 2026-10-22. */
+.method-card .method-count { display: flex; align-items: baseline; gap: 10px; }
+.method-card h3 { flex-wrap: wrap; }
+.finding-primary .finding-number { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 12px; }
+.finding-primary .finding-number small { margin-left: 0; }
+.comparison-table { min-width: 1200px; border-spacing: 0 20px; }
+.comparison-table ul { margin: 0; padding-left: 1.2em; }
+.comparison-table th, .comparison-table td { vertical-align: middle; }
+.research-opportunities { min-height: 814px; }
+.competition-opportunities { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 28px; }
+.opportunity-card { min-width: 0; display: flex; flex-direction: column; gap: 24px; padding: 40px; border: 2px solid var(--bubu-primary); border-radius: 20px; background: var(--bubu-card); }
+.opportunity-number { align-self: start; padding: 6px 16px; border-radius: 999px; background: var(--research-tint); color: var(--bubu-primary); font-size: 24px; line-height: 36px; font-weight: 700; }
+.opportunity-card h3 { font-size: 36px; line-height: 52px; text-wrap: balance; }
+
+
+@media (max-width: 700px) {
+  .comparison-table { min-width: 1100px; }
+  .research-opportunities { min-height: 0; }
+  .competition-opportunities { grid-template-columns: minmax(0,1fr); gap: 20px; }
+  .opportunity-card { padding: 28px 24px; gap: 20px; }
+  .opportunity-number { font-size: 20px; line-height: 32px; }
+  .opportunity-card h3 { font-size: 28px; line-height: 42px; }
+
+}
+
+.comparison-table tbody tr:last-child > * { border-bottom: 0; }
+@media (min-width: 701px) and (max-width: 1100px) { .research-opportunities { min-height: 0; } }
+
+/* Competition: single page with collapsible rows. */
+.research-competition { min-height: 0; gap: 28px; }
+.research-opportunities { min-height: 0; display: flex; flex-direction: column; gap: 20px; }
+.research-opportunities h2 { font-size: 44px; font-weight: 700; line-height: 58px; }
+.comparison-table { border-spacing: 0 8px; }
+.row-toggle { display: flex; align-items: center; gap: 8px; width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; font-weight: 700; text-align: left; cursor: pointer; }
+.row-toggle::after { content: ""; flex: none; width: 10px; height: 10px; margin-left: auto; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform .2s; }
+.row-toggle[aria-expanded="false"]::after { transform: rotate(-45deg); }
+.row-toggle:focus-visible { outline: 2px solid var(--bubu-primary); outline-offset: 4px; }
+.comparison-table tr.is-collapsed .cell-body { display: none; }
+.comparison-table tr.is-collapsed > * { padding-block: 6px; }
+@media (max-width: 700px) { .research-opportunities h2 { font-size: 32px; line-height: 44px; } }
+.research-methods { min-height: 0; }
+
+/* Every block fills one viewport below the sticky header (matches section scroll-margin-top). */
+main :is(.research-panel, .insights-panel, .solution-panel, .iteration-panel, .results-panel, .demo) { min-height: calc(100svh - 96px); justify-content: center; }
+main .research-competition { justify-content: flex-start; }
+@media (max-width: 900px) { main :is(.research-panel, .insights-panel, .solution-panel, .iteration-panel, .results-panel, .demo) { min-height: calc(100svh - 150px); } }
+
+/* Competition page: compact so the open table, or the table with two rows collapsed plus both opportunities, fits one screen. */
+main .research-competition { padding-block: 16px; gap: 14px; }
+.research-competition .research-heading h2, .research-opportunities h2 { font-size: 36px; line-height: 48px; }
+.research-competition .comparison-scroll { padding: 8px 20px; }
+.research-competition .comparison-table { border-spacing: 0 4px; }
+.research-competition .comparison-table th, .research-competition .comparison-table td { padding: 8px 16px; font-size: 20px; line-height: 28px; }
+.research-competition .comparison-table thead th { padding-block: 6px; font-size: 18px; line-height: 26px; }
+.research-competition .comparison-table tr.is-collapsed > * { padding-block: 4px; }
+.research-opportunities { gap: 10px; }
+.research-competition .competition-opportunities { gap: 20px; }
+.research-competition .opportunity-card { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px 20px; padding: 16px 28px; }
+.research-competition .opportunity-number { font-size: 18px; line-height: 28px; padding: 4px 14px; }
+.research-competition .opportunity-card h3 { font-size: 28px; line-height: 40px; }
+@media (max-width: 700px) { .research-competition .research-heading h2, .research-opportunities h2 { font-size: 28px; line-height: 40px; } }

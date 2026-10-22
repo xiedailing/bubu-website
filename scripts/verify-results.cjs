@@ -17,11 +17,12 @@ async function main() {
     });
   };
   async function inspect(page, label) {
+    await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]')?.hash === '#results');
     await page.evaluate(() => document.fonts.ready);
     const layout = await page.locator('#results').evaluate(section => ({
       width: innerWidth,
       documentWidth: document.documentElement.scrollWidth,
-      columns: ['product', 'learning', 'team', 'future'].map(name => getComputedStyle(section.querySelector(`.results-${name}-grid`)).gridTemplateColumns.split(' ').length),
+      columns: ['product', 'team'].map(name => getComputedStyle(section.querySelector(`.results-${name}-grid`)).gridTemplateColumns.split(' ').length),
       panels: [...section.querySelectorAll('.results-panel')].map(el => ({ height: el.getBoundingClientRect().height, top: el.getBoundingClientRect().top + scrollY })),
       clipped: [...section.querySelectorAll('p,h2,h3,h4,li,span')].filter(el => el.clientWidth && (el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + 1)).map(el => el.textContent),
       images: [...section.querySelectorAll('img')].map(img => ({ src: img.getAttribute('src'), loaded: img.complete && img.naturalWidth > 0, width: img.width, height: img.height })),
@@ -29,16 +30,18 @@ async function main() {
     }));
     assert(layout.documentWidth <= layout.width, JSON.stringify(layout));
     assert.deepEqual(layout.clipped, []);
-    assert.deepEqual(layout.columns, layout.width <= 700 ? [1, 1, 1, 1] : layout.width <= 1100 ? [2, 2, 2, 1] : [4, 2, 2, 3]);
+    assert.deepEqual(layout.columns, layout.width <= 700 ? [1, 1] : layout.width <= 1100 ? [2, 2] : [3, 2]);
     assert.equal(layout.panels.length, 5);
-    if (layout.width === 1440) assert(layout.panels.every(panel => panel.height === 814));
-    assert.equal(layout.images.length, 10);
+    assert(layout.panels.every(panel => panel.height > 0));
+    assert.equal(layout.images.length, 5);
     assert(layout.images.every(img => img.loaded && (img.src.endsWith('07-bubu-logo.svg') ? img.width === 60 && img.height === 45 : img.width === 10 && img.height === 10)));
     assert(layout.font.includes('Chiron GoRound TC Results'));
-    assert.equal(await page.locator('.results-product-card').count(), 4);
-    assert.equal(await page.locator('.results-learning-card').count(), 4);
+    assert.equal(await page.locator('.results-product-card').count(), 3);
+    assert.equal(await page.locator('.results-learning').count(), 0);
     assert.equal(await page.locator('.results-team-card').count(), 2);
-    assert.equal(await page.locator('.results-future-card li').count(), 8);
+    assert.equal(await page.locator('.tools-table tbody tr').count(), 7);
+    assert.equal(await page.locator('.results-collaboration li').count(), 4);
+    assert.equal(await page.locator('.results-future-list li').count(), 8);
     assert.equal(await page.locator('.site-header').count(), 1);
     assert.equal(await page.locator('.chapter-list a[aria-current]').getAttribute('href'), '#results');
     const headerBottom = await page.locator('.site-header').evaluate(el => el.getBoundingClientRect().bottom);
@@ -55,7 +58,7 @@ async function main() {
       await inspect(page, `${width}px`);
       if ([390, 1440].includes(width)) {
         await page.screenshot({ path: path.join(output, `${width}-navigation.png`) });
-        for (const name of ['product', 'learning', 'team', 'future', 'closing']) {
+        for (const name of ['product', 'tools', 'team', 'future', 'closing']) {
           await page.locator(`.results-${name}`).screenshot({ path: path.join(output, `${width}-${name}.png`), style: '.site-header { visibility: hidden; }' });
         }
       }
@@ -72,11 +75,14 @@ async function main() {
     await page.waitForURL('**/#results');
     await inspect(page, 'keyboard navigation');
     await page.goBack();
+    await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]')?.hash === '#demo');
     assert.equal(await page.locator('.chapter-list a[aria-current]').getAttribute('href'), '#demo');
     await page.goForward();
+    await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]')?.hash === '#results');
     assert.equal(await page.locator('.chapter-list a[aria-current]').getAttribute('href'), '#results');
     for (const id of ['problem', 'research', 'insights', 'solution', 'iteration', 'demo', 'results']) {
       await page.locator(`.chapter-list a[href="#${id}"]`).click();
+      await page.waitForFunction(id => document.querySelector('.chapter-list a[aria-current]')?.hash === '#' + id, id);
       assert.equal(await page.locator('.chapter-list a[aria-current]').getAttribute('href'), '#' + id);
       assert(await page.locator('#' + id).isVisible());
     }

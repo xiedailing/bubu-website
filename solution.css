@@ -182,3 +182,14 @@ body:has(.image-dialog[open]) { overflow: hidden; }
   .image-dialog-actions { width: 100%; justify-content: space-between; }
   .image-dialog-tag { padding: 2px 8px; font-size: 14px; line-height: 22px; }
 }
+/* Reading order follows label, heading, copy, then existing illustration. */
+.direction-label { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.direction-number { color: var(--bubu-primary); font-size: 20px; line-height: 30px; font-weight: 700; }
+.direction-card { min-height: 0; padding: 28px 32px; }
+.direction-card > .insight-badge { margin-right: 0; }
+.direction-card h3 { margin-top: 0; }
+.direction-card .direction-illustration,
+.direction-card:first-child .direction-illustration { position: static; align-self: center; margin-top: auto; padding-top: 24px; width: 150px; height: auto; }
+@media (max-width: 700px) {
+  .direction-card { padding: 24px 20px; }
+}

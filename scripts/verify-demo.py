@@ -58,7 +58,7 @@ with sync_playwright() as p:
         expect(page.locator('.chapter-list a[href="#iteration"]')).to_have_attribute('aria-current', 'location')
         page.go_back()
         expect(page.locator('.chapter-list a[href="#demo"]')).to_have_attribute('aria-current', 'location')
-        for selector, count in (('.iteration-panel', 4), ('#iteration .flow-preview', 10), ('#solution .solution-panel', 6), ('.research-heading h2', 4), ('.insight-card', 3), ('.hero-image', 1)):
+        for selector, count in (('.iteration-panel', 4), ('#iteration .flow-preview', 10), ('#solution .solution-panel', 2), ('.research-heading h2', 4), ('.insight-card', 3), ('.hero-image', 1)):
             assert page.locator(selector).count() == count, selector
         results.append(layout)
     mobile = browser.new_context(**p.devices['iPhone 13'], reduced_motion='reduce')

@@ -49,16 +49,16 @@ async function main() {
         };
       });
       assert(layout.documentWidth <= width, JSON.stringify(layout));
-      assert.equal(layout.panels, 6);
+      assert.equal(layout.panels, 2);
       assert.equal(layout.badgeOverlaps, false);
+      assert.deepEqual(await page.locator('.direction-card .insight-badge').allTextContents(), ['核心', '輔助', '情境延伸']);
+      assert.equal(await page.locator('.architecture-shortcut').count(), 0);
+      assert.equal(await page.locator('#architecture-title').textContent(), '三個主要入口');
       assert.deepEqual(layout.overflow, [], JSON.stringify(layout));
       assert(layout.chapterTop >= layout.headerBottom, JSON.stringify(layout));
       assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '04 解法');
-      assert.equal(layout.screens.length, 9);
-      layout.screens.forEach((img, i) => {
-        assert.equal(img.source, `./public/assets/04-flow-${i + 1}.png`);
-        assert(img.loaded && Math.abs(img.width - 244.905) < .05 && img.height === 530, JSON.stringify(img));
-      });
+      assert.equal(layout.screens.length, 0);
+      assert.equal(await page.locator('#solution .solution-flow, #solution .solution-tradeoffs').count(), 0);
       assert(layout.illustrations.every(img => img.loaded && img.width > 100 && img.height >= 106));
       if ([390, 1440].includes(width)) {
         await page.screenshot({ path: path.join(output, `${width}-solution-viewport.png`) });
@@ -67,18 +67,6 @@ async function main() {
           await panels.nth(i).screenshot({ path: path.join(output, `${width}-solution-${i+1}.png`), style: '.site-header { visibility: hidden; }' });
         }
       }
-      // Each screenshot opens the correct full-resolution image. Escape restores focus.
-      const previews = page.locator('#solution .flow-preview');
-      for (let i = 0; i < await previews.count(); i++) {
-        await previews.nth(i).click();
-        assert(await page.locator('.image-dialog').evaluate(el => el.open));
-        assert.equal(await page.locator('.image-dialog-content').getAttribute('src'), `./public/assets/04-flow-${i+1}.png`);
-        await page.keyboard.press('Escape');
-        assert(await previews.nth(i).evaluate(el => el === document.activeElement));
-      }
-      await previews.first().click();
-      await page.locator('.image-dialog-close').click();
-      assert(!(await page.locator('.image-dialog').evaluate(el => el.open)));
       await page.locator('.chapter-list a[href="#insights"]').click();
       await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]').hash === '#insights');
       await page.goBack();
@@ -88,9 +76,6 @@ async function main() {
     const context = await browser.newContext({ ...devices['iPhone 13'], reducedMotion: 'reduce' });
     const phone = await context.newPage();
     await phone.goto(url + '/#solution', { waitUntil: 'networkidle' });
-    await phone.locator('.flow-preview').first().tap();
-    assert(await phone.locator('.image-dialog').evaluate(el => el.open));
-    await phone.locator('.image-dialog-close').tap();
     assert(await phone.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     await context.close();
     assert.deepEqual(errors, []);

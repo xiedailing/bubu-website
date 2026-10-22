@@ -79,3 +79,11 @@ docs/            設計規格：色彩、字型、間距、元件（定稿後再
 - 部署版截圖是否與最新正式站一致
 - 大圖檢視（點擊放大）在 Figma 中尚未完整實作，只有提示與規格
 - 缺 Demo 備援錄影與 QR Code
+
+## 字型維護（避免缺字）
+
+各章節使用 Chiron GoRound TC 的字型子集（`public/assets/chiron-*.ttf`），只包含該章節文字出現過的字。**改動 `index.html` 文字後，新字若不在子集內，瀏覽器會改用備用字體，看起來字型跑掉。**
+
+1. 每次改字後執行：`python scripts/subset-revision-fonts.py --check`（需要 `fonttools`，不需完整字型）。
+2. 回報 `MISSING` 時重建：`python scripts/subset-revision-fonts.py <400.ttf> <500.ttf> <700.ttf>`，三個參數是完整 Chiron GoRound TC 的 400／500／700 字重檔。可加 `--sections research` 只重建單一章節。
+3. 重建後再執行一次 `--check`，確認為 `font coverage OK`。

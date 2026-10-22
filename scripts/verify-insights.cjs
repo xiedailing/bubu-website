@@ -53,13 +53,15 @@ async function main() {
       assert(layout.documentWidth <= width, JSON.stringify(layout));
       assert(layout.chapterTop >= layout.headerBottom, JSON.stringify(layout));
       assert.equal(layout.cardCount, 3);
+      assert.equal(await page.locator('.insights-definition').count(), 0);
+      assert.equal(await page.locator('#insights-title').textContent(), '從研究中，我們收斂出三個關鍵洞察。');
       assert.equal(layout.columns, width <= 1100 ? 1 : 3);
       assert.deepEqual(layout.clipped, []);
-      assert.equal(layout.images.length, 5);
+      assert.equal(layout.images.length, 4);
       assert(layout.images.every(img => img.valid && img.width === 10 && img.height === 10 && img.source === './public/assets/chapter-dot.svg'));
       if ([390, 1440].includes(width)) {
         await page.screenshot({ path: path.join(output, `${width}-insights-viewport.png`) });
-        for (const panel of ['overview', 'definition']) {
+        for (const panel of ['overview']) {
           const clip = await page.locator(`.insights-${panel}`).evaluate(el => {
             const rect = el.getBoundingClientRect();
             return { x: rect.left + scrollX, y: rect.top + scrollY, width: rect.width, height: rect.height };
@@ -85,7 +87,7 @@ async function main() {
       assert.equal(await page.locator('.research-heading h2').count(), 4);
       await page.locator('.brand').click();
       await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]').hash === '#problem');
-      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '01 問題');
+      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '01 專題簡介');
       results.push(layout);
     }
     // Touch-enabled mobile viewport, direct URL entry, and reduced motion.
