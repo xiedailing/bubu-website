@@ -344,10 +344,12 @@ main section { scroll-margin-top: 96px; }
 .finding-primary { display: flex; flex-direction: column; gap: 10px; min-height: 296px; padding: 44px 24px 24px; border: 2px solid var(--bubu-primary); box-shadow: var(--research-shadow); }
 .finding-primary h3 { color: var(--bubu-primary); font-size: 20px; line-height: 30px; }
 .finding-primary .finding-number { font-size: 64px; font-weight: 700; line-height: 76px; }
+.finding-number small { margin-left: 12px; color: var(--bubu-secondary); font-size: 22px; font-weight: 500; line-height: 30px; white-space: nowrap; }
 .finding-summary { font-size: 30px; font-weight: 700; line-height: 40px; }
 .finding-detail { color: var(--bubu-secondary); font-size: 26px; line-height: 30px; }
 .finding-secondary { display: flex; align-items: center; gap: 20px; min-height: 190px; padding: 22px 28px; }
 .finding-secondary .finding-number { flex-shrink: 0; font-size: 48px; font-weight: 700; line-height: 64px; white-space: nowrap; }
+.finding-secondary .finding-number small { display: block; margin-left: 0; }
 .finding-secondary h3 { margin-bottom: 4px; color: var(--bubu-primary); font-size: 18px; font-weight: 500; line-height: 26px; }
 .journey-list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: start; gap: 16px; margin: 0; padding: 0; list-style: none; }
 .journey-card { display: flex; flex-direction: column; gap: 12px; padding: 24px 20px; }
