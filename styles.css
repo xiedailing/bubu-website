@@ -358,8 +358,9 @@ main section { scroll-margin-top: 96px; }
 .journey-card:not(:last-child) .journey-marker::after { content: ""; flex: 1; height: 2px; background: var(--research-line); }
 .journey-card h3 { font-size: 28px; line-height: 40px; }
 .journey-card p { color: var(--bubu-secondary); }
-.journey-highlight { border: 2px solid var(--bubu-primary); background: var(--research-tint); box-shadow: 0 6px 8px rgb(0 0 0 / 18%); }
-.journey-highlight .journey-marker span { border: 3px solid var(--research-orange); background: var(--bubu-dark); }
+.journey-highlight { border: 2px solid var(--research-orange); background: #fff1e2; box-shadow: 0 6px 8px rgb(0 0 0 / 18%); }
+@media (min-width: 701px) { .journey-highlight { position: relative; z-index: 1; transform: scale(1.08); } }
+.journey-highlight .journey-marker span { border: 0; background: var(--research-orange); color: var(--bubu-dark); }
 .journey-takeaway { display: flex; flex-direction: column; gap: 10px; padding: 16px 24px; border-left: 5px solid var(--research-orange); border-radius: 16px; background: var(--bubu-card); box-shadow: 0 6px 8px rgb(0 0 0 / 20%); }
 .journey-takeaway p { color: var(--bubu-secondary); }
 
