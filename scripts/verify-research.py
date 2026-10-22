@@ -49,7 +49,7 @@ def main():
             assert layout["anchorTop"] >= layout["headerBottom"], layout
             assert not layout["clipped"], layout
             assert layout["imagesValid"], layout
-            assert len(layout["headings"]) == 4, layout
+            assert len(layout["headings"]) == 5, layout
             assert page.locator('.method-card h3').all_text_contents() == ['1.競品分析', '2.問卷調查', '3.深入訪談']
             assert page.locator('.method-number').all_text_contents() == ['3', '47', '6']
             assert page.locator('.comparison-table thead th').count() == 5

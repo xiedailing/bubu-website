@@ -84,10 +84,10 @@ async function main() {
       await page.goForward();
       await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]').hash === '#research');
       assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '02 研究');
-      assert.equal(await page.locator('.research-heading h2').count(), 4);
+      assert.equal(await page.locator('.research-heading h2').count(), 5);
       await page.locator('.brand').click();
       await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]').hash === '#problem');
-      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '01 專題簡介');
+      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '01 介紹');
       results.push(layout);
     }
     // Touch-enabled mobile viewport, direct URL entry, and reduced motion.

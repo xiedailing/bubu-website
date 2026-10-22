@@ -49,7 +49,7 @@ async function main() {
         };
       });
       assert(layout.documentWidth <= width, JSON.stringify(layout));
-      assert.equal(layout.panels, 2);
+      assert.equal(layout.panels, 3);
       assert.equal(layout.badgeOverlaps, false);
       assert.deepEqual(await page.locator('.direction-card .insight-badge').allTextContents(), ['核心', '輔助', '情境延伸']);
       assert.equal(await page.locator('.architecture-shortcut').count(), 0);

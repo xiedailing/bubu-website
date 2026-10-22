@@ -19,7 +19,7 @@ async function main() {
     page.on('response', response => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
     await page.goto(base, { waitUntil: 'networkidle' });
     // Requirements whose content must survive this revision unchanged.
-    const retained = ['.brand-logo', '.everyday-moments', '.journey-list', '.architecture-tree', '.results-product-card'];
+    const retained = ['.architecture-tree', '.results-product-card'];
     const baseline = await page.evaluate(({ old, retained }) => {
       const previous = new DOMParser().parseFromString(old, 'text/html');
       return retained.map(selector => ({ selector, html: [...previous.querySelectorAll(selector)].slice(0, selector === '.results-product-card' ? 3 : undefined).map(el => el.outerHTML) }));
@@ -27,6 +27,29 @@ async function main() {
     for (const item of baseline) {
       assert.deepEqual(await page.locator(item.selector).evaluateAll(els => els.map(el => el.outerHTML)), item.html, `Deferred/retained content changed: ${item.selector}`);
     }
+    // 2026-10-23 revision: intro page, persona, journey with emotion curve, features, design chapter, renumbering.
+    assert.deepEqual(await page.locator('.chapter-list a').allTextContents(), ['01 介紹', '02 研究', '03 洞察', '04 解法', '05 迭代', '06 Demo', '07 設計', '08 成果']);
+    assert.equal(await page.locator('#overview-label').innerText(), '01 / 介紹');
+    assert.equal(await page.locator('.overview-intro .chapter-label').innerText(), '01 / 前言');
+    assert.equal(await page.locator('#intro-title').textContent(), '你在生活中有遇過這些問題嗎？');
+    assert.deepEqual(await page.locator('.moment-card h3').allTextContents(), ['洗澡時發現洗面乳沒有了', '上完廁所才發現衛生紙沒有了']);
+    assert.deepEqual(await page.locator('.moment-image').evaluateAll(imgs => imgs.map(img => img.getAttribute('src').split('/').pop())), ['01-running-out.png', '01-toilet-paper-out.jpg']);
+    assert.equal(await page.locator('link[rel=icon]').getAttribute('href'), './public/assets/bubu-logo.svg');
+    assert.deepEqual(await page.locator('.brand-logo').evaluate(img => [img.naturalWidth, img.naturalHeight]), [57, 42]);
+    assert.deepEqual(await page.locator('.persona-tag').allTextContents(), ['Persona A', 'Persona B']);
+    assert.deepEqual(await page.locator('.persona-who').allTextContents(), ['林佳穎｜27 歲・行銷企劃', '陳筱安｜25 歲・行政人員']);
+    assert.equal(await page.locator('.persona-card li').count(), 8);
+    assert(await page.locator('#research').evaluate(el => el.querySelector('.research-personas').compareDocumentPosition(el.querySelector('.research-journey')) & Node.DOCUMENT_POSITION_FOLLOWING), 'Persona precedes journey');
+    assert.deepEqual(await page.locator('.journey-card p').allTextContents(), ['發現時，可能已經太晚。', '評估剩餘量與購買必要性。', '靠記憶、備忘錄或訊息保留需求。', '等待下班、順路或有空時購買。', '完成購買，仍可能需要確認結果。']);
+    assert.equal(await page.locator('.emotion-face').count(), 5);
+    assert.equal(await page.locator('.journey-conclusion').textContent(), '真正容易中斷的，不是購買，而是購買前的記住與交代。');
+    assert.deepEqual(await page.locator('.feature-card h3').allTextContents(), ['購買清單', '記錄補貨', '共享空間', '我的用品', '補貨明細', '延後提醒']);
+    assert.equal(await page.locator('body').evaluate(body => /共享與認領|共享為單機模擬/.test(body.innerText)), false);
+    assert(await page.locator('#solution').evaluate(el => el.querySelector('.solution-features').compareDocumentPosition(el.querySelector('.solution-architecture')) & Node.DOCUMENT_POSITION_FOLLOWING), 'Features precede information architecture');
+    assert.equal(await page.locator('#design-title').textContent(), '以「家人」為靈感，呈現溫暖、親切的日常感。');
+    assert.equal(await page.locator('.swatch').count(), 12);
+    assert.equal(await page.locator('#results-product-title').evaluate(el => el.closest('.results-panel').querySelector('.chapter-label').textContent.trim()), '08 / 產品結果');
+    assert(await page.locator('#demo').evaluate(el => el.compareDocumentPosition(document.querySelector('#design')) & Node.DOCUMENT_POSITION_FOLLOWING));
     assert.equal(await page.locator('.research-note,.research-takeaways,.journey-takeaway,.insights-definition,.architecture-shortcut,.iteration-c,.iteration-detail,.results-learning').count(), 0);
     assert.deepEqual(await page.locator('.method-card h3').allTextContents(), ['1.競品分析', '2.問卷調查', '3.深入訪談']);
     assert.deepEqual(await page.locator('.method-number').allTextContents(), ['3', '47', '6']);
@@ -101,7 +124,7 @@ async function main() {
         };
       });
       assert.deepEqual(integrity, { overflow: false, duplicates: [], brokenLabels: [], brokenLinks: [], clipped: [], cardOrder: true }, JSON.stringify({ width, integrity }));
-      const ids = ['problem','research','insights','solution','iteration','demo','results'];
+      const ids = ['problem','research','insights','solution','iteration','demo','design','results'];
       for (const id of ids) {
         await page.locator(`.chapter-list a[href="#${id}"]`).click();
         await page.waitForFunction(id => document.querySelector('.chapter-list a[aria-current]')?.hash === `#${id}`, id);
@@ -114,7 +137,7 @@ async function main() {
         assert(await page.locator('.site-header').evaluate(el => el.getBoundingClientRect().top === 0));
       }
       if (width === 390 || width === 1440) {
-        for (const selector of ['.research-methods','.research-competition','.research-opportunities','.insights-overview','.solution-directions','.iteration-observations','.iteration-b','.results-product','.results-tools','.results-team','.results-future']) {
+        for (const selector of ['.overview-intro','.research-methods','.research-competition','.research-personas','.research-journey','.solution-features','.design','.research-opportunities','.insights-overview','.solution-directions','.iteration-observations','.iteration-b','.results-product','.results-tools','.results-team','.results-future']) {
           await page.locator(selector).screenshot({ path: path.join(output, `${width}-${selector.slice(1)}.png`), style: '.site-header { visibility: hidden; }' });
         }
         await page.goto(base+'/#research', { waitUntil: 'networkidle' });

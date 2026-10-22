@@ -10,36 +10,40 @@
     <link rel="stylesheet" href="./solution.css">
     <link rel="stylesheet" href="./iteration.css">
     <link rel="stylesheet" href="./demo.css">
+    <link rel="stylesheet" href="./design.css">
     <link rel="stylesheet" href="./results.css">
     <script src="./navigation.js" defer></script>
     <script src="./solution.js" defer></script>
     <script src="./competition.js" defer></script>
+    <script src="./journey.js" defer></script>
   </head>
   <body>
     <header class="site-header" data-node-id="291:232">
       <nav class="site-nav" aria-label="章節導覽">
         <a class="brand" href="#problem" aria-label="補補 Bubu 首頁">
-          <img class="brand-logo" src="./public/assets/bubu-logo.svg" width="60" height="45" alt="">
+          <img class="brand-logo" src="./public/assets/bubu-logo.svg" width="60" height="44" alt="">
           <span class="brand-name">補補 Bubu</span>
         </a>
         <div class="chapter-scroll" tabindex="0" aria-label="章節連結，可左右捲動">
           <ul class="chapter-list">
-            <li><a href="#problem" aria-current="location">01 專題簡介</a></li>
+            <li><a href="#problem" aria-current="location">01 介紹</a></li>
             <li><a href="#research">02 研究</a></li>
             <li><a href="#insights">03 洞察</a></li>
             <li><a href="#solution">04 解法</a></li>
             <li><a href="#iteration">05 迭代</a></li>
             <li><a href="#demo">06 Demo</a></li>
-            <li><a href="#results">07 成果</a></li>
+            <li><a href="#design">07 設計</a></li>
+            <li><a href="#results">08 成果</a></li>
           </ul>
         </div>
       </nav>
     </header>
     <main id="main-content" aria-label="補補 Bubu 專題介紹">
       <section id="problem" class="overview" aria-labelledby="overview-label" data-node-id="291:273">
+        <div class="overview-cover">
         <p class="chapter-label" id="overview-label">
           <img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">
-          01 / 專題簡介
+          01 / 介紹
         </p>
         <div class="hero" data-node-id="305:359">
           <div class="hero-intro">
@@ -59,21 +63,22 @@
           </div>
           <img class="hero-image" src="./public/assets/01-overview-hero.png" width="690" height="426" alt="溫暖的家中，一人查看手機與日用品存量，另一人帶著採買的用品回家。" fetchpriority="high" data-node-id="291:282">
         </div>
-        <div class="everyday-moments" aria-label="日常補貨的兩個時刻" data-node-id="291:283">
-          <article class="moment-card" data-node-id="337:1216">
-            <img class="moment-image" src="./public/assets/01-running-out.png" width="240" height="180" alt="準備使用盥洗用品時，才發現瓶子已經空了。">
-            <div class="moment-copy">
-              <h2>正要用，才發現沒了。</h2>
-              <p>使用時才察覺用品不足。</p>
-            </div>
-          </article>
-          <article class="moment-card" data-node-id="337:1221">
-            <img class="moment-image" src="./public/assets/01-forgot-to-buy.png" width="240" height="180" alt="出門前想到需要補貨，卻因趕時間而延後採買。">
-            <div class="moment-copy">
-              <h2>想著晚點買，後來忘了。</h2>
-              <p>當下無法買，延後卻忘記。</p>
-            </div>
-          </article>
+        </div>
+        <div class="overview-intro" aria-labelledby="intro-title">
+          <div class="intro-heading">
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">01 / 前言</p>
+            <h2 id="intro-title">你在生活中有遇過這些問題嗎？</h2>
+          </div>
+          <div class="everyday-moments" role="list" aria-label="日常補貨的兩個時刻" data-node-id="291:283">
+            <article class="moment-card" role="listitem" data-node-id="337:1216">
+              <img class="moment-image" src="./public/assets/01-running-out.png" width="1448" height="1086" alt="準備使用盥洗用品時，才發現瓶子已經空了。">
+              <div class="moment-copy"><h3>洗澡時發現洗面乳沒有了</h3></div>
+            </article>
+            <article class="moment-card" role="listitem" data-node-id="337:1221">
+              <img class="moment-image" src="./public/assets/01-toilet-paper-out.jpg" width="1200" height="800" alt="坐在馬桶上的人伸手去拿衛生紙，才發現紙捲已經用完。">
+              <div class="moment-copy"><h3>上完廁所才發現衛生紙沒有了</h3></div>
+            </article>
+          </div>
         </div>
       </section>
       <section id="research" class="research" aria-label="02 研究方法&amp;流程與研究發現" data-node-id="312:423">
@@ -138,18 +143,69 @@
           </div>
         </div>
 
-        <div class="research-panel research-journey" aria-labelledby="journey-title" data-node-id="312:483">
+        <div class="research-panel research-personas" aria-labelledby="personas-title" data-node-id="502:1231">
           <div class="research-heading">
-            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">02 / 使用者旅程</p>
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">02 / 使用者分析 • 使用情境 &amp; Persona</p>
+            <h2 id="personas-title">兩種補貨情境，不同的處理方式</h2>
+            <p class="research-subtitle">依據研究整理出兩種常見的補貨行為情境。</p>
+          </div>
+          <div class="persona-grid">
+            <article class="persona-card">
+              <div class="persona-identity"><span class="persona-tag">Persona A</span><h3>自己發現，自己採買</h3><p class="persona-who">林佳穎｜27 歲・行銷企劃</p></div>
+              <blockquote class="persona-quote">「明明知道要買，想著下次再買，結果就忘記了。」</blockquote>
+              <div class="persona-habit"><h4>補貨習慣</h4><p>依用品剩餘量判斷補貨需求，通常等到有空、順路或網購時再採買，期間可能忘記原本要買的用品。</p></div>
+              <div class="persona-needs">
+                <div class="persona-pain"><h4>痛點</h4><ul><li>延後購買容易忘記</li><li>不想增加記錄負擔</li></ul></div>
+                <div class="persona-need"><h4>需求</h4><ul><li>保留待買需求</li><li>簡單完成補貨記錄</li></ul></div>
+              </div>
+            </article>
+            <article class="persona-card">
+              <div class="persona-identity"><span class="persona-tag">Persona B</span><h3>發現需求，交由他人採買</h3><p class="persona-who">陳筱安｜25 歲・行政人員</p></div>
+              <blockquote class="persona-quote">「不一定要馬上買，但希望交代的東西不會被忘記。」</blockquote>
+              <div class="persona-habit"><h4>補貨習慣</h4><p>與伴侶分擔採買，發現需求後通常先口頭或透過 LINE 交代，再依雙方時間安排購買。</p></div>
+              <div class="persona-needs">
+                <div class="persona-pain"><h4>痛點</h4><ul><li>交代後不確定是否完成</li><li>待買需求可能遺漏</li></ul></div>
+                <div class="persona-need"><h4>需求</h4><ul><li>清楚掌握交辦狀態</li><li>依各自時間彈性採買</li></ul></div>
+              </div>
+            </article>
+          </div>
+          <p class="persona-shared"><strong>共同需求 / Shared Need</strong><span>無論自己採買或交由他人處理，都需要讓待買需求在真正完成購買前被妥善保留。</span></p>
+        </div>
+
+        <div class="research-panel research-journey" aria-labelledby="journey-title" data-node-id="494:1227">
+          <div class="research-heading">
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">02 / 研究 • 使用者旅程</p>
             <h2 id="journey-title">補貨這件小事，跨越了好幾個生活時刻。</h2>
           </div>
           <ol class="journey-list" aria-label="補貨的五階段旅程">
-            <li class="journey-card" data-node-id="312:572"><div class="journey-marker"><span>01</span></div><h3>發現快沒了</h3><p>發現時，可能已經太晚。</p></li>
-            <li class="journey-card" data-node-id="312:579"><div class="journey-marker"><span>02</span></div><h3>判斷要不要買</h3><p>看剩餘量、備品與用品重要性。</p></li>
-            <li class="journey-card journey-highlight" data-node-id="312:586"><div class="journey-marker"><span>03</span></div><h3>記住或交代</h3><p>靠記憶、備忘錄或訊息。</p></li>
-            <li class="journey-card" data-node-id="312:593"><div class="journey-marker"><span>04</span></div><h3>決定購買時間</h3><p>可能等假日、順路或優惠。</p></li>
-            <li class="journey-card" data-node-id="312:600"><div class="journey-marker"><span>05</span></div><h3>購買與完成</h3><p>完成後，也可能沒有回報。</p></li>
+            <li class="journey-card"><div class="journey-marker"><span>01</span></div><h3>發現快沒了</h3><p>發現時，<br>可能已經太晚。</p></li>
+            <li class="journey-card"><div class="journey-marker"><span>02</span></div><h3>判斷要不要買</h3><p>評估剩餘量與<br>購買必要性。</p></li>
+            <li class="journey-card journey-highlight"><div class="journey-marker"><span>03</span><span class="journey-risk">中斷風險</span></div><h3>記住或交代</h3><p>靠記憶、備忘錄或<br>訊息保留需求。</p></li>
+            <li class="journey-card"><div class="journey-marker"><span>04</span></div><h3>決定購買時間</h3><p>等待下班、順路<br>或有空時購買。</p></li>
+            <li class="journey-card"><div class="journey-marker"><span>05</span></div><h3>購買與完成</h3><p>完成購買，<br>仍可能需要確認結果。</p></li>
           </ol>
+          <div class="emotion-scaler">
+            <div class="emotion-chart" role="group" aria-labelledby="emotion-title">
+              <p class="emotion-title" id="emotion-title"><strong>情緒變化示意</strong><span>｜依訪談情境與研究發現歸納</span></p>
+              <img class="emotion-neutral" src="./public/assets/journey-neutral-line.svg" alt="" width="1256" height="1.5">
+              <p class="emotion-neutral-label">中性</p>
+              <img class="emotion-curve" src="./public/assets/journey-curve.svg" alt="" width="1068" height="149">
+              <img class="emotion-pointer emotion-pointer-a" src="./public/assets/journey-pointer-a.svg" alt="" width="95" height="91">
+              <img class="emotion-pointer emotion-pointer-b" src="./public/assets/journey-pointer-b.svg" alt="" width="95" height="91">
+              <ol class="emotion-points" aria-label="五個階段的情緒變化">
+                <li class="emotion-point emotion-point-1"><img class="emotion-face emotion-face-1" src="./public/assets/journey-face-1.svg" alt="情緒：略為負面" width="56" height="56"><p class="emotion-bubble">怎麼現在才發現<br>快沒了！<img class="bubble-tail" src="./public/assets/journey-bubble-tail.svg" alt="" width="19.5" height="13.5"><span class="bubble-cover"></span></p></li>
+                <li class="emotion-point emotion-point-2"><img class="emotion-face emotion-face-2" src="./public/assets/journey-face-2.svg" alt="情緒：中性偏負面" width="56" height="56"><p class="emotion-bubble">不知道還能<br>用幾天……<img class="bubble-tail" src="./public/assets/journey-bubble-tail.svg" alt="" width="19.5" height="13.5"><span class="bubble-cover"></span></p></li>
+                <li class="emotion-point emotion-point-3"><img class="emotion-face emotion-face-3" src="./public/assets/journey-face-3.svg" alt="情緒：明顯負面，為主要低點" width="86" height="86"><p class="emotion-bubble emotion-bubble-a"><span class="emotion-tag emotion-tag-a">A</span>先記著，<br>結果又忘了。</p><p class="emotion-bubble emotion-bubble-b"><span class="emotion-tag emotion-tag-b">B</span>交代了，<br>但不知道誰會買。</p></li>
+                <li class="emotion-point emotion-point-4"><img class="emotion-face emotion-face-4" src="./public/assets/journey-face-4.svg" alt="情緒：中性" width="56" height="56"><p class="emotion-bubble">下班順路再去買。<img class="bubble-tail" src="./public/assets/journey-bubble-tail.svg" alt="" width="19.5" height="13.5"><span class="bubble-cover"></span></p></li>
+                <li class="emotion-point emotion-point-5"><img class="emotion-face emotion-face-5" src="./public/assets/journey-face-5.svg" alt="情緒：中性偏正面" width="56" height="56"><p class="emotion-bubble">買好了！<img class="bubble-tail" src="./public/assets/journey-bubble-tail.svg" alt="" width="19.5" height="13.5"><span class="bubble-cover"></span></p></li>
+              </ol>
+            </div>
+          </div>
+          <p class="journey-conclusion">真正容易中斷的，不是購買，而是<span>購買前的記住與交代</span>。</p>
+          <ul class="emotion-legend" aria-label="圖例">
+            <li><span class="emotion-tag emotion-tag-a">A</span>自己發現、自己購買</li>
+            <li><span class="emotion-tag emotion-tag-b">B</span>發現需求、交由他人購買</li>
+          </ul>
         </div>
       </section>
       <section id="insights" class="insights" aria-label="03 關鍵洞察" data-node-id="315:492">
@@ -189,13 +245,29 @@
           </div>
         </div>
       </section>
-      <section id="solution" class="solution" aria-label="04 設計決策與資訊架構" data-node-id="317:538">
+      <section id="solution" class="solution" aria-label="04 設計決策、主要功能與資訊架構" data-node-id="317:538">
       <div class="solution-panel solution-directions" aria-labelledby="directions-title" data-node-id="317:558">
       <div class="solution-heading"><p class="chapter-label"><img src="./public/assets/chapter-dot.svg" alt="" width="10" height="10">04 / 設計決策</p><h2 id="directions-title">先記下來、掌握時機，也讓交接更清楚。</h2></div>
       <div class="direction-grid">
       <article class="direction-card direction-core" data-node-id="317:645"><div class="direction-label"><span class="direction-number">設計決策 01</span><span class="insight-badge insight-badge-core">核心</span></div><h3>先記下來</h3><p>將用品加入購買清單，稍後回看，直到完成補貨。</p><img src="./public/assets/04-note.svg" alt="" class="direction-illustration"></article>
       <article class="direction-card " data-node-id="317:651"><div class="direction-label"><span class="direction-number">設計決策 02</span><span class="insight-badge ">輔助</span></div><h3>掌握時機</h3><p>參考歷史補貨紀錄掌握時機，也能延後提醒，彈性安排採買</p><img src="./public/assets/04-timing.svg" alt="" class="direction-illustration"></article>
       <article class="direction-card " data-node-id="317:661"><div class="direction-label"><span class="direction-number">設計決策 03</span><span class="insight-badge ">情境延伸</span></div><h3>清楚交接</h3><p>共享清單、認領與接手，呈現採買責任與完成狀態。</p><img src="./public/assets/04-handoff.svg" alt="" class="direction-illustration"></article>
+      </div></div>
+      <div class="solution-panel solution-features" aria-labelledby="features-title" data-node-id="510:1262">
+      <div class="solution-heading"><p class="chapter-label"><img src="./public/assets/chapter-dot.svg" alt="" width="10" height="10">04 / 解法 • 核心功能介紹</p><h2 id="features-title">主要功能</h2><p class="solution-subtitle">從記下待買需求，到安排補貨與完成紀錄。</p></div>
+      <div class="feature-groups">
+      <section class="feature-group" aria-labelledby="feature-group-1"><h3 class="feature-group-label feature-group-primary" id="feature-group-1"><span class="feature-pill">01 核心補貨與交接</span></h3>
+      <ul class="feature-grid">
+      <li class="feature-card"><span class="feature-icon"><img src="./public/assets/feature-shopping-list.svg" alt="" width="57" height="60"></span><div class="feature-copy"><h3>購買清單</h3><p>保留待買項目與數量</p></div></li>
+      <li class="feature-card"><span class="feature-icon"><img src="./public/assets/feature-record-restock.svg" alt="" width="58" height="59"></span><div class="feature-copy"><h3>記錄補貨</h3><p>完成採買，留下紀錄</p></div></li>
+      <li class="feature-card"><span class="feature-icon"><img src="./public/assets/feature-shared-space.svg" alt="" width="63.175" height="50.54"></span><div class="feature-copy"><h3>共享空間</h3><p>認領、接手與<br>查看處理狀態</p></div></li>
+      </ul></section>
+      <section class="feature-group" aria-labelledby="feature-group-2"><h3 class="feature-group-label" id="feature-group-2"><span class="feature-pill">02 補貨輔助功能</span></h3>
+      <ul class="feature-grid">
+      <li class="feature-card"><span class="feature-icon"><img src="./public/assets/feature-my-items.svg" alt="" width="56" height="56"></span><div class="feature-copy"><h3>我的用品</h3><p>依空間切換、搜尋與篩選</p></div></li>
+      <li class="feature-card"><span class="feature-icon"><img src="./public/assets/feature-restock-detail.svg" alt="" width="56" height="60"></span><div class="feature-copy"><h3>補貨明細</h3><p>查看補貨日期與歷史紀錄</p></div></li>
+      <li class="feature-card"><span class="feature-icon"><img src="./public/assets/feature-snooze.svg" alt="" width="59" height="60"></span><div class="feature-copy"><h3>延後提醒</h3><p>暫時不買，<br>也能保留處理彈性</p></div></li>
+      </ul></section>
       </div></div>
       <div class="solution-panel solution-architecture" aria-labelledby="architecture-title" data-node-id="375:1066">
       <div class="solution-heading"><p class="chapter-label"><img src="./public/assets/chapter-dot.svg" alt="" width="10" height="10">04 / 資訊架構</p><h2 id="architecture-title">三個主要入口</h2></div>
@@ -321,10 +393,44 @@
           <span class="demo-launch-url">ispanstudent05-max.github.io/bubu-demo-presentation/</span>
         </a>
       </section>
-      <section id="results" class="results" aria-label="07 成果、開發工具、團隊與未來展望" data-node-id="324:999">
+      <section id="design" class="design" aria-label="07 設計：Logo 與視覺風格" data-node-id="473:1102">
+        <div class="design-panel" aria-labelledby="design-title">
+          <div class="design-heading">
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">07 / 設計 • Logo 與視覺風格</p>
+            <h2 id="design-title">以「家人」為靈感，呈現溫暖、親切的日常感。</h2>
+          </div>
+          <div class="design-logo-card" data-node-id="473:1108">
+            <div class="design-logo-tile" role="img" aria-label="補補 Bubu Logo：兩個相似的人物輪廓並肩相依"><img src="./public/assets/design-logo-radial-mark.svg" alt="" width="102.344" height="75.411"></div>
+            <div class="design-logo-copy">
+              <p class="design-label"><strong>Logo 設計概念</strong><span>Logo 由鄭梅芳繪製</span></p>
+              <p>補補的 Logo 以「家人」為設計靈感，用相似的人物輪廓呈現人與人之間的連結。就像共同生活的人們，即使個性與習慣不同，仍能在同一個空間裡彼此陪伴、互相照應。</p>
+              <p>我們希望以簡單、親切的造型，傳遞溫暖的品牌形象，也呼應產品讓日常補貨與共同生活更輕鬆的初衷。</p>
+            </div>
+          </div>
+          <div class="design-system">
+            <div class="design-card design-colors" aria-labelledby="design-colors-title">
+              <p class="design-label"><strong id="design-colors-title">色彩</strong><span>摘錄 12 色，完整色票見設計系統</span></p>
+              <div class="swatch-row"><p class="swatch-group">品牌</p><ul class="swatch-list"><li><span class="swatch" style="background:#3f6f3b"></span><span class="swatch-text"><strong>主色</strong><span>#3F6F3B</span></span></li><li><span class="swatch" style="background:#244f34"></span><span class="swatch-text"><strong>深主色</strong><span>#244F34</span></span></li><li><span class="swatch" style="background:#eef5ec"></span><span class="swatch-text"><strong>淺主色</strong><span>#EEF5EC</span></span></li></ul></div><div class="swatch-row"><p class="swatch-group">強調</p><ul class="swatch-list"><li><span class="swatch" style="background:#ff9e42"></span><span class="swatch-text"><strong>強調橘</strong><span>#FF9E42</span></span></li><li><span class="swatch" style="background:#9a5510"></span><span class="swatch-text"><strong>強調文字</strong><span>#9A5510</span></span></li><li><span class="swatch" style="background:#fff3e6"></span><span class="swatch-text"><strong>強調淺底</strong><span>#FFF3E6</span></span></li></ul></div><div class="swatch-row"><p class="swatch-group">頁面</p><ul class="swatch-list"><li><span class="swatch" style="background:#efebe3"></span><span class="swatch-text"><strong>頁面底色</strong><span>#EFEBE3</span></span></li><li><span class="swatch" style="background:#fcfbf8"></span><span class="swatch-text"><strong>卡片</strong><span>#FCFBF8</span></span></li></ul></div><div class="swatch-row"><p class="swatch-group">文字</p><ul class="swatch-list"><li><span class="swatch" style="background:#1d1d1f"></span><span class="swatch-text"><strong>主要文字</strong><span>#1D1D1F</span></span></li><li><span class="swatch" style="background:#5a5a5f"></span><span class="swatch-text"><strong>次要文字</strong><span>#5A5A5F</span></span></li></ul></div><div class="swatch-row"><p class="swatch-group">語意</p><ul class="swatch-list"><li><span class="swatch" style="background:#b83a26"></span><span class="swatch-text"><strong>警示</strong><span>#B83A26</span></span></li><li><span class="swatch" style="background:#8f5500"></span><span class="swatch-text"><strong>警示</strong><span>#8F5500</span></span></li></ul></div>
+            </div>
+            <div class="design-card design-type" aria-labelledby="design-type-title">
+              <p class="design-label design-font"><span class="design-label-light">字體</span><strong id="design-type-title">Chiron GoRound TC</strong></p>
+              <p class="design-label-light design-scale-label">字級</p>
+              <dl class="type-grid">
+                <div class="type-sample type-page"><dt>Page Title · 26 Bold</dt><dd>我的用品</dd></div>
+                <div class="type-sample type-body"><dt>Body · 15 Regular</dt><dd>洗衣精快用完了。</dd></div>
+                <div class="type-sample type-header"><dt>Header Title · 20 Bold</dt><dd>補貨提醒</dd></div>
+                <div class="type-sample type-caption"><dt>Caption · 12 Regular</dt><dd>上次補貨 10/12・家庭</dd></div>
+                <div class="type-sample type-card"><dt>Card Title · 18 Bold</dt><dd>狗狗糧食</dd></div>
+                <div class="type-sample type-number"><dt>Number · 48 Bold</dt><dd>12</dd></div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="results" class="results" aria-label="08 成果、開發工具、團隊與未來展望" data-node-id="324:999">
         <div class="results-panel results-product" aria-labelledby="results-product-title" data-node-id="324:1019">
           <div class="results-heading">
-            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">07 / 產品結果</p>
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">08 / 產品結果</p>
             <h2 id="results-product-title">我們和競品不同的地方</h2>
           </div>
           <div class="results-product-grid" data-node-id="324:1085">
@@ -334,17 +440,17 @@
           </div>
         </div>
 
-        <div class="results-panel results-tools" aria-labelledby="results-tools-title" data-node-id="50:28"><div class="results-heading"><p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">07 / 開發工具</p><h2 id="results-tools-title">主要技術工具</h2></div><p class="tools-summary">以 Vue 3 完成行動優先的可操作網頁，部署於 Vercel。</p><table class="tools-table"><thead><tr><th scope="col">技術</th><th scope="col">用途</th></tr></thead><tbody><tr><th scope="row">Vue 3、Vite</th><td>元件開發、建置與打包</td></tr><tr><th scope="row">Vue Router</th><td>頁面路由</td></tr><tr><th scope="row">Pinia</th><td>狀態管理</td></tr><tr><th scope="row">Bootstrap 5、Sass</th><td>基礎樣式及自訂樣式</td></tr><tr><th scope="row">Font Awesome、Google Fonts</th><td>圖示與字體（Chiron GoRound TC）</td></tr><tr><th scope="row">localStorage</th><td>瀏覽器端資料保存</td></tr><tr><th scope="row">Git、GitHub、Vercel</th><td>版本控制、協作及網站部署</td></tr></tbody></table></div>
+        <div class="results-panel results-tools" aria-labelledby="results-tools-title" data-node-id="50:28"><div class="results-heading"><p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">08 / 開發工具</p><h2 id="results-tools-title">主要技術工具</h2></div><p class="tools-summary">以 Vue 3 完成行動優先的可操作網頁，部署於 Vercel。</p><table class="tools-table"><thead><tr><th scope="col">技術</th><th scope="col">用途</th></tr></thead><tbody><tr><th scope="row">Vue 3、Vite</th><td>元件開發、建置與打包</td></tr><tr><th scope="row">Vue Router</th><td>頁面路由</td></tr><tr><th scope="row">Pinia</th><td>狀態管理</td></tr><tr><th scope="row">Bootstrap 5、Sass</th><td>基礎樣式及自訂樣式</td></tr><tr><th scope="row">Font Awesome、Google Fonts</th><td>圖示與字體（Chiron GoRound TC）</td></tr><tr><th scope="row">localStorage</th><td>瀏覽器端資料保存</td></tr><tr><th scope="row">Git、GitHub、Vercel</th><td>版本控制、協作及網站部署</td></tr></tbody></table></div>
         <div class="results-panel results-team" aria-labelledby="results-team-title" data-node-id="324:1039">
           <div class="results-heading">
-            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">07 / 團隊分工</p>
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">08 / 團隊分工</p>
             <h2 id="results-team-title">團隊主要貢獻</h2>
           </div>
           <section class="results-collaboration" aria-labelledby="collaboration-title"><h3 id="collaboration-title">共同協作 <small>謝岱凌 × 鄭梅芳</small></h3><ul><li>使用者研究與分析。</li><li>各自整理研究資料後，共同交叉比對與統整。</li><li>整體視覺風格與設計方向討論。</li><li>測試結果分析與設計修改討論。</li></ul></section><h3 class="individual-contributions-title">個別主要貢獻</h3><div class="results-team-grid"><article class="results-team-card"><h3>謝岱凌</h3><div><h4>UI／UX 設計與測試</h4><p>UI 元件製作、測試腳本規劃與撰寫、測試過程紀錄。</p></div><div><h4>前端開發與文件</h4><p>我的用品（列表、篩選、刪除及復原）、補貨明細、記錄補貨、新增用品、補貨提醒與狀態規則、專案規格、決策紀錄及本企劃書。</p></div><div><h4>簡報製作</h4><p>專題發表簡報製作。</p></div></article><article class="results-team-card"><h3>鄭梅芳</h3><div><h4>品牌與視覺素材</h4><p>補補專案 Logo 繪製、客製用品 Icons 繪製。</p></div><div><h4>測試與發表</h4><p>可用性測試主持（引導受測者完成情境任務）、報告 Demo 腳本規劃與撰寫。</p></div><div><h4>前端開發</h4><p>設定與個人檔案、空間管理與邀請、用品管理、購買清單與認領、登入頁、全域用品資料、共享空間通知、RWD 響應式版面調整。</p></div></article></div>
         </div>
         <div class="results-panel results-future" aria-labelledby="results-future-title" data-node-id="421:1097">
           <div class="results-heading">
-            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">07 / 未來展望</p>
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">08 / 未來展望</p>
             <h2 id="results-future-title">未來展望</h2>
           </div>
           <div class="results-future-grid"><ul class="results-future-list"><li>再次驗證核心補貨流程</li><li>完善待買需求的保留流程</li><li>改善空間理解與新手操作</li><li>跨裝置共享與同步</li><li>自動追蹤與主動通知</li><li>地理圍欄</li><li>商城優惠連動</li><li>自動下單補貨功能</li></ul></div>
