@@ -57,13 +57,15 @@ async function main() {
     assert.equal(await page.locator('#results,.results-panel,.chapter-list a[href="#results"]').count(), 0, 'Results chapter removed for teammates');
     assert.deepEqual(await page.locator('.method-card h3').allTextContents(), ['1.競品分析', '2.問卷調查', '3.深入訪談']);
     assert.deepEqual(await page.locator('.method-number').allTextContents(), ['3', '47', '6']);
-    assert.deepEqual(await page.locator('.direction-number').allTextContents(), ['設計決策 01', '設計決策 02', '設計決策 03']);
-    assert.equal(await page.locator('.solution-directions .chapter-label').innerText(), '03 / 設計決策');
+    assert.deepEqual(await page.locator('.direction-number').allTextContents(), ['解法 01', '解法 02', '解法 03']);
+    assert.equal(await page.locator('.solution-directions .chapter-label').innerText(), '03 / 產品解法');
     assert.equal(await page.locator('.iteration-response').count(), 2);
     assert.equal(await page.locator('.iteration-b #iteration-b-title').innerText(), 'B｜不用在新增時，先猜下次補貨日期');
     assert.equal(await page.locator('#iteration').innerText().then(text => /目前部[署屬]版|設計迭代 C/.test(text)), false);
     assert.deepEqual(await page.locator('.direction-card .insight-badge').allTextContents(), ['核心', '輔助', '情境延伸']);
-    assert.equal(await page.locator('.direction-card').nth(1).locator('p').textContent(), '參考歷史補貨紀錄掌握時機，也能延後提醒，彈性安排採買');
+    assert.deepEqual(await page.locator('.direction-card p').allTextContents(), ['發現需要補貨時，先加入購買清單，直到買好再標記完成。', '參考過去的補貨紀錄，提醒可能需要補貨的時間，也能視情況延後。', '共享清單、認領與接手，呈現採買責任與完成狀態。']);
+    assert.equal(await page.locator('.research-competition .chapter-label').first().innerText(), '02 / 使用者研究與洞察 • 競品分析');
+    assert.equal(await page.locator('.research-personas .chapter-label').innerText(), '02 / 使用者研究與洞察 • Persona');
     const dimensions = ['分析維度', '商品定位', '優點', '缺點', '目標使用者'];
     const rows = spec.split('\n').filter(line => dimensions.some(key => line.startsWith(`| ${key} |`))).map(line => line.trim().slice(1,-1).split('|').map(cell => cell.trim()));
     const table = await page.locator('.comparison-table tr').evaluateAll(rows => rows.map(row => [...row.cells].map(cell => cell.querySelector('ul') ? [...cell.querySelectorAll('li')].map(li => li.textContent).join('；') : cell.textContent)));
