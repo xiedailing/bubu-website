@@ -19,16 +19,16 @@ async function main() {
     page.on('response', response => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
     await page.goto(base, { waitUntil: 'networkidle' });
     // Requirements whose content must survive this revision unchanged.
-    const retained = ['.architecture-tree', '.results-product-card'];
+    const retained = ['.architecture-tree'];
     const baseline = await page.evaluate(({ old, retained }) => {
       const previous = new DOMParser().parseFromString(old, 'text/html');
-      return retained.map(selector => ({ selector, html: [...previous.querySelectorAll(selector)].slice(0, selector === '.results-product-card' ? 3 : undefined).map(el => el.outerHTML) }));
+      return retained.map(selector => ({ selector, html: [...previous.querySelectorAll(selector)].map(el => el.outerHTML) }));
     }, { old, retained });
     for (const item of baseline) {
       assert.deepEqual(await page.locator(item.selector).evaluateAll(els => els.map(el => el.outerHTML)), item.html, `Deferred/retained content changed: ${item.selector}`);
     }
     // 2026-10-23 revision: intro page, persona, journey with emotion curve, features, design chapter, renumbering.
-    assert.deepEqual(await page.locator('.chapter-list a').allTextContents(), ['01 介紹', '02 研究', '03 洞察', '04 解法', '05 迭代', '06 設計', '07 Demo', '08 成果']);
+    assert.deepEqual(await page.locator('.chapter-list a').allTextContents(), ['01 介紹', '02 研究', '03 洞察', '04 解法', '05 迭代', '06 設計', '07 Demo']);
     assert.equal(await page.locator('#overview-label').innerText(), '01 / 介紹');
     assert.equal(await page.locator('.overview-intro .chapter-label').innerText(), '01 / 前言');
     assert.equal(await page.locator('#intro-title').textContent(), '你在生活中有遇過這些問題嗎？');
@@ -48,9 +48,9 @@ async function main() {
     assert(await page.locator('#solution').evaluate(el => el.querySelector('.solution-features').compareDocumentPosition(el.querySelector('.solution-architecture')) & Node.DOCUMENT_POSITION_FOLLOWING), 'Features precede information architecture');
     assert.equal(await page.locator('#design-title').textContent(), '以「家人」為靈感，呈現溫暖、親切的日常感。');
     assert.equal(await page.locator('.swatch').count(), 12);
-    assert.equal(await page.locator('#results-product-title').evaluate(el => el.closest('.results-panel').querySelector('.chapter-label').textContent.trim()), '08 / 產品結果');
     assert(await page.locator('#design').evaluate(el => el.compareDocumentPosition(document.querySelector('#demo')) & Node.DOCUMENT_POSITION_FOLLOWING));
     assert.equal(await page.locator('.research-note,.research-takeaways,.journey-takeaway,.insights-definition,.architecture-shortcut,.iteration-c,.iteration-detail,.results-learning').count(), 0);
+    assert.equal(await page.locator('#results,.results-panel,.chapter-list a[href="#results"]').count(), 0, 'Results chapter removed for teammates');
     assert.deepEqual(await page.locator('.method-card h3').allTextContents(), ['1.競品分析', '2.問卷調查', '3.深入訪談']);
     assert.deepEqual(await page.locator('.method-number').allTextContents(), ['3', '47', '6']);
     assert.deepEqual(await page.locator('.direction-number').allTextContents(), ['設計決策 01', '設計決策 02', '設計決策 03']);
@@ -60,9 +60,6 @@ async function main() {
     assert.equal(await page.locator('#iteration').innerText().then(text => /目前部[署屬]版|設計迭代 C/.test(text)), false);
     assert.deepEqual(await page.locator('.direction-card .insight-badge').allTextContents(), ['核心', '輔助', '情境延伸']);
     assert.equal(await page.locator('.direction-card').nth(1).locator('p').textContent(), '參考歷史補貨紀錄掌握時機，也能延後提醒，彈性安排採買');
-    assert.equal(await page.locator('#results-product-title').textContent(), '我們和競品不同的地方');
-    assert.equal(await page.locator('#results-tools-title').textContent(), '主要技術工具');
-    assert.equal(await page.locator('#results-future-title').textContent(), '未來展望');
     const dimensions = ['分析維度', '商品定位', '優點', '缺點', '目標使用者'];
     const rows = spec.split('\n').filter(line => dimensions.some(key => line.startsWith(`| ${key} |`))).map(line => line.trim().slice(1,-1).split('|').map(cell => cell.trim()));
     const table = await page.locator('.comparison-table tr').evaluateAll(rows => rows.map(row => [...row.cells].map(cell => cell.querySelector('ul') ? [...cell.querySelectorAll('li')].map(li => li.textContent).join('；') : cell.textContent)));
@@ -95,11 +92,6 @@ async function main() {
         return index === rows.length - 1 ? parseFloat(style.borderBottomWidth) === 0 : style.borderBottomStyle === 'solid' && parseFloat(style.borderBottomWidth) >= 1;
       })
     )), 'Comparison rows except the last must have a visible separator');
-    const tools = spec.split('\n').filter(line => /^\| (Vue 3、Vite|Vue Router|Pinia|Bootstrap 5、Sass|Font Awesome、Google Fonts|localStorage|Git、GitHub、Vercel) \|/.test(line)).map(line => line.trim().slice(1,-1).split('|').map(cell => cell.trim()));
-    assert.deepEqual(await page.locator('.tools-table tbody tr').evaluateAll(rows => rows.map(row => [...row.cells].map(cell => cell.textContent))), tools);
-    for (const copy of spec.split('### 3.6')[1].split('驗收：')[0].split('\n').filter(line => line.startsWith('- ')).map(line => line.slice(2))) {
-      assert((await page.locator('.results-team').innerText()).replace(/\s/g,'').includes(copy.replace(/\s/g,'').replace('：','')), `Missing contribution: ${copy}`);
-    }
     for (const width of [320, 390, 700, 768, 1024, 1280, 1440, 1920]) {
       await page.setViewportSize({ width, height: 900 });
       await page.goto(base, { waitUntil: 'networkidle' });
@@ -124,7 +116,7 @@ async function main() {
         };
       });
       assert.deepEqual(integrity, { overflow: false, duplicates: [], brokenLabels: [], brokenLinks: [], clipped: [], cardOrder: true }, JSON.stringify({ width, integrity }));
-      const ids = ['problem','research','insights','solution','iteration','design','demo','results'];
+      const ids = ['problem','research','insights','solution','iteration','design','demo'];
       for (const id of ids) {
         await page.locator(`.chapter-list a[href="#${id}"]`).click();
         await page.waitForFunction(id => document.querySelector('.chapter-list a[aria-current]')?.hash === `#${id}`, id);
@@ -137,7 +129,7 @@ async function main() {
         assert(await page.locator('.site-header').evaluate(el => el.getBoundingClientRect().top === 0));
       }
       if (width === 390 || width === 1440) {
-        for (const selector of ['.overview-intro','.research-methods','.research-competition','.research-personas','.research-journey','.solution-features','.design','.research-opportunities','.insights-overview','.solution-directions','.iteration-observations','.iteration-b','.results-product','.results-tools','.results-team','.results-future']) {
+        for (const selector of ['.overview-intro','.research-methods','.research-competition','.research-personas','.research-journey','.solution-features','.design','.research-opportunities','.insights-overview','.solution-directions','.iteration-observations','.iteration-b']) {
           await page.locator(selector).screenshot({ path: path.join(output, `${width}-${selector.slice(1)}.png`), style: '.site-header { visibility: hidden; }' });
         }
         await page.goto(base+'/#research', { waitUntil: 'networkidle' });

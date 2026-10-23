@@ -10,6 +10,8 @@ function updateCurrentChapter() {
   chapters.forEach((chapter, index) => {
     if (chapter.getBoundingClientRect().top <= boundary) current = index;
   });
+  // A short final chapter can never reach the line; at the page end it is current.
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) current = chapters.length - 1;
   chapterLinks.forEach((link, index) => {
     if (index === current) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');

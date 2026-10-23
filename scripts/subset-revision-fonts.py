@@ -18,8 +18,7 @@ root = Path(__file__).resolve().parents[1]
 html = (root / 'index.html').read_text(encoding='utf-8')
 sections = {'problem': 'chiron-goround-tc', 'research': 'chiron-research',
             'insights': 'chiron-insights', 'solution': 'chiron-solution',
-            'iteration': 'chiron-iteration', 'demo': 'chiron-demo', 'design': 'chiron-design',
-            'results': 'chiron-results'}
+            'iteration': 'chiron-iteration', 'demo': 'chiron-demo', 'design': 'chiron-design'}
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('sources', nargs='*')
 parser.add_argument('--check', action='store_true')

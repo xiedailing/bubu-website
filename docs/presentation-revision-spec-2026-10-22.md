@@ -346,3 +346,11 @@
 
 - 使用者確認：9.3 第 1 點（UI 節點）忽略；前言卡片說明句拿掉、導覽 Logo 沿用現檔、字型子集重建，皆無問題。
 - 章節順序改為 06 設計、07 Demo、08 成果（取代 9.1／9.3 中「07 設計在 Demo 之後」）。導覽、章節標籤、README 與驗收腳本已同步。
+
+### 9.7 08 成果移除（2026-10-23，使用者指示，後續由組員處理）
+
+- 導覽移除「08 成果」，並刪除整個 `#results` 區塊（產品成果、主要技術工具、團隊貢獻、未來展望與收尾）。導覽現為 01 介紹至 07 Demo。
+- 內容可由 Git 歷史取回（提交 `39bf87d` 以前）：3.5 的工具表、3.6 的團隊貢獻、未來展望文字都曾在該區塊。`results.css`、`chiron-results-*.ttf` 與 `scripts/verify-results.cjs` 保留未刪；`verify-results.cjs` 對應的區塊已不存在，目前不可用，待組員重建區塊後再用。
+- `subset-revision-fonts.py` 已移除 `results`；重建區塊時需加回。
+- `navigation.js`：頁面捲到底時最後一個章節（Demo）視為目前章節，因為最後一章較短，捲動時頂端到不了判斷線。
+- 驗收：`verify-presentation-revision.cjs`（移除成果相關斷言並新增「成果區塊已移除」）、iteration、solution、insights 通過；`subset-revision-fonts.py --check` OK。
