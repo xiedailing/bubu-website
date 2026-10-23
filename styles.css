@@ -175,7 +175,9 @@ main section { scroll-margin-top: 96px; }
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 32px;
-  margin: 0;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
   padding: 0;
 }
 .moment-card {
@@ -192,11 +194,11 @@ main section { scroll-margin-top: 96px; }
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
 }
 .moment-copy { min-width: 0; padding: 20px 28px 24px; }
-.moment-copy h3 { margin: 0; font-size: 32px; font-weight: 700; line-height: 46px; text-align: center; }
+.moment-copy h3 { margin: 0; font-size: 28px; font-weight: 700; line-height: 40px; text-align: center; }
 
 @media (max-width: 1399px) {
   .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 32px; }
@@ -204,7 +206,7 @@ main section { scroll-margin-top: 96px; }
   .hero-logo { flex-basis: 110px; width: 110px; height: 110px; }
   .hero-heading h1 { font-size: clamp(40px, 4.8vw, 68px); line-height: 1.2; }
   .product-type { font-size: 22px; line-height: 34px; }
-  .moment-copy h3 { font-size: 26px; line-height: 38px; }
+  .moment-copy h3 { font-size: 24px; line-height: 36px; }
 }
 
 @media (max-width: 1100px) {

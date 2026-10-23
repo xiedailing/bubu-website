@@ -35,9 +35,9 @@ async function main() {
     assert.equal(await page.locator('#positioning-title').textContent(), '補貨最難的，不是買，而是一直記得。');
     assert.deepEqual(await page.locator('.value-card h3').allTextContents(), ['記得要買', '掌握時機', '清楚交接']);
     assert.deepEqual(await page.locator('#problem > div').evaluateAll(els => els.map(el => el.className)), ['overview-cover', 'overview-intro', 'overview-positioning']);
-    assert.equal(await page.locator('#intro-title').textContent(), '你在生活中有遇過這些問題嗎？');
-    assert.deepEqual(await page.locator('.moment-card h3').allTextContents(), ['洗澡時發現洗面乳沒有了', '上完廁所才發現衛生紙沒有了']);
-    assert.deepEqual(await page.locator('.moment-image').evaluateAll(imgs => imgs.map(img => img.getAttribute('src').split('/').pop())), ['01-running-out.png', '01-toilet-paper-out.jpg']);
+    assert.equal(await page.locator('#intro-title').textContent(), '這些補貨的小麻煩，你也遇過嗎？');
+    assert.deepEqual(await page.locator('.moment-card h3').allTextContents(), ['洗澡時發現洗面乳沒有了', '到了賣場，卻想不起來要買什麼']);
+    assert.deepEqual(await page.locator('.moment-image').evaluateAll(imgs => imgs.map(img => img.getAttribute('src').split('/').pop())), ['01-running-out.png', '01-supermarket-confused.jpg']);
     assert.equal(await page.locator('link[rel=icon]').getAttribute('href'), './public/assets/bubu-logo.svg');
     assert.deepEqual(await page.locator('.brand-logo').evaluate(img => [img.naturalWidth, img.naturalHeight]), [57, 42]);
     assert.deepEqual(await page.locator('.persona-tag').allTextContents(), ['Persona A', 'Persona B']);
