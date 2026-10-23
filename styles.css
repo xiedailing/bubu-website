@@ -552,7 +552,7 @@ main .research-competition { padding-block: 16px; gap: 14px; }
 .persona-shared strong { flex: none; padding-right: 16px; border-right: 1px solid var(--research-line); color: var(--bubu-primary); font-size: 16px; line-height: 36px; }
 .persona-shared span { font-size: 20px; font-weight: 700; line-height: 30px; }
 
-.research-journey { gap: 22px; }
+.research-journey { gap: 14px; padding-block: 14px 12px; }
 .journey-list { gap: 18px; align-items: stretch; }
 .journey-card { gap: 8px; min-height: 180px; padding: 20px 20px 16px; border-width: 1.5px; }
 .journey-marker span { flex: 0 0 36px; height: 36px; font-size: 18px; line-height: 1; }
@@ -576,26 +576,21 @@ main .research-competition { padding-block: 16px; gap: 14px; }
 .emotion-pointer-a { left: 541.5px; top: 179.5px; }
 .emotion-pointer-b { left: 672.5px; top: 179.5px; }
 .emotion-points { margin: 0; padding: 0; list-style: none; }
+.emotion-name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .emotion-face-1 { left: 94.5px; top: 208.5px; }
 .emotion-face-2 { left: 360.5px; top: 190.5px; }
 .emotion-face-3 { left: 611.5px; top: 256.5px; }
 .emotion-face-4 { left: 892.5px; top: 166.5px; }
 .emotion-face-5 { left: 1158.5px; top: 126.5px; }
 .emotion-bubble { width: 216px; height: 72px; margin: 0; display: flex; align-items: center; justify-content: center; padding: 10px 12px; border: 1.5px solid #cfd6c8; border-radius: 16px; background: #f1f4ee; color: var(--bubu-dark); font-size: 20px; font-weight: 500; line-height: normal; text-align: center; }
-.emotion-point-1 .emotion-bubble { left: 16px; top: 284px; }
-.emotion-point-2 .emotion-bubble { left: 282px; top: 270px; }
-.emotion-point-4 .emotion-bubble { left: 814px; top: 256px; }
-.emotion-point-5 .emotion-bubble { left: 1080px; top: 202px; }
-.bubble-tail { position: absolute; left: 96.75px; top: -13.25px; }
-.bubble-cover { position: absolute; left: 99px; top: -2.5px; width: 15px; height: 3px; background: #f1f4ee; }
 .emotion-bubble-a, .emotion-bubble-b { width: 208px; height: 96px; padding: 10px 14px; border: 2px solid var(--research-orange); background: #fff3e6; font-size: 21px; font-weight: 700; }
-.emotion-bubble-a { left: 440px; top: 84px; }
-.emotion-bubble-b { left: 664px; top: 84px; }
+.emotion-bubble-a { left: 440px; top: 100px; }
+.emotion-bubble-b { left: 664px; top: 100px; }
 .emotion-tag { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 15px; font-size: 18px; font-weight: 700; line-height: 1; }
 .emotion-tag-a { background: var(--bubu-primary); color: var(--bubu-card); }
 .emotion-tag-b { background: var(--research-orange); color: var(--bubu-dark); }
 .emotion-bubble-a .emotion-tag, .emotion-bubble-b .emotion-tag { left: -10px; top: -12px; }
-.journey-conclusion { padding-top: 18px; border-top: 1.5px solid var(--research-line); color: var(--bubu-dark); font-size: 30px; font-weight: 700; line-height: 1.4; text-align: center; }
+.journey-conclusion { padding-top: 12px; border-top: 1.5px solid var(--research-line); color: var(--bubu-dark); font-size: 30px; font-weight: 700; line-height: 1.4; text-align: center; }
 .journey-conclusion span { color: #9a5510; }
 .emotion-legend { display: flex; flex-wrap: wrap; gap: 14px 40px; margin: 0; padding: 0; list-style: none; font-size: 20px; font-weight: 500; line-height: 30px; }
 .emotion-legend li { display: flex; align-items: center; gap: 10px; }
@@ -612,9 +607,9 @@ main .research-competition { padding-block: 16px; gap: 14px; }
   .emotion-point { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
   .emotion-chart .emotion-point > img { position: static; flex: none; width: 56px; height: 56px; }
   .emotion-chart .emotion-point-3 > img { width: 64px; height: 64px; }
+  .emotion-name { position: static; width: auto; height: auto; overflow: visible; clip-path: none; flex: 1 1 140px; color: var(--bubu-dark); font-size: 20px; font-weight: 500; line-height: 30px; white-space: normal; }
   .emotion-bubble, .emotion-bubble-a, .emotion-bubble-b { position: relative; left: auto !important; top: auto !important; flex: 1 1 200px; width: auto; height: auto; min-height: 56px; }
   .emotion-bubble-a .emotion-tag, .emotion-bubble-b .emotion-tag { position: static; margin-right: 10px; flex: none; }
-  .bubble-tail, .bubble-cover { display: none; }
   .journey-conclusion { font-size: 26px; }
 }
 @media (max-width: 700px) {
