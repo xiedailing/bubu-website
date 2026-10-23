@@ -71,7 +71,7 @@ async function main() {
     assert.deepEqual(await page.locator('.method-card h3').allTextContents(), ['1.競品分析', '2.問卷調查', '3.深入訪談']);
     assert.deepEqual(await page.locator('.method-number').allTextContents(), ['3', '47', '6']);
     assert.deepEqual(await page.locator('.direction-number').allTextContents(), ['解法 01', '解法 02', '解法 03']);
-    assert.equal(await page.locator('.solution-directions .chapter-label').innerText(), '03 / 產品解法');
+    assert.equal(await page.locator('.solution-directions .chapter-label').innerText(), '03 / 解法 • 產品解法');
     assert.equal(await page.locator('.iteration-response').count(), 2);
     assert.equal(await page.locator('.iteration-b #iteration-b-title').innerText(), 'B｜不用在新增時，先猜下次補貨日期');
     assert.equal(await page.locator('#iteration').innerText().then(text => /目前部[署屬]版|設計迭代 C/.test(text)), false);
