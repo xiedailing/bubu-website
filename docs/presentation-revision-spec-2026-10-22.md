@@ -341,3 +341,8 @@
 3. 仍維持第 4 節狀態：研究發現引用、競品／問卷標題、迭代 A 任務卡、成果 03 文案、bottom nav、迭代圈選。
 4. 補跑 `verify-research.py`（需有 Playwright 的 Python 環境）與 `verify-demo.*`。
 5. 驗收指令的 Playwright 路徑與用法見 `presentation-revision-verification-2026-10-22.md`；本地伺服器為 `python -m http.server 5173 --bind 127.0.0.1`。
+
+### 9.6 2026-10-23 後續確認與調整
+
+- 使用者確認：9.3 第 1 點（UI 節點）忽略；前言卡片說明句拿掉、導覽 Logo 沿用現檔、字型子集重建，皆無問題。
+- 章節順序改為 06 設計、07 Demo、08 成果（取代 9.1／9.3 中「07 設計在 Demo 之後」）。導覽、章節標籤、README 與驗收腳本已同步。

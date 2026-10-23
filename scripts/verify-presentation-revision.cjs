@@ -28,7 +28,7 @@ async function main() {
       assert.deepEqual(await page.locator(item.selector).evaluateAll(els => els.map(el => el.outerHTML)), item.html, `Deferred/retained content changed: ${item.selector}`);
     }
     // 2026-10-23 revision: intro page, persona, journey with emotion curve, features, design chapter, renumbering.
-    assert.deepEqual(await page.locator('.chapter-list a').allTextContents(), ['01 介紹', '02 研究', '03 洞察', '04 解法', '05 迭代', '06 Demo', '07 設計', '08 成果']);
+    assert.deepEqual(await page.locator('.chapter-list a').allTextContents(), ['01 介紹', '02 研究', '03 洞察', '04 解法', '05 迭代', '06 設計', '07 Demo', '08 成果']);
     assert.equal(await page.locator('#overview-label').innerText(), '01 / 介紹');
     assert.equal(await page.locator('.overview-intro .chapter-label').innerText(), '01 / 前言');
     assert.equal(await page.locator('#intro-title').textContent(), '你在生活中有遇過這些問題嗎？');
@@ -49,7 +49,7 @@ async function main() {
     assert.equal(await page.locator('#design-title').textContent(), '以「家人」為靈感，呈現溫暖、親切的日常感。');
     assert.equal(await page.locator('.swatch').count(), 12);
     assert.equal(await page.locator('#results-product-title').evaluate(el => el.closest('.results-panel').querySelector('.chapter-label').textContent.trim()), '08 / 產品結果');
-    assert(await page.locator('#demo').evaluate(el => el.compareDocumentPosition(document.querySelector('#design')) & Node.DOCUMENT_POSITION_FOLLOWING));
+    assert(await page.locator('#design').evaluate(el => el.compareDocumentPosition(document.querySelector('#demo')) & Node.DOCUMENT_POSITION_FOLLOWING));
     assert.equal(await page.locator('.research-note,.research-takeaways,.journey-takeaway,.insights-definition,.architecture-shortcut,.iteration-c,.iteration-detail,.results-learning').count(), 0);
     assert.deepEqual(await page.locator('.method-card h3').allTextContents(), ['1.競品分析', '2.問卷調查', '3.深入訪談']);
     assert.deepEqual(await page.locator('.method-number').allTextContents(), ['3', '47', '6']);
@@ -124,7 +124,7 @@ async function main() {
         };
       });
       assert.deepEqual(integrity, { overflow: false, duplicates: [], brokenLabels: [], brokenLinks: [], clipped: [], cardOrder: true }, JSON.stringify({ width, integrity }));
-      const ids = ['problem','research','insights','solution','iteration','demo','design','results'];
+      const ids = ['problem','research','insights','solution','iteration','design','demo','results'];
       for (const id of ids) {
         await page.locator(`.chapter-list a[href="#${id}"]`).click();
         await page.waitForFunction(id => document.querySelector('.chapter-list a[aria-current]')?.hash === `#${id}`, id);

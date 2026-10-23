@@ -2,7 +2,7 @@
 
 由 Figma 設計稿開發的發表網站（桌機 1440 寬）。**設計稿仍在修改中**，開發前請重新讀取最新 frame，不要依賴本文件的尺寸或文案。
 
-## 本機預覽（目前完成：首頁、導覽列、02 研究、03 洞察、04 解法、05A–C 迭代、06 Demo 與 07 成果）
+## 本機預覽（目前完成：首頁、導覽列、02 研究、03 洞察、04 解法、05A–C 迭代、06 設計、07 Demo 與 08 成果）
 
 直接開啟 `index.html`，或在專案根目錄執行：
 
@@ -26,7 +26,7 @@ python -m http.server 5173 --bind 127.0.0.1
 
 05A 迭代依 `289:244` 實作，包含兩項測試觀察、設計調整與版本差異、五張新舊版截圖對照。桌機沿用原稿尺寸與留白；手機改為單欄，保留完整截圖。沿用既有圖片放大視窗與章節導覽，新增樣式位於 `iteration.css`，使用獨立的 `chiron-iteration-{400,500,700}.ttf` 字型子集。詳見 [迭代 A 實作與驗證](docs/iteration-implementation.md)。
 
-06 Live Demo 依 `324:921` 實作，包含個人補貨與家庭共同採買的操作步驟、另開新分頁的產品入口、備援說明及單機模擬註記。桌機雙欄、手機單欄，新增樣式位於 `demo.css`，使用獨立的 `chiron-demo-{400,500,700}.ttf` 字型子集。備用錄影尚未提供，備援列目前為說明文字。詳見 [06 Demo 實作與驗證](docs/demo-implementation.md)。
+07 Live Demo 依 `324:921` 實作，包含個人補貨與家庭共同採買的操作步驟、另開新分頁的產品入口、備援說明及單機模擬註記。桌機雙欄、手機單欄，新增樣式位於 `demo.css`，使用獨立的 `chiron-demo-{400,500,700}.ttf` 字型子集。備用錄影尚未提供，備援列目前為說明文字。詳見 [06 Demo 實作與驗證](docs/demo-implementation.md)。
 
 07 成果依 `324:999` 最新稿實作，包含四項產品成果、四項專案學習、兩位成員與共同貢獻、三類未來方向及品牌收尾。桌機保留五段版面與留白，手機改為單欄並自然展開高度。新增樣式位於 `results.css`，本地字型為 `chiron-results-{400,500,700}.ttf`。詳見 [07 成果實作與驗證](docs/results-implementation.md)。
 
@@ -87,4 +87,4 @@ docs/            設計規格：色彩、字型、間距、元件（定稿後再
 1. 每次改字後執行：`python scripts/subset-revision-fonts.py --check`（需要 `fonttools`，不需完整字型）。
 2. 回報 `MISSING` 時重建：`python scripts/subset-revision-fonts.py <400.ttf> <500.ttf> <700.ttf>`，三個參數是完整 Chiron GoRound TC 的 400／500／700 字重檔。可加 `--sections research` 只重建單一章節。
 3. 重建後再執行一次 `--check`，確認為 `font coverage OK`。
-4. 2026-10-23 起新增 `07 設計` 章節（`design.css`、`chiron-design-*.ttf`），章節編號為 01 介紹、02 研究、03 洞察、04 解法、05 迭代、06 Demo、07 設計、08 成果。若手邊只有可變字型，可用 `fontTools.varLib.instancer` 先產生 400／500／700 靜態字重再重建。`journey.js` 負責在寬螢幕縮放情緒折線圖。
+4. 2026-10-23 起新增 `06 設計` 章節（`design.css`、`chiron-design-*.ttf`），章節編號為 01 介紹、02 研究、03 洞察、04 解法、05 迭代、06 設計、07 Demo、08 成果。若手邊只有可變字型，可用 `fontTools.varLib.instancer` 先產生 400／500／700 靜態字重再重建。`journey.js` 負責在寬螢幕縮放情緒折線圖。
