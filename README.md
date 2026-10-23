@@ -87,4 +87,4 @@ docs/            設計規格：色彩、字型、間距、元件（定稿後再
 1. 每次改字後執行：`python scripts/subset-revision-fonts.py --check`（需要 `fonttools`，不需完整字型）。
 2. 回報 `MISSING` 時重建：`python scripts/subset-revision-fonts.py <400.ttf> <500.ttf> <700.ttf>`，三個參數是完整 Chiron GoRound TC 的 400／500／700 字重檔。可加 `--sections research` 只重建單一章節。
 3. 重建後再執行一次 `--check`，確認為 `font coverage OK`。
-4. 2026-10-23 起新增 `06 設計` 章節（`design.css`、`chiron-design-*.ttf`），章節編號為 01 簡介、02 研究、03 洞察、04 解法、05 迭代、06 設計、07 Demo、08 成果。若手邊只有可變字型，可用 `fontTools.varLib.instancer` 先產生 400／500／700 靜態字重再重建。`journey.js` 負責在寬螢幕縮放情緒折線圖。
+4. 2026-10-23 起新增 `06 設計` 章節（`design.css`、`chiron-design-*.ttf`），章節編號為 01 概述、02 研究、03 洞察、04 解法、05 迭代、06 設計、07 Demo、08 成果。若手邊只有可變字型，可用 `fontTools.varLib.instancer` 先產生 400／500／700 靜態字重再重建。`journey.js` 負責在寬螢幕縮放情緒折線圖。

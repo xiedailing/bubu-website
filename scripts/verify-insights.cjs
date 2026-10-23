@@ -87,7 +87,7 @@ async function main() {
       assert.equal(await page.locator('.research-heading h2').count(), 5);
       await page.locator('.brand').click();
       await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]').hash === '#problem');
-      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '01 簡介');
+      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '01 概述');
       results.push(layout);
     }
     // Touch-enabled mobile viewport, direct URL entry, and reduced motion.
