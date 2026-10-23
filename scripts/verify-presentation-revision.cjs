@@ -71,7 +71,7 @@ async function main() {
     assert.equal(await page.locator('.competition-conclusion').count(), 0);
     assert.deepEqual(await page.locator('.comparison-table tbody th').allTextContents(), ['商品定位', '目標使用者', '優點', '缺點']);
     assert.equal(await page.locator('#research-title').textContent(), '我們用三種方法，看見補貨的困難。');
-    assert.equal(await page.locator('.research-methods .chapter-label').innerText(), '02 / 研究 • 研究方法');
+    assert.equal(await page.locator('.research-methods .chapter-label').innerText(), '02 / 使用者研究與洞察 • 研究方法');
     assert.equal(await page.locator('.research-scenarios').count(), 0);
     assert.deepEqual(await page.locator('.finding-card h3').allTextContents(), ['研究發現 01', '研究發現 02']);
     assert.equal(await page.locator('.insights-note,.solution-flow,.solution-tradeoffs,.solution-next').count(), 0);

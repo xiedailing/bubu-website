@@ -389,3 +389,7 @@
 - 章節重編：03 解法、04 迭代、05 設計、06 Demo（含各頁小標與 aria-label）。導覽 02 項寬度加寬以容納長名稱。
 - 該頁改用研究章節字型子集（`chiron-insights-*.ttf` 不再使用，檔案保留；`subset-revision-fonts.py` 已移除 `insights`）。
 - 驗收：`verify-presentation-revision.cjs`、`verify-insights.cjs`（改為檢查設計方向頁）、`verify-solution.cjs`、`verify-iteration.cjs` 通過；字型檢查 OK。`verify-results.cjs` 因成果區塊已移除不可用（見 9.7）。
+
+### 9.15 第 02 章小標統一（2026-10-23）
+
+「02 / 研究 • …」小標改為「02 / 使用者研究與洞察 • …」（研究方法、使用者旅程、設計方向）。仍維持原樣：「02 / 競品分析」「02 / 使用者分析 • 使用情境 & Persona」。

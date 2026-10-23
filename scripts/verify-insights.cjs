@@ -54,7 +54,7 @@ async function main() {
       assert.equal(await page.locator('.chapter-list a').nth(1).textContent(), '02 使用者研究與洞察');
       assert.equal(layout.cardCount, 3);
       assert.equal(await page.locator('.insights-definition').count(), 0);
-      assert.equal(await page.locator('.insights .chapter-label').first().innerText(), '02 / 研究 • 設計方向');
+      assert.equal(await page.locator('.insights .chapter-label').first().innerText(), '02 / 使用者研究與洞察 • 設計方向');
       assert.deepEqual(await page.locator('.insight-label .chapter-label').allInnerTexts(), ['設計方向 01', '設計方向 02', '設計方向 03']);
       assert.equal(await page.locator('#insights-title').textContent(), '從研究洞察，我們收斂出三個設計方向。');
       assert.equal(layout.columns, width <= 1100 ? 1 : 3);
