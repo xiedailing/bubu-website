@@ -407,14 +407,15 @@ main section { scroll-margin-top: 96px; }
 .insights-panel { display: flex; flex-direction: column; gap: 36px; min-height: 814px; padding: 28px 64px 24px; }
 .insights-overview { gap: 44px; }
 .insights-heading { display: flex; flex-direction: column; gap: 8px; }
-.insights-heading h2, .insight-card h3 { font-size: 44px; font-weight: 700; line-height: 58px; }
+.insights-heading h2 { font-size: 44px; font-weight: 700; line-height: 58px; }
+.insight-card h3 { font-size: 34px; font-weight: 700; line-height: 50px; text-wrap: balance; }
 .insight-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .insight-card {
   display: flex;
   flex-direction: column;
   gap: 14px;
   min-width: 0;
-  min-height: 405px;
+  min-height: 340px;
   padding: 32px;
   border: 1px solid var(--insights-line);
   border-radius: 20px;
@@ -439,7 +440,7 @@ main section { scroll-margin-top: 96px; }
 .definition-note { color: var(--bubu-secondary); font-size: 20px; line-height: 30px; }
 
 @media (max-width: 1399px) {
-  .insight-card h3 { font-size: 36px; line-height: 50px; }
+  .insight-card h3 { font-size: 30px; line-height: 44px; }
   .insight-card { padding: 28px; }
 }
 @media (max-width: 1100px) {
@@ -453,7 +454,8 @@ main section { scroll-margin-top: 96px; }
 }
 @media (max-width: 700px) {
   .insights-panel { padding: 36px 24px; gap: 28px; }
-  .insights-heading h2, .insight-card h3 { font-size: 28px; line-height: 42px; }
+  .insights-heading h2 { font-size: 28px; line-height: 42px; }
+  .insight-card h3 { font-size: 24px; line-height: 36px; }
   .insight-card { padding: 24px 20px; }
   .insight-description, .definition-context { font-size: 20px; line-height: 32px; }
   .insight-description br { display: none; }

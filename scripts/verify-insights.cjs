@@ -54,9 +54,12 @@ async function main() {
       assert.equal(await page.locator('.chapter-list a').nth(1).textContent(), '02 使用者研究與洞察');
       assert.equal(layout.cardCount, 3);
       assert.equal(await page.locator('.insights-definition').count(), 0);
-      assert.equal(await page.locator('.insights .chapter-label').first().innerText(), '02 / 使用者研究與洞察 • 設計方向');
-      assert.deepEqual(await page.locator('.insight-label .chapter-label').allInnerTexts(), ['設計方向 01', '設計方向 02', '設計方向 03']);
-      assert.equal(await page.locator('#insights-title').textContent(), '從研究洞察，我們收斂出三個設計方向。');
+      assert.deepEqual(await page.locator('.insight-card h3').allTextContents(), ['如何讓使用者延後購買時，也不忘記待買需求？', '如何讓使用者提早掌握補貨時機，而不是用完才發現？', '如何讓補貨交辦更清楚，減少責任與進度不明的情況？']);
+      assert.deepEqual(await page.locator('.insight-description').allTextContents(), ['對應研究：知道要買，卻在真正購買前忘記。', '對應研究：用品快用完時，才察覺需要補貨。', '對應研究：交代他人購買後，不確定是否完成。']);
+      assert.equal(await page.locator('.insights .insight-evidence, .insights .insight-badge').count(), 0);
+      assert.equal(await page.locator('.insights .chapter-label').first().innerText(), '02 / 使用者研究與洞察 • 問題定義');
+      assert.deepEqual(await page.locator('.insight-label .chapter-label').allInnerTexts(), ['問題 01', '問題 02', '問題 03']);
+      assert.equal(await page.locator('#insights-title').textContent(), '從研究發現出發，我們想解決哪些問題？');
       assert.equal(layout.columns, width <= 1100 ? 1 : 3);
       assert.deepEqual(layout.clipped, []);
       assert.equal(layout.images.length, 4);

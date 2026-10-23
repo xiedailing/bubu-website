@@ -78,7 +78,7 @@ async function main() {
     assert.equal(await page.locator('#insights,.chapter-list a[href="#insights"]').count(), 0);
     assert.equal(await page.locator('.research-findings .chapter-label').innerText(), '02 / 使用者研究與洞察 • 問卷結果');
     assert(await page.locator('#research').evaluate(el => [...el.children].at(-1).querySelector('.insights-overview') !== null), 'Design directions are the last page of chapter 02');
-    assert.deepEqual(await page.locator('.insight-evidence strong').allTextContents(), ['研究發現 02、機會點 02', '研究發現 01', '機會點 01']);
+    assert.equal(await page.locator('.insights .insight-card').count(), 3);
     assert.equal(await page.locator('.solution-note,.demo-backup,.demo-note').count(), 0);
     assert.deepEqual(await page.locator('.iteration-screen figcaption').allInnerTexts(), ['空間選擇 UI 不明確', '空間選擇 UI 重新設計', '「＋」展開選單', '新增用品・\n選擇預計補貨日', '記錄補貨・精簡表單', '補貨明細・歷史紀錄']);
     assert.equal(await page.locator('.iteration-trio .iteration-version-row > img').count(), 2);
