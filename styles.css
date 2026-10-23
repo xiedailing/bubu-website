@@ -342,13 +342,13 @@ main section { scroll-margin-top: 96px; }
 .journey-list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: start; gap: 16px; margin: 0; padding: 0; list-style: none; }
 .journey-card { display: flex; flex-direction: column; gap: 12px; padding: 24px 20px; }
 .journey-marker { display: flex; align-items: center; gap: 10px; }
-.journey-marker span { display: grid; place-items: center; flex: 0 0 44px; height: 44px; border-radius: 50%; background: var(--bubu-primary); color: var(--bubu-card); font-size: 20px; font-weight: 700; line-height: 30px; }
+.journey-marker span:not(.journey-risk) { display: grid; place-items: center; flex: 0 0 44px; height: 44px; border-radius: 50%; background: var(--bubu-primary); color: var(--bubu-card); font-size: 20px; font-weight: 700; line-height: 30px; }
 .journey-card:not(:last-child) .journey-marker::after { content: ""; flex: 1; height: 2px; background: var(--research-line); }
 .journey-card h3 { font-size: 28px; line-height: 40px; }
 .journey-card p { color: var(--bubu-secondary); }
 .journey-highlight { border: 2px solid var(--research-orange); background: #fff1e2; box-shadow: 0 6px 8px rgb(0 0 0 / 18%); }
 @media (min-width: 701px) { .journey-highlight { position: relative; z-index: 1; transform: scale(1.08); } }
-.journey-highlight .journey-marker span { border: 0; background: var(--research-orange); color: var(--bubu-dark); }
+.journey-highlight .journey-marker span:not(.journey-risk) { border: 0; background: var(--research-orange); color: var(--bubu-dark); }
 .journey-takeaway { display: flex; flex-direction: column; gap: 10px; padding: 16px 24px; border-left: 5px solid var(--research-orange); border-radius: 16px; background: var(--bubu-card); box-shadow: 0 6px 8px rgb(0 0 0 / 20%); }
 .journey-takeaway p { color: var(--bubu-secondary); }
 
@@ -549,19 +549,19 @@ main .research-competition { padding-block: 16px; gap: 14px; }
 .persona-pain li, .persona-need li { position: relative; padding-left: 16px; font-size: 17px; font-weight: 500; line-height: 26px; }
 .persona-pain li::before, .persona-need li::before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--research-orange); }
 .persona-need li::before { background: var(--bubu-primary); }
-.persona-shared { display: flex; align-items: center; gap: 16px; padding: 22px 28px; border: 1px solid var(--research-line); border-radius: 16px; background: #eef5ec; }
+.persona-shared { display: flex; align-items: center; gap: 16px; padding: 22px 28px; border: 1px solid var(--research-line); border-radius: 16px; background: transparent; }
 .persona-shared strong { flex: none; padding-right: 16px; border-right: 1px solid var(--research-line); color: var(--bubu-primary); font-size: 16px; line-height: 36px; }
 .persona-shared span { font-size: 20px; font-weight: 700; line-height: 30px; }
 
 .research-journey { gap: 14px; padding-block: 14px 12px; }
 .journey-list { gap: 18px; align-items: stretch; }
 .journey-card { gap: 8px; min-height: 180px; padding: 20px 20px 16px; border-width: 1.5px; }
-.journey-marker span { flex: 0 0 36px; height: 36px; font-size: 18px; line-height: 1; }
+.journey-marker span:not(.journey-risk) { flex: 0 0 36px; height: 36px; font-size: 18px; line-height: 1; }
 .journey-card:not(:last-child) .journey-marker::after { height: 2px; }
 .journey-card h3 { color: var(--bubu-dark); font-size: 26px; line-height: 1.3; }
 .journey-card p { font-size: 20px; line-height: 1.35; }
 .journey-highlight { border: 2px solid var(--bubu-primary); background: #e3edde; box-shadow: none; }
-.journey-highlight .journey-marker span { border: 2px solid var(--research-orange); background: var(--bubu-dark); color: var(--bubu-card); }
+.journey-highlight .journey-marker span:not(.journey-risk) { border: 2px solid var(--research-orange); background: var(--bubu-dark); color: var(--bubu-card); }
 .journey-highlight .journey-marker::after { content: none !important; }
 .journey-risk { margin-left: auto; padding: 3px 10px; border: 1.5px solid var(--research-orange); border-radius: 999px; background: #fff3e6; color: #9a5510; font-size: 16px; font-weight: 700; line-height: 1.3; white-space: nowrap; }
 @media (min-width: 701px) { .journey-highlight { transform: none; } }

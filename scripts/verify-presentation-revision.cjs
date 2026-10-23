@@ -46,6 +46,9 @@ async function main() {
     assert(await page.locator('#research').evaluate(el => el.querySelector('.research-personas').compareDocumentPosition(el.querySelector('.research-journey')) & Node.DOCUMENT_POSITION_FOLLOWING), 'Persona precedes journey');
     assert.deepEqual(await page.locator('.journey-card p').allTextContents(), ['發現時，可能已經太晚。', '評估剩餘量與購買必要性。', '靠記憶、備忘錄或訊息保留需求。', '等待下班、順路或有空時購買。', '完成購買，仍可能需要確認結果。']);
     assert.equal(await page.locator('.emotion-face').count(), 5);
+    assert.equal(await page.locator('.journey-risk').evaluate(el => getComputedStyle(el).borderTopLeftRadius), '999px');
+    assert.equal(await page.locator('.research-subtitle').count(), 0);
+    assert.equal(await page.locator('.persona-shared').evaluate(el => getComputedStyle(el).backgroundColor), 'rgba(0, 0, 0, 0)');
     assert.equal(await page.locator('.journey-conclusion').textContent(), '真正容易中斷的，不是購買，而是購買前的記住與交代。');
     assert.deepEqual(await page.locator('.feature-card h3').allTextContents(), ['購買清單', '記錄補貨', '共享空間', '我的用品', '補貨明細', '延後提醒']);
     assert.equal(await page.locator('body').evaluate(body => /共享與認領|共享為單機模擬/.test(body.innerText)), false);
