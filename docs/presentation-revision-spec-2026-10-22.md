@@ -354,3 +354,7 @@
 - `subset-revision-fonts.py` 已移除 `results`；重建區塊時需加回。
 - `navigation.js`：頁面捲到底時最後一個章節（Demo）視為目前章節，因為最後一章較短，捲動時頂端到不了判斷線。
 - 驗收：`verify-presentation-revision.cjs`（移除成果相關斷言並新增「成果區塊已移除」）、iteration、solution、insights 通過；`subset-revision-fonts.py --check` OK。
+
+### 9.8 第一章標籤（2026-10-23）
+
+導覽改為「01 簡介」；第一頁標籤「01 / 簡介 • 介紹」，第二頁「01 / 簡介 • 前言」。首頁字型子集已重建（新增「簡」「•」），驗收腳本同步。

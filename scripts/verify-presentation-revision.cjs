@@ -28,9 +28,9 @@ async function main() {
       assert.deepEqual(await page.locator(item.selector).evaluateAll(els => els.map(el => el.outerHTML)), item.html, `Deferred/retained content changed: ${item.selector}`);
     }
     // 2026-10-23 revision: intro page, persona, journey with emotion curve, features, design chapter, renumbering.
-    assert.deepEqual(await page.locator('.chapter-list a').allTextContents(), ['01 介紹', '02 研究', '03 洞察', '04 解法', '05 迭代', '06 設計', '07 Demo']);
-    assert.equal(await page.locator('#overview-label').innerText(), '01 / 介紹');
-    assert.equal(await page.locator('.overview-intro .chapter-label').innerText(), '01 / 前言');
+    assert.deepEqual(await page.locator('.chapter-list a').allTextContents(), ['01 簡介', '02 研究', '03 洞察', '04 解法', '05 迭代', '06 設計', '07 Demo']);
+    assert.equal(await page.locator('#overview-label').innerText(), '01 / 簡介 • 介紹');
+    assert.equal(await page.locator('.overview-intro .chapter-label').innerText(), '01 / 簡介 • 前言');
     assert.equal(await page.locator('#intro-title').textContent(), '你在生活中有遇過這些問題嗎？');
     assert.deepEqual(await page.locator('.moment-card h3').allTextContents(), ['洗澡時發現洗面乳沒有了', '上完廁所才發現衛生紙沒有了']);
     assert.deepEqual(await page.locator('.moment-image').evaluateAll(imgs => imgs.map(img => img.getAttribute('src').split('/').pop())), ['01-running-out.png', '01-toilet-paper-out.jpg']);
