@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#fcfbf8">
     <title>補補 Bubu｜居家消耗品補貨管理</title>
-    <link rel="icon" href="./public/assets/bubu-logo.svg" type="image/svg+xml">
+    <link rel="icon" href="./public/assets/bubu-logo.svg?v=2" type="image/svg+xml">
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="./solution.css">
     <link rel="stylesheet" href="./iteration.css">
@@ -27,10 +27,10 @@
         <div class="chapter-scroll" tabindex="0" aria-label="章節連結，可左右捲動">
           <ul class="chapter-list">
             <li><a href="#problem" aria-current="location">01 概述</a></li>
-            <li><a href="#research">02 使用者研究與洞察</a></li>
+            <li><a href="#research">02 研究與洞察</a></li>
             <li><a href="#solution">03 解法</a></li>
-            <li><a href="#iteration">04 迭代</a></li>
-            <li><a href="#design">05 設計</a></li>
+            <li><a href="#iteration">04 測試與迭代</a></li>
+            <li><a href="#design">05 視覺設計</a></li>
             <li><a href="#demo">06 Demo</a></li>
           </ul>
         </div>
@@ -90,10 +90,10 @@
           <p class="positioning-closing">把想到要買的用品留下來，<wbr>等方便的時候，再安心買齊。</p>
         </div>
       </section>
-      <section id="research" class="research" aria-label="02 使用者研究與洞察" data-node-id="312:423">
+      <section id="research" class="research" aria-label="02 研究與洞察" data-node-id="312:423">
         <div class="research-panel research-methods" aria-labelledby="research-title" data-node-id="312:443">
           <div class="research-heading">
-            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">02 / 使用者研究與洞察 • 研究方法</p>
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">02 / 研究與洞察 • 研究方法</p>
             <h2 id="research-title">我們用三種方法，看見補貨的困難。</h2>
           </div>
           <div class="method-grid">
@@ -114,7 +114,7 @@
 
         <div class="research-panel research-competition" aria-labelledby="competition-title" data-node-id="329:1086">
           <div class="research-heading">
-            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">02 / 使用者研究與洞察 • 競品分析</p>
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">02 / 研究與洞察 • 競品分析</p>
             <h2 id="competition-title">有提醒、有共享，還要關注哪些環節？</h2>
           </div>
           <div class="comparison-scroll" role="region" aria-labelledby="competition-title" tabindex="0">
@@ -133,7 +133,7 @@
 
         <div class="research-panel research-findings" aria-labelledby="findings-title" data-node-id="312:463">
           <div class="research-heading">
-            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">02 / 使用者研究與洞察 • 問卷結果</p>
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">02 / 研究與洞察 • 問卷結果</p>
             <h2 id="findings-title">從察覺需要，到真正買到，中間會發生什麼？</h2>
           </div>
           <div class="finding-grid">
@@ -154,7 +154,7 @@
 
         <div class="research-panel research-personas" aria-labelledby="personas-title" data-node-id="502:1231">
           <div class="research-heading">
-            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">02 / 使用者研究與洞察 • Persona</p>
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">02 / 研究與洞察 • Persona</p>
             <h2 id="personas-title">兩種補貨情境，不同的處理方式</h2>
           </div>
           <div class="persona-grid">
@@ -177,12 +177,11 @@
               </div>
             </article>
           </div>
-          <p class="persona-shared"><strong>共同需求 / Shared Need</strong><span>無論自己採買或交由他人處理，都需要讓待買需求在真正完成購買前被妥善保留。</span></p>
         </div>
 
         <div class="research-panel research-journey" aria-labelledby="journey-title" data-node-id="494:1227">
           <div class="research-heading">
-            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">02 / 使用者研究與洞察 • 使用者旅程</p>
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">02 / 研究與洞察 • 使用者旅程</p>
             <h2 id="journey-title">補貨這件小事，跨越了好幾個生活時刻。</h2>
           </div>
           <ol class="journey-list" aria-label="補貨的五階段旅程">
@@ -209,7 +208,6 @@
               </ol>
             </div>
           </div>
-          <p class="journey-conclusion">真正容易中斷的，不是購買，而是<span>購買前的記住與交代</span>。</p>
           <ul class="emotion-legend" aria-label="圖例">
             <li><span class="emotion-tag emotion-tag-a">A</span>自己發現、自己購買</li>
             <li><span class="emotion-tag emotion-tag-b">B</span>發現需求、交由他人購買</li>
@@ -218,7 +216,7 @@
         <div class="insights">
         <div class="insights-panel insights-overview" aria-labelledby="insights-title" data-node-id="315:512">
           <div class="insights-heading">
-            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">02 / 使用者研究與洞察 • 問題定義</p>
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">02 / 研究與洞察 • 問題定義</p>
             <h2 id="insights-title">從研究發現出發，我們想解決哪些問題？</h2>
           </div>
           <div class="insight-grid" data-node-id="315:538">
@@ -227,21 +225,21 @@
                 <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">問題 01</p>
               </div>
               <h3>如何讓使用者延後購買時，<br>也不忘記待買需求？</h3>
-              <p class="insight-description">對應研究：知道要買，卻在真正購買前忘記。</p>
+              <p class="insight-description">對應研究：<br>知道要買，卻在真正購買前忘記。</p>
             </article>
             <article class="insight-card">
               <div class="insight-label">
                 <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">問題 02</p>
               </div>
               <h3>如何讓使用者掌握補貨時機，<br>而不是用完才發現？</h3>
-              <p class="insight-description">對應研究：用品快用完時，才察覺需要補貨。</p>
+              <p class="insight-description">對應研究：<br>用品快用完時，才察覺需要補貨。</p>
             </article>
             <article class="insight-card">
               <div class="insight-label">
                 <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">問題 03</p>
               </div>
-              <h3>如何讓補貨交辦更清楚，<br>減少責任，進度不明的情況？</h3>
-              <p class="insight-description">對應研究：交代他人購買後，不確定是否完成。</p>
+              <h3>如何讓補貨交辦更清楚，<br>減少責任、進度不明的情況？</h3>
+              <p class="insight-description">對應研究：<br>交代他人購買後，不確定是否完成。</p>
             </article>
           </div>
         </div>
@@ -283,15 +281,15 @@
       <div class="ia-global"><span class="ia-global-tag">全域入口與快捷操作</span>
       <span class="ia-global-divider" aria-hidden="true"></span>
       <span class="ia-global-item"><img src="./public/assets/ia-icon-bell.svg" alt="" width="28" height="28"><strong>通知</strong><span>可從各主要頁面進入</span></span>
-      <span class="ia-global-item"><img src="./public/assets/ia-icon-plus.svg" alt="" width="28" height="28"><strong>快速新增</strong><span>透過導覽列的「＋」按鈕快速建立用品</span></span></div>
+      <span class="ia-global-item"><img src="./public/assets/ia-icon-plus.svg" alt="" width="28" height="28"><strong>快速操作</strong><span>透過「＋」記錄補貨與新增空間</span></span></div>
       </div>
       <ul class="ia-legend" aria-label="圖例"><li><span class="ia-swatch ia-swatch-entry"></span>主要入口</li><li><span class="ia-swatch ia-swatch-page"></span>頁面</li><li><span class="ia-swatch ia-swatch-tab"></span>分頁</li><li><span class="ia-swatch ia-swatch-op"></span>操作</li></ul>
       </div>
 </section>
-      <section id="iteration" class="iteration" aria-label="04 設計迭代 A、B" data-node-id="289:244">
+      <section id="iteration" class="iteration" aria-label="04 測試與迭代 A、B" data-node-id="289:244">
         <div class="iteration-panel iteration-observations" aria-labelledby="iteration-title" data-node-id="300:251">
           <div class="iteration-heading">
-            <div class="iteration-meta"><p class="chapter-label"><img src="./public/assets/chapter-dot.svg" alt="" width="10" height="10">04 / 設計迭代 A</p><p class="iteration-test">7 位使用者・8 項情境任務・<time datetime="2026-10-15">2026.10.15</time></p></div>
+            <div class="iteration-meta"><p class="chapter-label"><img src="./public/assets/chapter-dot.svg" alt="" width="10" height="10">04 / 測試與迭代 A</p><p class="iteration-test">7 位使用者・8 項情境任務・<time datetime="2026-10-15">2026.10.15</time></p></div>
             <h2 id="iteration-title">A｜不只找得到入口，也要理解「空間」</h2>
           </div>
           <div class="iteration-overview">
@@ -306,9 +304,9 @@
               </article>
             </div>
             <div class="iteration-comparison iteration-trio" aria-label="空間切換與新增入口的畫面對照" data-node-id="415:1067">
-            <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05a-screen-3.png" data-caption="舊版設計：空間選擇 UI 不明確" aria-label="放大檢視：舊版設計，空間選擇 UI 不明確"><span class="iteration-version-row"><span class="iteration-version">舊版設計</span></span><span class="iteration-phone"><img src="./public/assets/05a-screen-3.png" alt="舊版所有用品選單，包含個人、家庭、公司、客廳與新增空間" width="231" height="500" loading="lazy"></span></button><figcaption>空間選擇 UI 不明確</figcaption></figure>
-            <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05a-screen-4.png" data-caption="目前設計：空間選擇 UI 重新設計" aria-label="放大檢視：目前設計，空間選擇 UI 重新設計"><span class="iteration-version-row"><span class="iteration-version iteration-current">目前設計</span></span><span class="iteration-phone"><img src="./public/assets/05a-screen-4.png" alt="目前設計，從頂端個人標籤展開空間切換選單" width="231" height="500" loading="lazy"></span></button><figcaption>空間選擇 UI 重新設計</figcaption></figure>
-            <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05a-screen-5.png" data-caption="目前設計：「＋」展開選單" aria-label="放大檢視：目前設計，「＋」展開選單"><span class="iteration-version-row"><span class="iteration-version iteration-current">目前設計</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="iteration-phone"><img src="./public/assets/05a-screen-5.png" alt="目前設計，右下角加號展開記錄補貨與新增空間選單" width="231" height="500" loading="lazy"></span></button><figcaption>「＋」展開選單</figcaption></figure>
+            <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05a-screen-3.png" data-caption="舊版設計：空間選擇 UI 不明確" aria-label="放大檢視：舊版設計，空間選擇 UI 不明確"><span class="iteration-version-row"><span class="iteration-version">舊版設計</span></span><span class="iteration-phone"><img src="./public/assets/05a-screen-3.png" alt="舊版所有用品選單，包含個人、家庭、公司、旅行與新增空間" width="231" height="500" loading="lazy"><i class="hl hl-old" aria-hidden="true" style="--x:12;--y:107;--w:328;--h:124"></i><i class="hl hl-old" aria-hidden="true" style="--x:33;--y:706;--w:723;--h:124"></i><i class="hl hl-old" aria-hidden="true" style="--x:318;--y:1465;--w:151;--h:153"></i></span></button><figcaption>空間選擇 UI 不明確</figcaption></figure>
+            <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05a-screen-4.png" data-caption="目前設計：空間選擇 UI 重新設計" aria-label="放大檢視：目前設計，空間選擇 UI 重新設計"><span class="iteration-version-row"><span class="iteration-version iteration-current">目前設計</span></span><span class="iteration-phone"><img src="./public/assets/05a-screen-4.png" alt="目前設計，從頂端個人標籤展開空間切換選單" width="231" height="500" loading="lazy"><i class="hl hl-new" aria-hidden="true" style="--x:120;--y:15;--w:247;--h:124"></i><i class="hl hl-new" aria-hidden="true" style="--x:34;--y:521;--w:721;--h:124"></i></span></button><figcaption>空間選擇 UI 重新設計</figcaption></figure>
+            <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05a-screen-5.png" data-caption="目前設計：「＋」展開選單" aria-label="放大檢視：目前設計，「＋」展開選單"><span class="iteration-version-row"><span class="iteration-version iteration-current">目前設計</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="iteration-phone"><img src="./public/assets/05a-screen-5.png" alt="目前設計，右下角加號展開記錄補貨與新增空間選單" width="231" height="500" loading="lazy"><i class="hl hl-new" aria-hidden="true" style="--x:621;--y:1484;--w:143;--h:138"></i><i class="hl hl-new" aria-hidden="true" style="--x:318;--y:1346;--w:418;--h:107"></i></span></button><figcaption>「＋」展開選單</figcaption></figure>
           </div>
           </div>
         </div>
@@ -316,63 +314,164 @@
 
         <div class="iteration-panel iteration-b" aria-labelledby="iteration-b-title" data-node-id="320:910">
           <div class="iteration-heading">
-            <div class="iteration-meta"><p class="chapter-label"><img src="./public/assets/chapter-dot.svg" alt="" width="10" height="10">04 / 設計迭代 B</p><p class="iteration-test">7 位使用者・8 項情境任務・2026.10.15</p></div>
+            <div class="iteration-meta"><p class="chapter-label"><img src="./public/assets/chapter-dot.svg" alt="" width="10" height="10">04 / 測試與迭代 B</p><p class="iteration-test">7 位使用者・8 項情境任務・2026.10.15</p></div>
             <h2 id="iteration-b-title">B｜不用在新增時，先猜下次補貨日期</h2>
           </div>
           <div class="iteration-overview">
             <div class="iteration-findings">
-            <article class="iteration-stat"><strong>3 / 7</strong><h3>難以自行估算下一次補貨時間</h3></article>
+            <article class="iteration-stat"><strong>3／7</strong><h3>很難直接填出下一次補貨的日期</h3></article>
               <article class="iteration-response">
-                <h3>從「預估日期」到「累積紀錄」</h3>
-                <p>取消新增時提供下次補貨日期，改以記錄補貨留下資料。</p>
-                <p class="iteration-response-copy">紀錄足夠才提供參考；不足時顯示對應提示。</p>
+                <h3>從「新增用品」改為「記錄補貨」</h3>
+                <dl>
+                  <div><dt><span class="iteration-version">舊版設計</span></dt><dd>先建立用品，並自行預估下一次補貨日期。</dd></div>
+                  <div><dt><span class="iteration-version iteration-current">目前設計</span></dt><dd>改以記錄實際補貨為起點，只需填寫用品、數量與日期。</dd></div>
+                </dl>
               </article>
             </div>
             <div class="iteration-comparison iteration-trio" aria-label="日期設定的畫面對照">
-            <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05c-screen-1.png" data-caption="舊版設計：新增用品・選擇預計補貨日" aria-label="放大檢視：舊版設計，新增用品・選擇預計補貨日"><span class="iteration-version-row"><span class="iteration-version">舊版設計</span></span><span class="iteration-phone"><img src="./public/assets/05c-screen-1.png" alt="舊版新增用品表單，要求設定補貨提醒及預計補貨日期" width="231" height="500" loading="lazy"></span></button><figcaption>新增用品・<br>選擇預計補貨日</figcaption></figure>
-            <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05b-record-restock.png" data-caption="目前設計：記錄補貨・精簡表單" aria-label="放大檢視：目前設計，記錄補貨・精簡表單"><span class="iteration-version-row"><span class="iteration-version iteration-current">目前設計</span></span><span class="iteration-phone"><img src="./public/assets/05b-record-restock.png" alt="目前記錄補貨畫面，選擇用品後記錄補貨日期" width="231" height="500" loading="lazy"></span></button><figcaption>記錄補貨・精簡表單</figcaption></figure>
-            <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05c-screen-3.png" data-caption="目前設計：補貨明細・歷史紀錄" aria-label="放大檢視：目前設計，補貨明細・歷史紀錄"><span class="iteration-version-row"><span class="iteration-version iteration-current">目前設計</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="iteration-phone"><img src="./public/assets/05c-screen-3.png" alt="目前洗衣精補貨明細，顯示預計補貨日、上次補貨及三筆補貨紀錄" width="231" height="500" loading="lazy"></span></button><figcaption>補貨明細・歷史紀錄</figcaption></figure>
+            <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05c-screen-1.png" data-caption="舊版設計：新增用品・先預估補貨日期" aria-label="放大檢視：舊版設計，新增用品・先預估補貨日期"><span class="iteration-version-row"><span class="iteration-version">舊版設計</span></span><span class="iteration-phone"><img src="./public/assets/05c-screen-1.png" alt="舊版新增用品表單，要求設定補貨提醒及預計補貨日期" width="231" height="500" loading="lazy"><i class="hl hl-old" aria-hidden="true" style="--x:44;--y:1088;--w:687;--h:342"></i></span></button><figcaption>新增用品・<br>先預估補貨日期</figcaption></figure>
+            <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05b-record-restock.png" data-caption="目前設計：記錄補貨・從實際購買開始" aria-label="放大檢視：目前設計，記錄補貨・從實際購買開始"><span class="iteration-version-row"><span class="iteration-version iteration-current">目前設計</span></span><span class="iteration-phone"><img src="./public/assets/05b-record-restock.png" alt="目前記錄補貨畫面，選擇用品後記錄補貨日期" width="231" height="500" loading="lazy"><i class="hl hl-new" aria-hidden="true" style="--x:29;--y:257;--w:721;--h:588"></i><i class="hl hl-new" aria-hidden="true" style="--x:29;--y:1404;--w:721;--h:105"></i></span></button><figcaption>記錄補貨・<br>從實際購買開始</figcaption></figure>
+            <figure class="iteration-screen"><button type="button" class="flow-preview iteration-preview" data-image="./public/assets/05c-screen-3.png" data-caption="目前設計：補貨明細・累積紀錄、提供日期參考" aria-label="放大檢視：目前設計，補貨明細・累積紀錄、提供日期參考"><span class="iteration-version-row"><span class="iteration-version iteration-current">目前設計</span><img src="./public/assets/04-zoom.svg" alt="" width="20" height="20"></span><span class="iteration-phone"><img src="./public/assets/05c-screen-3.png" alt="目前洗衣精補貨明細，顯示預計補貨日、上次補貨及三筆補貨紀錄" width="231" height="500" loading="lazy"><i class="hl hl-new" aria-hidden="true" style="--x:29;--y:810;--w:721;--h:380"></i><i class="hl hl-new" aria-hidden="true" style="--x:29;--y:455;--w:721;--h:111"></i></span></button><figcaption>補貨明細・<br>累積紀錄、<br>提供日期參考</figcaption></figure>
             </div>
           </div>
         </div>
       </section>
-      <section id="design" class="design" aria-label="05 設計：Logo 與視覺風格" data-node-id="473:1102">
-        <div class="design-panel" aria-labelledby="design-title">
+      <section id="design" class="design" aria-label="05 視覺設計：Logo 與品牌識別、視覺基礎、UI 元件系統">
+        <div class="design-panel design-brand" aria-labelledby="design-brand-title" data-node-id="518:1266">
           <div class="design-heading">
-            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">05 / 設計 • Logo 與視覺風格</p>
-            <h2 id="design-title">以「家人」為靈感，呈現溫暖、親切的日常感。</h2>
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">05 / 視覺設計・Logo 與品牌識別</p>
+            <h2 id="design-brand-title">以「家人」為靈感，傳遞溫暖的日常陪伴。</h2>
           </div>
-          <div class="design-logo-card" data-node-id="473:1108">
-            <div class="design-logo-tile" role="img" aria-label="補補 Bubu Logo：兩個相似的人物輪廓並肩相依"><img src="./public/assets/design-logo-radial-mark.svg" alt="" width="102.344" height="75.411"></div>
-            <div class="design-logo-copy">
-              <p class="design-label"><strong>Logo 設計概念</strong><span>Logo 由鄭梅芳繪製</span></p>
-              <p>補補的 Logo 以「家人」為設計靈感，用相似的人物輪廓呈現人與人之間的連結。就像共同生活的人們，即使個性與習慣不同，仍能在同一個空間裡彼此陪伴、互相照應。</p>
-              <p>我們希望以簡單、親切的造型，傳遞溫暖的品牌形象，也呼應產品讓日常補貨與共同生活更輕鬆的初衷。</p>
+          <div class="brand-card" data-node-id="518:1401">
+            <div class="brand-logo-base" data-node-id="518:1418">
+              <div class="brand-logo-tile" role="img" aria-label="補補 Bubu Logo：兩個相似的人物輪廓並肩相依" data-node-id="518:1391"><img src="./public/assets/design-brand-logo.svg" alt="" width="285" height="210"></div>
+            </div>
+            <dl class="brand-info" data-node-id="518:1419">
+              <div class="brand-name"><dt>品牌名稱</dt><dd>補補 Bubu</dd></div>
+              <div class="brand-slogan"><dt>品牌主張</dt><dd>陪伴彼此，把生活的小事補好。</dd></div>
+              <div class="brand-keywords"><dt>品牌關鍵字</dt><dd>親切・溫暖・陪伴</dd></div>
+              <div class="brand-idea"><dt>設計理念</dt><dd>以相似的人物輪廓，<br>象徵共同生活中彼此的陪伴與照應。</dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <div class="design-panel design-foundation" aria-labelledby="design-foundation-title" data-node-id="519:1270">
+          <div class="design-heading">
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">05 / 視覺設計・視覺基礎</p>
+            <h2 id="design-foundation-title">以自然綠與暖橘，建立溫暖、清晰的視覺語言。</h2>
+          </div>
+          <div class="foundation-grid" data-node-id="519:1301">
+            <section class="design-card palette-card" aria-labelledby="palette-title" data-node-id="519:1302">
+              <p class="card-title"><strong id="palette-title">Color Palette</strong><span>主要色彩計劃</span></p>
+              <div class="palette-main">
+                <div class="palette-col">
+                  <div class="palette-chip palette-primary"><strong>Primary / 主色</strong><b>#3F6F3B</b><span>自然、安心、生活感</span></div>
+                  <p>用於品牌識別與主要操作</p>
+                </div>
+                <div class="palette-col">
+                  <div class="palette-chip palette-accent"><strong>Accent / 強調色</strong><b>#FF9E42</b><span>溫暖、活力、視覺強調</span></div>
+                  <p>用於重點提示與補貨提醒</p>
+                </div>
+              </div>
+              <ul class="palette-neutral">
+                <li><span class="neutral-swatch" style="background:#efebe3"></span><span class="neutral-text"><strong>Background</strong><span>#EFEBE3</span><small>頁面背景</small></span></li>
+                <li><span class="neutral-swatch" style="background:#fcfbf8"></span><span class="neutral-text"><strong>Surface</strong><span>#FCFBF8</span><small>卡片與內容容器</small></span></li>
+                <li><span class="neutral-swatch" style="background:#1d1d1f"></span><span class="neutral-text"><strong>Text</strong><span>#1D1D1F</span><small>主要文字</small></span></li>
+              </ul>
+            </section>
+            <div class="foundation-side">
+              <section class="design-card font-card" aria-labelledby="font-title" data-node-id="519:1371">
+                <p class="card-title"><strong id="font-title">Font</strong><span>字體選擇</span></p>
+                <div class="font-samples"><p>昭源環方體</p><p>Chiron GoRound TC</p></div>
+                <img class="font-divider" src="./public/assets/design-divider.svg" alt="" width="506" height="0">
+                <dl class="font-meta"><div><dt>Source</dt><dd>Google Font</dd></div><div><dt>Style</dt><dd>Rounded Sans-serif</dd></div></dl>
+              </section>
+              <section class="design-card scale-card" aria-labelledby="scale-title" data-node-id="521:1161">
+                <p class="card-title"><strong id="scale-title">Typography</strong><span>語意字級</span></p>
+                <dl class="scale-list">
+                  <div class="scale-page"><dd>我的用品</dd><dt>Page Title｜26 Bold</dt></div>
+                  <div class="scale-header"><dd>補貨提醒</dd><dt>Section Title｜20 Bold</dt></div>
+                  <div class="scale-card-title"><dd>洗衣精</dd><dt>Card Title｜18 Bold</dt></div>
+                  <div class="scale-body"><dd>洗衣精快用完了。</dd><dt>Body｜15 Regular</dt></div>
+                  <div class="scale-caption"><dd>上次補貨 10/12</dd><dt>Caption｜12 Regular</dt></div>
+                </dl>
+              </section>
             </div>
           </div>
-          <div class="design-system">
-            <div class="design-card design-colors" aria-labelledby="design-colors-title">
-              <p class="design-label"><strong id="design-colors-title">色彩</strong><span>摘錄 12 色，完整色票見設計系統</span></p>
-              <div class="swatch-row"><p class="swatch-group">品牌</p><ul class="swatch-list"><li><span class="swatch" style="background:#3f6f3b"></span><span class="swatch-text"><strong>主色</strong><span>#3F6F3B</span></span></li><li><span class="swatch" style="background:#244f34"></span><span class="swatch-text"><strong>深主色</strong><span>#244F34</span></span></li><li><span class="swatch" style="background:#eef5ec"></span><span class="swatch-text"><strong>淺主色</strong><span>#EEF5EC</span></span></li></ul></div><div class="swatch-row"><p class="swatch-group">強調</p><ul class="swatch-list"><li><span class="swatch" style="background:#ff9e42"></span><span class="swatch-text"><strong>強調橘</strong><span>#FF9E42</span></span></li><li><span class="swatch" style="background:#9a5510"></span><span class="swatch-text"><strong>強調文字</strong><span>#9A5510</span></span></li><li><span class="swatch" style="background:#fff3e6"></span><span class="swatch-text"><strong>強調淺底</strong><span>#FFF3E6</span></span></li></ul></div><div class="swatch-row"><p class="swatch-group">頁面</p><ul class="swatch-list"><li><span class="swatch" style="background:#efebe3"></span><span class="swatch-text"><strong>頁面底色</strong><span>#EFEBE3</span></span></li><li><span class="swatch" style="background:#fcfbf8"></span><span class="swatch-text"><strong>卡片</strong><span>#FCFBF8</span></span></li></ul></div><div class="swatch-row"><p class="swatch-group">文字</p><ul class="swatch-list"><li><span class="swatch" style="background:#1d1d1f"></span><span class="swatch-text"><strong>主要文字</strong><span>#1D1D1F</span></span></li><li><span class="swatch" style="background:#5a5a5f"></span><span class="swatch-text"><strong>次要文字</strong><span>#5A5A5F</span></span></li></ul></div><div class="swatch-row"><p class="swatch-group">語意</p><ul class="swatch-list"><li><span class="swatch" style="background:#b83a26"></span><span class="swatch-text"><strong>警示</strong><span>#B83A26</span></span></li><li><span class="swatch" style="background:#8f5500"></span><span class="swatch-text"><strong>警示</strong><span>#8F5500</span></span></li></ul></div>
+        </div>
+
+        <div class="design-panel design-ui" aria-labelledby="design-ui-title" data-node-id="507:1231">
+          <div class="design-heading">
+            <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">05 / 視覺設計・UI 元件系統</p>
+            <h2 id="design-ui-title">透過一致的元件設計，讓操作與狀態更清楚。</h2>
+          </div>
+          <div class="ui-layout" data-node-id="544:1373">
+            <div class="ui-col ui-col-main">
+              <section class="ui-card" aria-labelledby="ui-nav-title" data-node-id="537:2192">
+                <h3 id="ui-nav-title">導覽列</h3>
+                <div class="ui-bottom-nav" data-node-id="541:2291"><img src="./public/assets/design-bottom-nav.png" alt="底部導覽列：我的用品（目前頁面）、購買清單、設定，右側為新增用品按鈕" width="575" height="179"></div>
+              </section>
+              <section class="ui-card" aria-labelledby="ui-item-title" data-node-id="507:1247">
+                <h3 id="ui-item-title">購買清單 - 待買卡片</h3>
+                <div class="ui-stage item-stage" data-node-id="507:1351">
+                  <div class="item-card" data-node-id="507:1251">
+                    <span class="item-check"></span>
+                    <img class="item-icon" src="./public/assets/design-item-detergent-large.svg" alt="" width="63.242" height="63.242">
+                    <p class="item-name">狗狗糧食</p>
+                    <span class="item-space">家庭</span>
+                    <p class="item-qty">補貨數量 2 瓶</p>
+                    <span class="item-expand"><img src="./public/assets/design-chevron-down.svg" alt="" width="21.081" height="21.081"></span>
+                  </div>
+                </div>
+              </section>
+              <section class="ui-card" aria-labelledby="ui-buttons-title" data-node-id="507:1253">
+                <h3 id="ui-buttons-title">按鈕</h3>
+                <div class="button-grid" data-node-id="541:2239">
+                  <div class="button-row"><span class="btn btn-soft"><img src="./public/assets/design-icon-clipboard-btn.svg" alt="" width="11" height="14">加入清單</span><span class="btn-label">Secondary / Soft</span></div>
+                  <div class="button-row"><span class="btn btn-primary"><span class="btn-icon"><img src="./public/assets/design-icon-plus.svg" alt="" width="12.393" height="12.393"></span>記錄補貨</span><span class="btn-label">Primary</span></div>
+                  <div class="button-row"><span class="btn btn-secondary">取消</span><span class="btn-label">Secondary</span></div>
+                  <div class="button-row"><span class="btn btn-added"><span class="btn-icon"><img src="./public/assets/design-icon-check.svg" alt="" width="15.491" height="12.393"></span>已加入清單</span><span class="btn-label">Added</span></div>
+                  <div class="button-row"><span class="btn btn-danger">刪除用品</span><span class="btn-label">Destructive</span></div>
+                </div>
+              </section>
             </div>
-            <div class="design-card design-type" aria-labelledby="design-type-title">
-              <p class="design-label design-font"><span class="design-label-light">字體</span><strong id="design-type-title">Chiron GoRound TC</strong></p>
-              <p class="design-label-light design-scale-label">字級</p>
-              <dl class="type-grid">
-                <div class="type-sample type-page"><dt>Page Title · 26 Bold</dt><dd>我的用品</dd></div>
-                <div class="type-sample type-body"><dt>Body · 15 Regular</dt><dd>洗衣精快用完了。</dd></div>
-                <div class="type-sample type-header"><dt>Header Title · 20 Bold</dt><dd>補貨提醒</dd></div>
-                <div class="type-sample type-caption"><dt>Caption · 12 Regular</dt><dd>上次補貨 10/12・家庭</dd></div>
-                <div class="type-sample type-card"><dt>Card Title · 18 Bold</dt><dd>狗狗糧食</dd></div>
-                <div class="type-sample type-number"><dt>Number · 48 Bold</dt><dd>12</dd></div>
-              </dl>
+            <div class="ui-col ui-col-side">
+              <section class="ui-card task-card-wrap" aria-labelledby="ui-task-title" data-node-id="507:1388">
+                <h3 id="ui-task-title">共享清單 - 狀態卡片</h3>
+                <div class="task-cards" data-node-id="507:1415">
+                  <div class="task-card" data-node-id="537:2124"><img class="task-icon" src="./public/assets/design-item-detergent.svg" alt="" width="48" height="48"><p class="task-name">洗衣精</p><span class="task-status task-unclaimed">尚未認領</span><span class="task-space">家庭</span><p class="task-qty">補貨數量 2 瓶</p><span class="task-expand"><img src="./public/assets/design-chevron-down-sm.svg" alt="" width="16" height="16"></span></div>
+                  <div class="task-card" data-node-id="537:2149"><img class="task-icon" src="./public/assets/design-item-detergent.svg" alt="" width="48" height="48"><p class="task-name">洗衣精</p><span class="task-status task-claimed">小明認購</span><span class="task-space">家庭</span><p class="task-qty">補貨數量 2 瓶</p><span class="task-expand"><img src="./public/assets/design-chevron-down-sm.svg" alt="" width="16" height="16"></span></div>
+                </div>
+              </section>
+              <section class="ui-card badge-card" aria-labelledby="ui-badge-title" data-node-id="507:1288">
+                <h3 id="ui-badge-title">狀態標籤</h3>
+                <ul class="badge-legend" data-node-id="507:1378">
+                  <li><span class="badge-slot"><span class="pill pill-due pill-sm">該補貨了</span></span><span class="badge-label">橘色・該補貨了</span></li>
+                  <li><span class="badge-slot"><span class="pill pill-list pill-sm"><img src="./public/assets/design-icon-clipboard-badge.svg" alt="" width="11.56" height="15.413">購買清單中</span></span><span class="badge-label">綠色・購買清單中</span></li>
+                  <li class="badge-combo"><span class="badge-slot"><span class="list-mark"><img src="./public/assets/design-icon-clipboard-mark.svg" alt="" width="12.006" height="16.008"></span><span class="pill pill-due pill-xs">該補貨了</span></span><span class="badge-label">組合狀態</span></li>
+                </ul>
+              </section>
             </div>
+            <section class="ui-card icon-card" aria-labelledby="ui-icons-title" data-node-id="544:1376">
+              <h3 id="ui-icons-title">用品插圖</h3>
+              <div class="icon-stage" data-node-id="544:1393">
+                <span class="art"><img src="./public/assets/design-art-common.svg" alt="" width="48" height="48"></span>
+                <span class="art"><img class="art-fit" src="./public/assets/design-art-emptylist.svg" alt="" style="left:9.068px;top:6.208px;width:28.849px;height:33.440px"></span>
+                <span class="art"><img class="art-fit" src="./public/assets/design-art-detergent.svg" alt="" style="left:8.419px;top:1.688px;width:34.524px;height:44.631px"></span>
+                <span class="art"><img src="./public/assets/design-art-dishsoap.svg" alt="" width="48" height="48"></span>
+                <span class="art"><img src="./public/assets/design-art-trashbag.svg" alt="" width="48" height="48"></span>
+                <span class="art"><img class="art-fit" src="./public/assets/design-art-box.svg" alt="" style="left:5.049px;top:6.739px;width:39.378px;height:34.524px"></span>
+                <span class="art"><img class="art-fit" src="./public/assets/design-art-alcohol.svg" alt="" style="left:11.787px;top:4.207px;width:26.106px;height:41.265px"></span>
+                <span class="art"><img src="./public/assets/design-art-dogfood.svg" alt="" width="48" height="48"></span>
+                <span class="art"><img class="art-fit" src="./public/assets/design-art-pad.svg" alt="" style="left:5.898px;top:5.896px;width:37.055px;height:37.898px"></span>
+              </div>
+            </section>
           </div>
         </div>
       </section>
       <section id="demo" class="demo" aria-labelledby="demo-title" data-node-id="324:921">
         <div class="demo-heading">
-          <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">06 / LIVE DEMO</p>
+          <p class="chapter-label"><img src="./public/assets/chapter-dot.svg" width="10" height="10" alt="">06 / Demo</p>
           <h2 id="demo-title">從想到要買，到完成這次補貨。</h2>
         </div>
         <div class="demo-scenarios" data-node-id="324:947">
@@ -402,6 +501,10 @@
         </a>
       </section>
     </main>
+    <nav class="page-jump" aria-label="換頁">
+      <button type="button" class="page-jump-btn" data-jump="prev" aria-label="上一頁"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M6 15l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button type="button" class="page-jump-btn" data-jump="next" aria-label="下一頁"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </nav>
     <dialog class="image-dialog" aria-labelledby="image-dialog-title">
       <div class="image-dialog-toolbar"><p id="image-dialog-title"></p><div class="image-dialog-actions"><div class="image-dialog-nav" role="group" aria-label="切換步驟" hidden><button type="button" class="image-dialog-btn" data-nav="prev" aria-label="上一頁">&lt;</button><output class="image-dialog-count" aria-live="polite"></output><button type="button" class="image-dialog-btn" data-nav="next" aria-label="下一頁">&gt;</button></div><div class="image-dialog-zoom" role="group" aria-label="縮放圖片"><button type="button" class="image-dialog-btn" data-zoom="out" aria-label="縮小">−</button><output class="image-dialog-level" aria-live="polite">100%</output><button type="button" class="image-dialog-btn" data-zoom="in" aria-label="放大">+</button></div><button type="button" class="image-dialog-close" autofocus>關閉 <span aria-hidden="true">×</span></button></div></div>
       <div class="image-dialog-viewer"><div class="image-dialog-stage"></div></div>

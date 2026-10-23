@@ -19,7 +19,8 @@
 .direction-core { border: 2px solid var(--bubu-primary); }
 .direction-card > .insight-badge { margin-right: 96px; }
 .direction-card h3 { margin-top: 0; }
-.direction-card p, .tradeoff-card > p:not(.chapter-label) { color: var(--bubu-secondary); font-size: 26px; line-height: 40px; }
+.tradeoff-card > p:not(.chapter-label) { color: var(--bubu-secondary); font-size: 26px; line-height: 40px; }
+.direction-card p { color: var(--bubu-secondary); font-size: 20px; line-height: 32px; text-wrap: pretty; }
 .direction-card h4 { color: var(--bubu-primary); font-size: 20px; line-height: 30px; }
 .direction-illustration { position: absolute; right: 34px; top: 30px; }
 .direction-card:first-child .direction-illustration { top: 31px; right: 36px; }
@@ -239,3 +240,9 @@ body:has(.image-dialog[open]) { overflow: hidden; }
   .ia-global-item { align-items: flex-start; flex-wrap: wrap; }
   .ia-global-item strong { font-size: 20px; }
 }
+
+/* Test-focus boxes inside the enlarged viewer; --shot-w is the rendered image width (set in solution.js). */
+.image-dialog-shot { position: relative; display: block; flex: none; line-height: 0; }
+.image-dialog-shot .hl { position: absolute; box-sizing: border-box; left: calc(var(--x) / 780 * 100%); top: calc(var(--y) / 1688 * 100%); width: calc(var(--w) / 780 * 100%); height: calc(var(--h) / 1688 * 100%); border: solid; border-width: calc(var(--shot-w, 0px) * 12 / 780); border-radius: calc(var(--shot-w, 0px) * 8 / 780); box-shadow: 0 calc(var(--shot-w, 0px) * 4 / 780) calc(var(--shot-w, 0px) * 4 / 780) rgb(0 0 0 / 30%); pointer-events: none; }
+.image-dialog-shot .hl-old { border-color: #ff5d4b; }
+.image-dialog-shot .hl-new { border-color: #934bff; }

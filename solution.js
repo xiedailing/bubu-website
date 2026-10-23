@@ -16,14 +16,25 @@ let steps = [];
 let stepIndex = 0;
 let mode = 'single';
 
-function createFigure({ image, caption, label, current }) {
+function createFigure({ image, caption, label, current, marks = [] }) {
   const figure = document.createElement('figure');
   figure.className = 'image-dialog-figure';
   const img = document.createElement('img');
   img.className = 'image-dialog-content';
   img.src = image;
   img.alt = caption;
-  figure.append(img);
+  // Test-focus boxes are positioned in the 780x1688 screenshot space, so they follow the zoomed image.
+  const shot = document.createElement('span');
+  shot.className = 'image-dialog-shot';
+  shot.append(img);
+  for (const { kind, x, y, w, h } of marks) {
+    const mark = document.createElement('i');
+    mark.className = `hl hl-${kind}`;
+    mark.setAttribute('aria-hidden', 'true');
+    mark.style.cssText = `--x:${x};--y:${y};--w:${w};--h:${h}`;
+    shot.append(mark);
+  }
+  figure.append(shot);
   if (label) {
     const figcaption = document.createElement('figcaption');
     const tag = document.createElement('span');
@@ -49,7 +60,11 @@ function fitImages() {
   const availH = viewer.clientHeight - parseFloat(style.paddingBottom) - captionH;
   // Show every image at the same height, even when the source files differ in resolution.
   const height = Math.min(availH, ...loaded.map((img) => img.naturalHeight), ...loaded.map((img) => (availW / images.length) * (img.naturalHeight / img.naturalWidth)));
-  for (const img of loaded) img.style.width = `${height * (img.naturalWidth / img.naturalHeight) * ZOOM_STEPS[zoomIndex]}px`;
+  for (const img of loaded) {
+    const width = height * (img.naturalWidth / img.naturalHeight) * ZOOM_STEPS[zoomIndex];
+    img.style.width = `${width}px`;
+    img.parentElement.style.setProperty('--shot-w', `${width}px`);
+  }
 }
 
 function applyZoom() {
@@ -92,6 +107,11 @@ function readPreview(button) {
     caption: button.dataset.caption,
     label: tag?.textContent.trim() ?? '',
     current: tag?.classList.contains('iteration-current') ?? false,
+    marks: [...button.querySelectorAll('.hl')].map((el) => ({
+      kind: el.classList.contains('hl-old') ? 'old' : 'new',
+      x: el.style.getPropertyValue('--x'), y: el.style.getPropertyValue('--y'),
+      w: el.style.getPropertyValue('--w'), h: el.style.getPropertyValue('--h'),
+    })),
   };
 }
 

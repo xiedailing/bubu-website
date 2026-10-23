@@ -31,7 +31,7 @@
 .iteration-preview:active { transform: translateY(1px); }
 .iteration-preview:focus-visible { outline: 3px solid var(--bubu-primary); outline-offset: 4px; }
 .iteration-version-row { display: flex; justify-content: center; align-items: center; gap: 8px; }
-.iteration-phone { display: block; width: 100%; height: auto; padding: 7px; border-radius: 32px; background: #292e29; }
+.iteration-phone { position: relative; display: block; width: 100%; height: auto; padding: 7px; border-radius: 32px; background: #292e29; }
 .iteration-phone > img { display: block; width: 100%; height: auto; border-radius: 26px; object-fit: cover; }
 .iteration-screen figcaption { width: 100%; text-align: center; font-size: 20px; line-height: 30px; font-weight: 500; }
 @media (max-width: 1399px) {
@@ -56,5 +56,9 @@
 /* One zoom hint per iteration; keep version labels centred. */
 .iteration-version-row { position: relative; width: 100%; }
 .iteration-version-row > img { position: absolute; right: 0; top: 50%; transform: translateY(-50%); }
-.iteration-screen figcaption { white-space: nowrap; }
-.iteration-screen figcaption:has(br) { white-space: normal; }
+.iteration-screen figcaption { white-space: normal; text-wrap: balance; overflow-wrap: anywhere; }
+
+/* Test-focus highlights, positioned in the 780x1688 screenshot coordinate space (Figma 550:2520, 550:2522). */
+.iteration-phone .hl { position: absolute; box-sizing: border-box; left: calc(7px + (100% - 14px) * var(--x) / 780); top: calc(7px + (100% - 14px) * var(--y) / 1688); width: calc((100% - 14px) * var(--w) / 780); height: calc((100% - 14px) * var(--h) / 1688); border: 3.5px solid; border-radius: 3px; box-shadow: 0 1px 1px rgb(0 0 0 / 30%); pointer-events: none; }
+.iteration-phone .hl-old { border-color: #ff5d4b; }
+.iteration-phone .hl-new { border-color: #934bff; }
