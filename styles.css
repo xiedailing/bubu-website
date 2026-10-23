@@ -408,7 +408,8 @@ main section { scroll-margin-top: 96px; }
 .insights-overview { gap: 44px; }
 .insights-heading { display: flex; flex-direction: column; gap: 8px; }
 .insights-heading h2 { font-size: 44px; font-weight: 700; line-height: 58px; }
-.insight-card h3 { font-size: 30px; font-weight: 700; line-height: 44px; }
+/* Two lines per question: 13 characters must fit the card width. */
+.insight-card h3 { font-size: 26px; font-weight: 700; line-height: 38px; white-space: nowrap; }
 .insight-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .insight-card {
   display: flex;
@@ -440,13 +441,13 @@ main section { scroll-margin-top: 96px; }
 .definition-note { color: var(--bubu-secondary); font-size: 20px; line-height: 30px; }
 
 @media (max-width: 1399px) {
-  .insight-card h3 { font-size: 26px; line-height: 38px; }
+  .insight-card h3 { font-size: clamp(18px, calc(2.5vw - 9px), 26px); line-height: 1.5; }
   .insight-card { padding: 28px; }
 }
 @media (max-width: 1100px) {
   .insights-panel { min-height: 0; padding: 40px 32px; }
   .insights-heading h2 { font-size: 36px; line-height: 50px; }
-  .insight-card h3 { font-size: 30px; line-height: 44px; }
+  .insight-card h3 { font-size: 30px; line-height: 44px; white-space: normal; }
   .insight-grid { grid-template-columns: minmax(0, 1fr); }
   .insight-card { min-height: 0; gap: 16px; }
   .insights .insight-evidence { margin-top: 12px; }
@@ -456,7 +457,7 @@ main section { scroll-margin-top: 96px; }
 @media (max-width: 700px) {
   .insights-panel { padding: 36px 24px; gap: 28px; }
   .insights-heading h2 { font-size: 28px; line-height: 42px; }
-  .insight-card h3 { font-size: 24px; line-height: 36px; }
+  .insight-card h3 { font-size: clamp(16px, 5vw, 24px); line-height: 1.5; white-space: nowrap; }
   .insight-card { padding: 24px 20px; }
   .insight-description, .definition-context { font-size: 20px; line-height: 32px; }
   .insight-description br { display: none; }

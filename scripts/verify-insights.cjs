@@ -54,8 +54,8 @@ async function main() {
       assert.equal(await page.locator('.chapter-list a').nth(1).textContent(), '02 使用者研究與洞察');
       assert.equal(layout.cardCount, 3);
       assert.equal(await page.locator('.insights-definition').count(), 0);
-      assert.deepEqual(await page.locator('.insight-card h3').allTextContents(), ['如何讓使用者延後購買時，也不忘記待買需求？', '如何讓使用者提早掌握補貨時機，而不是用完才發現？', '如何讓補貨交辦更清楚，減少責任與進度不明的情況？']);
-      assert.equal(await page.locator('.insight-card h3 br').count(), 6, 'Phrase-level line breaks');
+      assert.deepEqual(await page.locator('.insight-card h3').allTextContents(), ['如何讓使用者延後購買時，也不忘記待買需求？', '如何讓使用者掌握補貨時機，而不是用完才發現？', '如何讓補貨交辦更清楚，減少責任，進度不明的情況？']);
+      assert.equal(await page.locator('.insight-card h3 br').count(), 3, 'Two lines per question');
       assert.deepEqual(await page.locator('.insight-description').allTextContents(), ['對應研究：知道要買，卻在真正購買前忘記。', '對應研究：用品快用完時，才察覺需要補貨。', '對應研究：交代他人購買後，不確定是否完成。']);
       assert.equal(await page.locator('.insights .insight-evidence, .insights .insight-badge').count(), 0);
       assert.equal(await page.locator('.insights .chapter-label').first().innerText(), '02 / 使用者研究與洞察 • 問題定義');
