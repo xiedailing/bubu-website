@@ -74,7 +74,10 @@ function jump(direction) {
   const index = Math.min(Math.max(snap ? current : current + direction, 0), pages.length - 1);
   goTo(alignedScroll(pages[index]));
 }
+const progressBar = document.querySelector('.scroll-progress');
 function updateJump() {
+  const range = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.transform = `scaleX(${range > 0 ? Math.min(Math.max(window.scrollY / range, 0), 1) : 0})`;
   const max = document.documentElement.scrollHeight - window.innerHeight;
   jumpPrev.disabled = window.scrollY <= 40;
   jumpNext.disabled = window.scrollY >= max - 2;
