@@ -19,7 +19,7 @@ async function main() {
     page.on('response', response => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
     await page.goto(base, { waitUntil: 'networkidle' });
     // Requirements whose content must survive this revision unchanged.
-    const retained = ['.architecture-tree'];
+    const retained = [];
     const baseline = await page.evaluate(({ old, retained }) => {
       const previous = new DOMParser().parseFromString(old, 'text/html');
       return retained.map(selector => ({ selector, html: [...previous.querySelectorAll(selector)].map(el => el.outerHTML) }));
@@ -56,6 +56,13 @@ async function main() {
     assert.deepEqual(await page.locator('.feature-card h3').allTextContents(), ['購買清單', '記錄補貨', '共享空間', '我的用品', '補貨明細', '延後提醒']);
     assert.equal(await page.locator('body').evaluate(body => /共享與認領|共享為單機模擬/.test(body.innerText)), false);
     assert(await page.locator('#solution').evaluate(el => el.querySelector('.solution-features').compareDocumentPosition(el.querySelector('.solution-architecture')) & Node.DOCUMENT_POSITION_FOLLOWING), 'Features precede information architecture');
+    assert.equal(await page.locator('.solution-architecture .chapter-label').innerText(), '03 / 解法 • 資訊架構');
+    assert.equal(await page.locator('#architecture-title').textContent(), '三個主要入口，快速找到需要的功能。');
+    assert.deepEqual(await page.locator('.ia-entry').allTextContents(), ['我的用品', '購買清單', '設定']);
+    assert.deepEqual(await page.locator('.ia-name').allTextContents(), ['補貨明細', '補貨紀錄', '新增用品', '記錄補貨', '我的清單', '共享清單', '編輯個人資料', '空間管理', '新增空間', '編輯空間', '用品管理', '分類用品', '提醒設定']);
+    assert.deepEqual(await page.locator('.ia-chip').allTextContents(), ['認領', '接手', '標記完成', '延後提醒']);
+    assert.deepEqual(await page.locator('.ia-legend li').allTextContents(), ['主要入口', '頁面', '分頁', '操作']);
+    assert.equal(await page.locator('.architecture-tree,.architecture-node').count(), 0);
     assert.equal(await page.locator('#design-title').textContent(), '以「家人」為靈感，呈現溫暖、親切的日常感。');
     assert.equal(await page.locator('.swatch').count(), 12);
     assert(await page.locator('#design').evaluate(el => el.compareDocumentPosition(document.querySelector('#demo')) & Node.DOCUMENT_POSITION_FOLLOWING));
@@ -124,7 +131,7 @@ async function main() {
           brokenLabels: [...document.querySelectorAll('[aria-labelledby]')].flatMap(el => el.getAttribute('aria-labelledby').split(/\s+/).filter(id => !document.getElementById(id))),
           brokenLinks: [...document.querySelectorAll('a[href^="#"]')].filter(el => !document.getElementById(el.hash.slice(1))).map(el => el.hash),
           // These diagram elements intentionally extend connector lines into gaps.
-          clipped: [...document.querySelectorAll('h1,h2,h3,h4,p:not(.architecture-login),li:not(.flow-step),td,th')].filter(el => el.clientWidth && (el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + 1)).map(el => el.textContent),
+          clipped: [...document.querySelectorAll('h1,h2,h3,h4,p:not(.architecture-login),li:not(.flow-step):not(.ia-children > li),td,th')].filter(el => el.clientWidth && (el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + 1)).map(el => el.textContent),
           cardOrder: [...document.querySelectorAll('.direction-card')].every(card => {
             const els = ['.direction-label','h3','p','img'].map(s => card.querySelector(s).getBoundingClientRect());
             return els.every((rect, i) => !i || rect.top >= els[i-1].bottom - 1);

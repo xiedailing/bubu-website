@@ -53,7 +53,7 @@ async function main() {
       assert.equal(layout.badgeOverlaps, false);
       assert.deepEqual(await page.locator('.direction-card .insight-badge').allTextContents(), ['核心', '輔助', '情境延伸']);
       assert.equal(await page.locator('.architecture-shortcut').count(), 0);
-      assert.equal(await page.locator('#architecture-title').textContent(), '三個主要入口');
+      assert.equal(await page.locator('#architecture-title').textContent(), '三個主要入口，快速找到需要的功能。');
       assert.deepEqual(layout.overflow, [], JSON.stringify(layout));
       assert(layout.chapterTop >= layout.headerBottom, JSON.stringify(layout));
       assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '03 解法');
