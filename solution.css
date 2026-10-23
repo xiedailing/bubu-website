@@ -196,7 +196,6 @@ body:has(.image-dialog[open]) { overflow: hidden; }
 
 /* 04 Main features - Figma 510:1262. */
 .solution-features { gap: 28px; }
-.solution-subtitle { color: var(--bubu-secondary); font-size: 22px; font-weight: 500; line-height: 32px; }
 .feature-groups { display: flex; flex-direction: column; gap: 28px; }
 .feature-group { display: flex; flex-direction: column; gap: 14px; }
 .solution .feature-group-label { display: flex; align-items: center; gap: 16px; }
@@ -220,5 +219,4 @@ body:has(.image-dialog[open]) { overflow: hidden; }
   .feature-icon img { transform: scale(.75); }
   .feature-copy h3 { font-size: 24px; line-height: 34px; }
   .feature-copy p { font-size: 18px; line-height: 28px; }
-  .solution-subtitle { font-size: 18px; line-height: 28px; }
 }

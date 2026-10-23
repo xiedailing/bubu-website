@@ -50,6 +50,9 @@ async function main() {
     assert.equal(await page.locator('.research-subtitle').count(), 0);
     assert.equal(await page.locator('.persona-shared').evaluate(el => getComputedStyle(el).backgroundColor), 'rgba(0, 0, 0, 0)');
     assert.equal(await page.locator('.journey-conclusion').textContent(), '真正容易中斷的，不是購買，而是購買前的記住與交代。');
+    assert.equal(await page.locator('#features-title').textContent(), '從記下待買需求，到安排補貨與完成紀錄。');
+    assert.deepEqual(await page.locator('.feature-group-label').allTextContents(), ['01 核心補貨流程', '02 用品管理與提醒']);
+    assert.equal(await page.locator('.solution-subtitle').count(), 0);
     assert.deepEqual(await page.locator('.feature-card h3').allTextContents(), ['購買清單', '記錄補貨', '共享空間', '我的用品', '補貨明細', '延後提醒']);
     assert.equal(await page.locator('body').evaluate(body => /共享與認領|共享為單機模擬/.test(body.innerText)), false);
     assert(await page.locator('#solution').evaluate(el => el.querySelector('.solution-features').compareDocumentPosition(el.querySelector('.solution-architecture')) & Node.DOCUMENT_POSITION_FOLLOWING), 'Features precede information architecture');
