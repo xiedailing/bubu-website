@@ -56,7 +56,7 @@ async function main() {
       assert.equal(await page.locator('#architecture-title').textContent(), '三個主要入口');
       assert.deepEqual(layout.overflow, [], JSON.stringify(layout));
       assert(layout.chapterTop >= layout.headerBottom, JSON.stringify(layout));
-      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '04 解法');
+      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '03 解法');
       assert.equal(layout.screens.length, 0);
       assert.equal(await page.locator('#solution .solution-flow, #solution .solution-tradeoffs').count(), 0);
       assert(layout.illustrations.every(img => img.loaded && img.width > 100 && img.height >= 106));
@@ -67,8 +67,8 @@ async function main() {
           await panels.nth(i).screenshot({ path: path.join(output, `${width}-solution-${i+1}.png`), style: '.site-header { visibility: hidden; }' });
         }
       }
-      await page.locator('.chapter-list a[href="#insights"]').click();
-      await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]').hash === '#insights');
+      await page.locator('.chapter-list a[href="#research"]').click();
+      await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]').hash === '#research');
       await page.goBack();
       await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]').hash === '#solution');
       results.push(layout);

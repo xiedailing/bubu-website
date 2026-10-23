@@ -75,6 +75,7 @@ a:focus-visible, .chapter-scroll:focus-visible {
 }
 
 .chapter-list li { flex: 0 0 100px; }
+.chapter-list li:nth-child(2) { flex-basis: 224px; }
 .chapter-list a {
   display: block;
   font-size: 20px;
@@ -398,7 +399,7 @@ main section { scroll-margin-top: 96px; }
 .insights {
   --insights-line: #d4d7cc;
   --insights-tint: #e3edde;
-  font-family: "Chiron GoRound TC Insights", "Chiron GoRound TC", "Microsoft JhengHei", sans-serif;
+  font-family: "Chiron GoRound TC Research", "Chiron GoRound TC", "Microsoft JhengHei", sans-serif;
   max-width: 1440px;
   margin-inline: auto;
 }

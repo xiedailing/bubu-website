@@ -38,7 +38,7 @@ async function main() {
       assert(layout.documentWidth <= width, JSON.stringify(layout));
       assert(layout.top >= layout.headerBottom, JSON.stringify(layout));
       assert.deepEqual(layout.overflow, []);
-      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '05 迭代');
+      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '04 迭代');
       const sources = [3,4,5].map(i => `./public/assets/05a-screen-${i}.png`)
         .concat(['./public/assets/05c-screen-1.png', './public/assets/05b-record-restock.png', './public/assets/05c-screen-3.png']);
       assert.equal(layout.images.length, 6);
@@ -100,7 +100,7 @@ async function main() {
       await page.locator('.chapter-list a[href="#solution"]').click();
       await page.goBack();
       await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]')?.hash === '#iteration');
-      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '05 迭代');
+      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '04 迭代');
       results.push(layout);
     }
     const context = await browser.newContext({ ...devices['iPhone 13'], reducedMotion: 'reduce' });

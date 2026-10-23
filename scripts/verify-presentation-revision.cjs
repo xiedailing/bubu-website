@@ -28,7 +28,7 @@ async function main() {
       assert.deepEqual(await page.locator(item.selector).evaluateAll(els => els.map(el => el.outerHTML)), item.html, `Deferred/retained content changed: ${item.selector}`);
     }
     // 2026-10-23 revision: intro page, persona, journey with emotion curve, features, design chapter, renumbering.
-    assert.deepEqual(await page.locator('.chapter-list a').allTextContents(), ['01 概述', '02 研究', '03 洞察', '04 解法', '05 迭代', '06 設計', '07 Demo']);
+    assert.deepEqual(await page.locator('.chapter-list a').allTextContents(), ['01 概述', '02 使用者研究與洞察', '03 解法', '04 迭代', '05 設計', '06 Demo']);
     assert.equal(await page.locator('#overview-label').innerText(), '01 / 概述 • 認識補補');
     assert.equal(await page.locator('.overview-intro .chapter-label').innerText(), '01 / 概述 • 問題情境');
     assert.equal(await page.locator('.overview-positioning .chapter-label').innerText(), '01 / 概述 • 產品定位');
@@ -58,7 +58,7 @@ async function main() {
     assert.deepEqual(await page.locator('.method-card h3').allTextContents(), ['1.競品分析', '2.問卷調查', '3.深入訪談']);
     assert.deepEqual(await page.locator('.method-number').allTextContents(), ['3', '47', '6']);
     assert.deepEqual(await page.locator('.direction-number').allTextContents(), ['設計決策 01', '設計決策 02', '設計決策 03']);
-    assert.equal(await page.locator('.solution-directions .chapter-label').innerText(), '04 / 設計決策');
+    assert.equal(await page.locator('.solution-directions .chapter-label').innerText(), '03 / 設計決策');
     assert.equal(await page.locator('.iteration-response').count(), 2);
     assert.equal(await page.locator('.iteration-b #iteration-b-title').innerText(), 'B｜不用在新增時，先猜下次補貨日期');
     assert.equal(await page.locator('#iteration').innerText().then(text => /目前部[署屬]版|設計迭代 C/.test(text)), false);
@@ -75,6 +75,9 @@ async function main() {
     assert.equal(await page.locator('.research-scenarios').count(), 0);
     assert.deepEqual(await page.locator('.finding-card h3').allTextContents(), ['研究發現 01', '研究發現 02']);
     assert.equal(await page.locator('.insights-note,.solution-flow,.solution-tradeoffs,.solution-next').count(), 0);
+    assert.equal(await page.locator('#insights,.chapter-list a[href="#insights"]').count(), 0);
+    assert.equal(await page.locator('.research-findings .chapter-label').innerText(), '02 / 使用者研究與洞察 • 問卷結果');
+    assert(await page.locator('#research').evaluate(el => [...el.children].at(-1).querySelector('.insights-overview') !== null), 'Design directions are the last page of chapter 02');
     assert.deepEqual(await page.locator('.insight-evidence strong').allTextContents(), ['研究發現 02、機會點 02', '研究發現 01', '機會點 01']);
     assert.equal(await page.locator('.solution-note,.demo-backup,.demo-note').count(), 0);
     assert.deepEqual(await page.locator('.iteration-screen figcaption').allInnerTexts(), ['空間選擇 UI 不明確', '空間選擇 UI 重新設計', '「＋」展開選單', '新增用品・\n選擇預計補貨日', '記錄補貨・精簡表單', '補貨明細・歷史紀錄']);
@@ -121,7 +124,7 @@ async function main() {
         };
       });
       assert.deepEqual(integrity, { overflow: false, duplicates: [], brokenLabels: [], brokenLinks: [], clipped: [], cardOrder: true }, JSON.stringify({ width, integrity }));
-      const ids = ['problem','research','insights','solution','iteration','design','demo'];
+      const ids = ['problem','research','solution','iteration','design','demo'];
       for (const id of ids) {
         await page.locator(`.chapter-list a[href="#${id}"]`).click();
         await page.waitForFunction(id => document.querySelector('.chapter-list a[aria-current]')?.hash === `#${id}`, id);
@@ -134,7 +137,7 @@ async function main() {
         assert(await page.locator('.site-header').evaluate(el => el.getBoundingClientRect().top === 0));
       }
       if (width === 390 || width === 1440) {
-        for (const selector of ['.overview-intro','.research-methods','.research-competition','.research-personas','.research-journey','.solution-features','.design','.research-opportunities','.insights-overview','.solution-directions','.iteration-observations','.iteration-b']) {
+        for (const selector of ['.overview-intro','.research-methods','.research-competition','.research-personas','.research-journey','.insights-overview','.solution-features','.design','.research-opportunities','.solution-directions','.iteration-observations','.iteration-b']) {
           await page.locator(selector).screenshot({ path: path.join(output, `${width}-${selector.slice(1)}.png`), style: '.site-header { visibility: hidden; }' });
         }
         await page.goto(base+'/#research', { waitUntil: 'networkidle' });

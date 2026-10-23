@@ -1,4 +1,4 @@
-/** Chapter 03 browser checks. Usage: node scripts/verify-insights.cjs <playwright-module> <output-dir> [url] */
+/** Design-direction page (end of chapter 02) browser checks. Usage: node scripts/verify-insights.cjs <playwright-module> <output-dir> [url] */
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -24,11 +24,9 @@ async function main() {
       await page.setViewportSize({ width, height: 900 });
       await page.goto(url, { waitUntil: 'networkidle' });
       await page.evaluate(() => document.fonts.ready);
-      await page.locator('.chapter-list a[href="#insights"]').click();
-      await page.waitForFunction(() => location.hash === '#insights');
-      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '03 洞察');
+      await page.locator('.insights').scrollIntoViewIfNeeded();
       const layout = await page.evaluate(() => {
-        const chapter = document.querySelector('#insights');
+        const chapter = document.querySelector('.insights');
         const cards = [...chapter.querySelectorAll('.insight-card')];
         const clipped = [...chapter.querySelectorAll('h2,h3,p,span,strong')].filter(el =>
           el.clientWidth && (el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + 1)
@@ -51,10 +49,14 @@ async function main() {
         };
       });
       assert(layout.documentWidth <= width, JSON.stringify(layout));
-      assert(layout.chapterTop >= layout.headerBottom, JSON.stringify(layout));
+      assert.equal(await page.locator('#insights').count(), 0, 'Chapter 03 removed');
+      assert.equal(await page.locator('#research .insights .insights-overview').count(), 1);
+      assert.equal(await page.locator('.chapter-list a').nth(1).textContent(), '02 使用者研究與洞察');
       assert.equal(layout.cardCount, 3);
       assert.equal(await page.locator('.insights-definition').count(), 0);
-      assert.equal(await page.locator('#insights-title').textContent(), '從研究中，我們收斂出三個關鍵洞察。');
+      assert.equal(await page.locator('.insights .chapter-label').first().innerText(), '02 / 研究 • 設計方向');
+      assert.deepEqual(await page.locator('.insight-label .chapter-label').allInnerTexts(), ['設計方向 01', '設計方向 02', '設計方向 03']);
+      assert.equal(await page.locator('#insights-title').textContent(), '從研究洞察，我們收斂出三個設計方向。');
       assert.equal(layout.columns, width <= 1100 ? 1 : 3);
       assert.deepEqual(layout.clipped, []);
       assert.equal(layout.images.length, 4);
@@ -75,15 +77,16 @@ async function main() {
         }
       }
       // Existing chapter links, browser history, and the homepage still work.
+      await page.locator('.chapter-list a[href="#solution"]').click();
+      await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]').hash === '#solution');
+      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '03 解法');
       await page.locator('.chapter-list a[href="#research"]').click();
       await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]').hash === '#research');
-      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '02 研究');
+      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '02 使用者研究與洞察');
       await page.goBack();
-      await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]').hash === '#insights');
-      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '03 洞察');
+      await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]').hash === '#solution');
       await page.goForward();
       await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]').hash === '#research');
-      assert.equal(await page.locator('.chapter-list a[aria-current]').textContent(), '02 研究');
       assert.equal(await page.locator('.research-heading h2').count(), 5);
       await page.locator('.brand').click();
       await page.waitForFunction(() => document.querySelector('.chapter-list a[aria-current]').hash === '#problem');
@@ -94,13 +97,13 @@ async function main() {
     const mobile = await browser.newContext({ ...devices['iPhone 13'], reducedMotion: 'reduce' });
     const phone = await mobile.newPage();
     monitor(phone);
-    await phone.goto(`${url}/#insights`, { waitUntil: 'networkidle' });
-    assert.equal(await phone.locator('.chapter-list a[aria-current]').textContent(), '03 洞察');
+    await phone.goto(`${url}/#research`, { waitUntil: 'networkidle' });
+    assert.equal(await phone.locator('.chapter-list a[aria-current]').textContent(), '02 使用者研究與洞察');
     assert(await phone.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     await phone.screenshot({ path: path.join(output, '390-insights-touch.png') });
     await mobile.close();
     await page.setViewportSize({ width: 720, height: 450 });
-    await page.goto(`${url}/#insights`, { waitUntil: 'networkidle' });
+    await page.goto(`${url}/#research`, { waitUntil: 'networkidle' });
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     assert.deepEqual(errors, []);
     const report = { browser: 'Microsoft Edge', results, mobileTouch: 'passed', reflow720: 'passed', errors };
