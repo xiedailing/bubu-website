@@ -636,8 +636,7 @@ main .research-competition { padding-block: 16px; gap: 14px; }
 .value-number { position: absolute; top: 20px; left: 24px; padding: 3px 14px; border-radius: 999px; background: var(--bubu-primary); color: var(--bubu-card); font-size: 18px; font-weight: 700; line-height: 26px; }
 .value-card h3 { margin: 0; font-size: 38px; font-weight: 700; line-height: 52px; }
 .value-card .value-lead { color: var(--bubu-secondary); font-size: 26px; line-height: 38px; }
-.positioning-closing { padding: 16px 28px; border-left: 5px solid #ff9e42; border-radius: 12px; background: #fff3e6; font-size: 26px; font-weight: 700; line-height: 40px; text-align: center; }
-.overview p.positioning-closing { margin: 0; }
+.value-card:first-child { border: 3px solid var(--bubu-primary); }
 @media (max-width: 1399px) { .positioning-heading h2 { font-size: 44px; line-height: 58px; } }
 @media (max-width: 1100px) {
   .overview-positioning { min-height: 0; gap: 28px; }
@@ -655,7 +654,6 @@ main .research-competition { padding-block: 16px; gap: 14px; }
   .value-icon img { transform: scale(.75); }
   .value-card h3 { font-size: 28px; line-height: 40px; }
   .value-card .value-lead { font-size: 20px; line-height: 30px; }
-  .positioning-closing { padding: 14px 18px; font-size: 20px; line-height: 32px; }
 }
 
 /* Presentation page jump: fixed up/down buttons (navigation.js). */
