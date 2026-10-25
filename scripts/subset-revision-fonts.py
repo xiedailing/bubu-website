@@ -34,7 +34,9 @@ def section_text(section):
     # Homepage family also renders navigation and the image preview toolbar.
     if section == 'problem':
         content += html[:html.index('<main')] + html[html.index('<dialog'):]
-    text = unescape(re.sub(r'<[^>]+>', '', content))
+    # The image dialog renders data-caption text in the solution family.
+    captions = ' '.join(re.findall(r'data-caption="([^"]*)"', html)) if section == 'solution' else ''
+    text = unescape(re.sub(r'<[^>]+>', '', content)) + unescape(captions)
     return text + '；：／、＋−×<>0123456789% /'
 
 
