@@ -14,6 +14,7 @@
 .iteration-stat { width: max-content; max-width: 100%; padding: 24px 28px; border: 1px solid var(--iteration-line); border-radius: 20px; background: var(--bubu-card); }
 .iteration-stat::before { content: ""; display: block; width: 40px; height: 4px; margin-bottom: 4px; border-radius: 2px; background: #ff9e42; }
 .iteration-stat strong { display: block; font-size: 56px; line-height: 64px; font-variant-numeric: tabular-nums; }
+.iteration-stat strong small { margin-left: 4px; font-size: 24px; font-weight: 500; }
 .iteration-stat h3 { margin-top: 4px; font-size: 24px; line-height: 36px; font-weight: 400; text-wrap: pretty; }
 .iteration-stat p { margin-top: 4px; color: var(--bubu-secondary); font-size: 20px; line-height: 30px; font-weight: 500; }
 .iteration-response { width: 100%; padding: 24px 28px; border: 2px solid var(--bubu-primary); border-radius: 20px; background: var(--bubu-card); }

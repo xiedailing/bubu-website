@@ -425,6 +425,7 @@ main section { scroll-margin-top: 96px; }
   background: var(--bubu-card);
   box-shadow: 0 6px 8px rgb(0 0 0 / 10%);
 }
+.insight-card-focus { border: 2px solid var(--bubu-primary); }
 .insight-label { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
 .insight-label .chapter-label { gap: 12px; white-space: nowrap; }
 .insights .chapter-label img { display: block; flex-shrink: 0; }
