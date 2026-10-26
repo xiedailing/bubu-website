@@ -1,4 +1,4 @@
-/* 05 Design - Figma 518:1266 (brand), 519:1270 (visual foundation), 507:1231 (UI components). Scoped to this chapter. */
+/* 05 Design - Figma 590:1445 (brand visual), 507:1231 (UI components). Scoped to this chapter. */
 @font-face { font-family: "Chiron GoRound TC Design"; font-style: normal; font-weight: 400; font-display: swap; src: url("./public/assets/chiron-design-400.ttf") format("truetype"); }
 @font-face { font-family: "Chiron GoRound TC Design"; font-style: normal; font-weight: 500; font-display: swap; src: url("./public/assets/chiron-design-500.ttf") format("truetype"); }
 @font-face { font-family: "Chiron GoRound TC Design"; font-style: normal; font-weight: 700; font-display: swap; src: url("./public/assets/chiron-design-700.ttf") format("truetype"); }
@@ -15,74 +15,50 @@
 .design :is(p, h2, h3, dl, dt, dd, ul) { margin: 0; }
 .design :is(ul) { padding: 0; list-style: none; }
 .design-panel { display: flex; flex-direction: column; gap: 24px; padding: 44px 64px 40px; }
-.design-brand { gap: 44px; }
+.design-brand { gap: 24px; }
 .design-ui { gap: 14px; padding-bottom: 28px; }
 .design-heading { display: flex; flex-direction: column; gap: 8px; }
 .design h2 { font-size: 44px; font-weight: 700; line-height: 58px; }
 .design-card, .brand-card, .ui-card { border: 1px solid var(--design-line); border-radius: 20px; background: var(--bubu-card); }
 
-/* 05 Logo and brand identity */
-.brand-card { display: flex; align-items: center; gap: 56px; min-height: 567px; padding: 48px; box-shadow: var(--design-shadow); }
-.brand-logo-base { display: flex; flex: none; align-items: center; justify-content: center; width: 560px; }
-.brand-logo-tile { position: relative; flex: none; box-sizing: border-box; width: 400px; height: 400px; overflow: hidden; border: 4.615px solid #b9b3a5; border-radius: 89.5px; background: radial-gradient(circle at 50% 50%, #fcfbf8 0, #e4f2e8 200px); }
-.brand-logo-tile img { position: absolute; left: 52.89px; top: 90.38px; display: block; }
-.brand-info { display: flex; flex: 1; flex-direction: column; gap: 40px; min-width: 0; }
-.brand-info > div { display: flex; flex-direction: column; gap: 8px; }
-.brand-info dt { color: var(--design-muted); font-size: 20px; font-weight: 500; line-height: normal; }
-.brand-info dd { margin: 0; color: var(--design-ink); font-weight: 700; line-height: normal; }
-.brand-name { gap: 4px !important; }
-.brand-name dd { color: var(--bubu-dark); font-size: 72px; }
-.brand-slogan dd { font-size: 36px; }
-.brand-keywords dd { color: var(--bubu-primary); font-size: 28px; }
-.brand-idea dd { font-size: 24px; font-weight: 400; line-height: 36px; }
-
-/* 05 Visual foundation */
-.foundation-grid { display: flex; align-items: stretch; gap: 20px; }
-.design-card { box-shadow: var(--design-shadow); }
-.palette-card { display: flex; flex: 0 1 720px; flex-direction: column; gap: 24px; box-sizing: border-box; min-width: 0; padding: 28px 32px; }
+/* 05 Brand visual - Figma 590:1445 */
+.design-card { border: 0; box-shadow: var(--design-shadow); }
+.brand-layout { display: flex; align-items: stretch; gap: 24px; }
+.brand-identity { display: flex; flex: none; flex-direction: column; align-items: center; justify-content: center; gap: 40px; box-sizing: border-box; width: 580px; min-height: 560px; padding: 32px 40px; }
+.brand-logo { display: flex; flex-direction: column; align-items: center; gap: 16px; width: 286px; }
+.brand-logo img { display: block; width: 219.451px; height: 161.7px; }
+.brand-wordmark { color: var(--bubu-dark); font-size: 60px; font-weight: 700; line-height: normal; white-space: nowrap; }
+.brand-text { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; font-weight: 700; line-height: normal; }
+.brand-slogan { color: var(--design-ink); font-size: 26px; }
+.brand-keywords { color: var(--bubu-primary); font-size: 24px; }
+.visual-foundation { display: flex; flex: 1; flex-direction: column; gap: 20px; min-width: 0; }
+.palette-card { display: flex; flex: 1; flex-direction: column; gap: 16px; box-sizing: border-box; min-width: 0; padding: 26px 32px 24px; }
 .card-title { display: flex; align-items: flex-end; gap: 14px; white-space: nowrap; }
 .card-title strong { color: var(--bubu-dark); font-size: 26px; font-weight: 700; }
 .card-title span { color: var(--design-muted); font-size: 18px; font-weight: 500; }
 .palette-main { display: flex; flex: 1; gap: 20px; }
-.palette-col { display: flex; flex: 1; flex-direction: column; align-items: flex-start; gap: 14px; min-width: 0; }
-.palette-col > p { color: var(--design-ink); font-size: 20px; line-height: normal; }
-.palette-chip { display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; box-sizing: border-box; width: 100%; flex: 1; min-height: 240px; padding: 22px 24px; border-radius: 24px; white-space: nowrap; }
-.palette-chip strong { font-size: 22px; }
-.palette-chip b { font-size: 40px; }
+.palette-col { display: flex; flex: 1; flex-direction: column; align-items: flex-start; gap: 10px; min-width: 0; }
+.palette-col > p { color: var(--design-ink); font-size: 18px; font-weight: 500; line-height: normal; }
+.palette-chip { display: flex; flex-direction: column; justify-content: flex-end; gap: 2px; box-sizing: border-box; width: 100%; flex: 1; min-height: 200px; padding: 18px 22px; border-radius: 24px; white-space: nowrap; }
+.palette-chip strong { font-size: 20px; }
+.palette-chip b { font-size: 44px; }
 .palette-chip span { font-size: 20px; font-weight: 500; }
-.palette-primary { background: #3f6f3b; color: #fcfbf8; }
+.palette-primary { background: #3f6f3b; color: #fff; }
 .palette-accent { background: #ff9e42; color: var(--design-ink); }
+.font-card { display: flex; flex-direction: column; gap: 14px; box-sizing: border-box; padding: 24px 32px; }
+.font-showcase { display: flex; align-items: center; gap: 28px; }
+.font-samples { display: flex; flex-direction: column; gap: 2px; white-space: nowrap; }
+.font-samples p:first-child { color: var(--bubu-dark); font-size: 56px; font-weight: 700; line-height: normal; }
+.font-samples p:last-child { color: var(--design-ink); font-size: 34px; font-weight: 400; line-height: normal; }
+.font-rule { flex: none; width: 1px; height: 96px; background: #ccc9c2; }
+.font-names { display: flex; flex: 1; flex-direction: column; gap: 8px; min-width: 0; line-height: normal; }
+.font-names p:first-child { color: var(--design-ink); font-size: 30px; font-weight: 700; }
+.font-names p:last-child { color: var(--design-muted); font-size: 24px; font-weight: 500; }
+
 .pill { display: inline-flex; align-items: center; gap: 7.286px; padding: 5.465px 16.394px; border-radius: 999px; font-size: 21.86px; font-weight: 500; line-height: 32.788px; white-space: nowrap; }
 .pill img { display: block; flex: none; }
 .pill-list { background: #e4f2e8; color: #3f6f3b; }
 .pill-due { background: #ffebd7; color: #9a5510; }
-.palette-neutral { display: flex; gap: 16px; }
-.palette-neutral li { display: flex; flex: 1; align-items: center; gap: 12px; min-width: 0; }
-.neutral-swatch { flex: none; box-sizing: border-box; width: 64px; height: 64px; border: 1px solid var(--design-line); border-radius: 18px; }
-.neutral-text { display: flex; flex-direction: column; gap: 2px; white-space: nowrap; }
-.neutral-text strong { color: var(--design-ink); font-size: 18px; }
-.neutral-text span { color: var(--design-muted); font-size: 16px; }
-.neutral-text small { color: var(--design-muted); font-size: 14px; }
-.foundation-side { display: flex; flex: 1; flex-direction: column; gap: 20px; min-width: 0; }
-.font-card, .scale-card { display: flex; flex-direction: column; box-sizing: border-box; padding: 24px 32px; }
-.font-card { gap: 16px; }
-.font-samples { display: flex; flex-direction: column; gap: 4px; }
-.font-samples p { color: var(--design-ink); font-size: 28px; font-weight: 700; line-height: 40px; }
-.font-divider { display: block; width: 100%; max-width: 506px; height: 1px; }
-.font-meta { display: flex; flex-direction: column; gap: 12px; white-space: nowrap; }
-.font-meta div { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
-.font-meta dt { color: var(--design-ink); font-size: 18px; font-weight: 500; }
-.font-meta dd { color: var(--design-muted); font-size: 16px; }
-.scale-card { gap: 24px; flex: 1; }
-.scale-list { display: flex; flex: 1; flex-direction: column; justify-content: space-between; gap: 16px; }
-.scale-list > div { display: flex; align-items: center; gap: 12px; }
-.scale-list dd { flex: 1; min-width: 0; color: var(--design-ink); font-weight: 700; }
-.scale-list dt { color: var(--design-muted); font-size: 16px; text-align: right; white-space: nowrap; }
-.scale-page dd { font-size: 26px; }
-.scale-header dd { font-size: 20px; }
-.scale-card-title dd { font-size: 18px; }
-.scale-body dd { font-size: 15px; font-weight: 400; }
-.scale-caption dd { font-size: 12px; font-weight: 400; }
 
 /* 05 UI component system */
 .ui-layout { display: flex; align-items: flex-start; gap: 43px; }
@@ -148,10 +124,9 @@
 
 @media (max-width: 1399px) {
   .design-panel { padding-inline: 40px; }
-  .brand-logo-base { width: 440px; }
-  .foundation-grid { flex-wrap: wrap; }
-  .palette-card { width: auto; flex: 1 1 560px; }
-  .foundation-side { flex: 1 1 440px; }
+  .brand-layout { flex-wrap: wrap; }
+  .brand-identity { width: auto; flex: 1 1 400px; min-height: 0; }
+  .visual-foundation { flex: 1 1 560px; }
   .ui-layout { flex-wrap: wrap; gap: 24px; }
   .ui-col-main { flex: 1 1 560px; width: auto; }
   .ui-col-side { flex: 1 1 440px; width: auto; }
@@ -161,33 +136,24 @@
 @media (max-width: 1100px) {
   .design-panel { min-height: 0; padding: 40px 32px; }
   .design h2 { font-size: 36px; line-height: 50px; }
-  .brand-card { flex-direction: column; min-height: 0; padding: 32px; gap: 32px; align-items: stretch; }
-  .brand-logo-base { width: auto; }
-  .brand-info { gap: 28px; }
-  .brand-name dd { font-size: 56px; }
-  .brand-slogan dd { font-size: 30px; }
-  .palette-card, .foundation-side { flex-basis: 100%; }
-  .palette-card { min-height: 0; }
+  .brand-identity, .visual-foundation { flex-basis: 100%; }
 }
 @media (max-width: 700px) {
   .design-panel { padding: 36px 24px; gap: 20px; }
   .design h2 { font-size: 28px; line-height: 42px; }
-  .brand-card { padding: 24px 20px; }
-  .brand-logo-tile { width: min(100%, 320px); height: auto; aspect-ratio: 1; }
-  .brand-logo-tile img { left: 13.2%; top: 22.6%; width: 71.2%; height: auto; }
-  .brand-name dd { font-size: 44px; }
-  .brand-slogan dd { font-size: 24px; }
-  .brand-keywords dd { font-size: 22px; }
-  .brand-idea dd { font-size: 18px; line-height: 30px; }
-  .palette-card, .font-card, .scale-card { padding: 24px 20px; }
+  .brand-identity { padding: 32px 20px; gap: 28px; }
+  .brand-wordmark { font-size: 44px; }
+  .brand-slogan { font-size: 22px; }
+  .brand-keywords { font-size: 20px; }
+  .palette-card, .font-card { padding: 24px 20px; }
   .palette-main { flex-direction: column; }
-  .palette-chip { height: 220px; }
-  .palette-neutral { flex-direction: column; }
-  .font-samples p { font-size: 22px; line-height: 34px; }
-  .font-meta { white-space: normal; }
-  .font-meta dd { text-align: right; }
-  .scale-list > div { flex-direction: column; align-items: flex-start; gap: 4px; }
-  .scale-list dt { order: 2; text-align: left; }
+  .palette-chip { height: 200px; flex: none; }
+  .font-showcase { flex-wrap: wrap; gap: 16px; }
+  .font-rule { display: none; }
+  .font-samples p:first-child { font-size: 44px; }
+  .font-samples p:last-child { font-size: 28px; }
+  .font-names p:first-child { font-size: 26px; }
+  .font-names p:last-child { font-size: 20px; }
   .ui-col-main, .ui-col-side { flex-basis: 100%; }
   .ui-card { padding: 12px 20px; }
   .item-stage, .task-cards { overflow-x: auto; padding: 0 12px 24px; margin: 0 -12px -24px; }

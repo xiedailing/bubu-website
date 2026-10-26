@@ -13,18 +13,8 @@
 .solution-panel { display: flex; flex-direction: column; gap: 36px; min-height: 814px; padding: 28px 64px 24px; }
 .solution-heading { display: flex; flex-direction: column; gap: 8px; }
 .solution-heading h2, .direction-card h3, .tradeoff-card h3 { font-size: 44px; line-height: 58px; font-weight: 700; }
-.solution-directions { gap: 40px; }
-.direction-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; }
-.direction-card { position: relative; display: flex; flex-direction: column; align-items: start; gap: 14px; min-width: 0; min-height: 400px; padding: 28px 32px 24px; border: 1px solid var(--solution-line); border-radius: 20px; background: var(--bubu-card); }
-.direction-core { border: 2px solid var(--bubu-primary); }
-.direction-card > .insight-badge { margin-right: 96px; }
-.direction-card h3 { margin-top: 0; }
+
 .tradeoff-card > p:not(.chapter-label) { color: var(--bubu-secondary); font-size: 26px; line-height: 40px; }
-.direction-card p { color: var(--bubu-secondary); font-size: 20px; line-height: 32px; text-wrap: pretty; }
-.direction-card h4 { color: var(--bubu-primary); font-size: 20px; line-height: 30px; }
-.direction-illustration { position: absolute; right: 34px; top: 30px; }
-.direction-card:first-child .direction-illustration { top: 31px; right: 36px; }
-.direction-card h3 { position: relative; }
 .solution-note { padding: 12px 20px; border-radius: 10px; background: var(--solution-tint); font-size: 20px; line-height: 30px; font-weight: 500; }
 .solution-architecture { gap: 28px; min-height: 842px; padding-block: 24px; }
 .solution-architecture .solution-heading h2 { font-size: 40px; }
@@ -77,11 +67,6 @@ body:has(.image-dialog[open]) { overflow: hidden; }
 .image-dialog-tag.is-current { background: var(--bubu-primary); color: var(--bubu-card); }
 .image-dialog-content { display: block; flex: none; max-width: none; height: auto; }
 @media (max-width: 1399px) {
-  .direction-card h3 { font-size: 36px; line-height: 50px; }
-  .direction-card { padding: 28px; }
-  .direction-illustration { right: 20px; }
-  .direction-card:first-child .direction-illustration { right: 20px; }
-  .direction-card h3 { margin-top: 80px; }
   .flow-steps { gap: 28px; }
   .flow-step:not(:last-child)::after { width: 28px; }
   .flow-summary { gap: 20px; padding-inline: 24px; }
@@ -93,11 +78,6 @@ body:has(.image-dialog[open]) { overflow: hidden; }
 @media (max-width: 1100px) {
   .solution-panel { min-height: 0; padding: 40px 32px; }
   .solution-heading h2, .solution-architecture .solution-heading h2, .tradeoff-card h3 { font-size: 36px; line-height: 50px; }
-  .direction-grid { grid-template-columns: minmax(0,1fr); }
-  .direction-card { min-height: 230px; padding-right: 160px; }
-  .direction-card h3 { margin-top: 0; }
-  .direction-card > .insight-badge { margin-right: 0; }
-  .direction-illustration, .direction-card:first-child .direction-illustration { right: 32px; }
   .flow-summary { align-items: stretch; flex-wrap: wrap; }
   .flow-summary .solution-heading { flex-basis: 100%; }
   .flow-context { border-left: 0; padding-left: 0; }
@@ -109,11 +89,6 @@ body:has(.image-dialog[open]) { overflow: hidden; }
 @media (max-width: 700px) {
   .solution-panel { padding: 36px 24px; gap: 28px; }
   .solution-heading h2, .solution-architecture .solution-heading h2, .direction-card h3, .tradeoff-card h3 { font-size: 28px; line-height: 42px; }
-  .direction-card { padding: 24px 20px; }
-  .direction-illustration, .direction-card:first-child .direction-illustration { right: 20px; top: 22px; }
-  .direction-card > .insight-badge { margin-right: 110px; }
-  .direction-card h3 { margin-top: 70px; }
-  .direction-card p, .tradeoff-card > p:not(.chapter-label) { font-size: 20px; line-height: 32px; }
   .solution-note { font-size: 18px; line-height: 28px; }
   .flow-summary { flex-direction: column; padding: 20px; gap: 16px; }
   .flow-summary .solution-heading { flex-basis: auto; }
@@ -130,9 +105,6 @@ body:has(.image-dialog[open]) { overflow: hidden; }
   .solution-next p { font-size: 20px; line-height: 32px; }
 }
 @media (max-width: 370px) {
-  .direction-card > .insight-badge { margin-right: 0; }
-  .direction-illustration, .direction-card:first-child .direction-illustration { top: 74px; }
-  .direction-card h3 { margin-top: 130px; }
 }
 
 @media (max-width: 700px) {
@@ -141,17 +113,20 @@ body:has(.image-dialog[open]) { overflow: hidden; }
   .image-dialog-actions { width: 100%; justify-content: space-between; }
   .image-dialog-tag { padding: 2px 8px; font-size: 14px; line-height: 22px; }
 }
-/* Reading order follows label, heading, copy, then existing illustration. */
-.direction-label { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
-.direction-number { color: var(--bubu-primary); font-size: 20px; line-height: 30px; font-weight: 700; }
-.direction-card { min-height: 0; padding: 28px 32px; }
-.direction-card > .insight-badge { margin-right: 0; }
-.direction-card h3 { margin-top: 0; }
-.direction-card .direction-illustration,
-.direction-card:first-child .direction-illustration { position: static; align-self: center; margin-top: auto; padding-top: 24px; width: 150px; height: auto; }
-@media (max-width: 700px) {
-  .direction-card { padding: 24px 20px; }
-}
+
+/* 03 Design strategy - Figma 595:1449 */
+.solution-directions { gap: 44px; min-height: 0; padding-block: 44px 64px; }
+.solution-directions .solution-heading h2 { color: var(--bubu-dark); }
+.strategy-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; }
+.strategy-card { display: flex; flex-direction: column; align-items: center; gap: 24px; box-sizing: border-box; min-width: 0; min-height: 404px; padding: 32px 36px; border-radius: 20px; background: var(--bubu-card); box-shadow: 0 6px 8px rgb(0 0 0 / 10%); text-align: center; }
+.strategy-card p, .strategy-card h3 { margin: 0; }
+.strategy-number { align-self: stretch; color: #ff9e42; font-size: 28px; font-weight: 700; line-height: 40px; text-align: left; }
+.strategy-icon { display: flex; flex: none; align-items: center; justify-content: center; width: 124px; height: 124px; border-radius: 50%; background: #e3edde; }
+.strategy-icon img { display: block; width: 68px; height: 68px; }
+.strategy-card h3 { color: var(--bubu-dark); font-size: 28px; line-height: 40px; font-weight: 700; }
+.strategy-copy { color: var(--bubu-secondary); font-size: 24px; line-height: 36px; font-weight: 400; }
+@media (max-width: 1100px) { .strategy-grid { grid-template-columns: minmax(0,1fr); } .strategy-card { min-height: 0; } }
+@media (max-width: 700px) { .strategy-card { padding: 28px 24px; } .strategy-copy { font-size: 20px; line-height: 32px; } }
 
 /* 04 Main features - Figma 510:1262. */
 .solution-features { gap: 28px; }
