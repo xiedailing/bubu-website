@@ -84,6 +84,16 @@ function updateJump() {
 }
 jumpPrev.addEventListener('click', () => jump(-1));
 jumpNext.addEventListener('click', () => jump(1));
+// Up / Down arrow keys act like the two buttons, except where the arrows already have a job.
+document.addEventListener('keydown', (event) => {
+  if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+  if (event.key !== 'ArrowUp' && event.key !== 'ArrowDown') return;
+  if (document.querySelector('dialog[open]')) return;
+  if (event.target.closest('input, textarea, select, [contenteditable], [role="region"][tabindex], [role="listbox"], [role="menu"]')) return;
+  event.preventDefault();
+  const button = event.key === 'ArrowUp' ? jumpPrev : jumpNext;
+  if (!button.disabled) jump(event.key === 'ArrowUp' ? -1 : 1);
+});
 window.addEventListener('scroll', updateJump, { passive: true });
 window.addEventListener('resize', updateJump);
 window.addEventListener('load', updateJump);
