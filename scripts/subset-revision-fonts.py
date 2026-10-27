@@ -35,7 +35,10 @@ def section_text(section):
     if section == 'problem':
         content += html[:html.index('<main')] + html[html.index('<dialog'):]
     # The image dialog renders data-caption text in the solution family.
-    captions = ' '.join(re.findall(r'data-caption="([^"]*)"', html)) if section == 'solution' else ''
+    # Its title comes from the aria-label of the comparison being opened.
+    captions = ''
+    if section == 'solution':
+        captions = ' '.join(re.findall(r'data-caption="([^"]*)"', html) + re.findall(r'class="iteration-comparison[^"]*"[^>]*aria-label="([^"]*)"', html))
     text = unescape(re.sub(r'<[^>]+>', '', content)) + unescape(captions)
     return text + '；：／、＋−×<>0123456789% /'
 
