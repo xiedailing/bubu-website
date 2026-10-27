@@ -44,7 +44,7 @@
 .palette-chip b { font-size: 44px; }
 .palette-chip span { font-size: 20px; font-weight: 500; }
 .palette-primary { background: #3f6f3b; color: #fff; }
-.palette-accent { background: #ff9e42; color: var(--design-ink); }
+.palette-accent { background: #ffebd7; color: var(--design-ink); }
 .font-card { display: flex; flex-direction: column; gap: 14px; box-sizing: border-box; padding: 24px 32px; }
 .font-showcase { display: flex; align-items: center; gap: 28px; }
 .font-samples { display: flex; flex-direction: column; gap: 2px; white-space: nowrap; }
