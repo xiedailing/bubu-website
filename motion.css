@@ -1,0 +1,63 @@
+/* Shared motion rules. Items are armed by motion.js, so nothing is hidden when scripts or IntersectionObserver are missing. */
+:root { --ease: cubic-bezier(.22,.61,.36,1); }
+
+/* Entrance: fade in and rise; --d is the stagger delay set per batch by motion.js */
+.m-item { opacity: 0; }
+.m-item.m-in { opacity: 1; animation: m-rise 500ms var(--ease) backwards; animation-delay: var(--d, 0ms); }
+@keyframes m-rise { from { opacity: 0; transform: translateY(16px); } }
+
+/* Stat cards: the orange bar slides out after the card appears */
+.iteration-stat::before { transform-origin: left; }
+.iteration-stat.m-in::before { animation: m-bar 600ms var(--ease) backwards; animation-delay: calc(var(--d, 0ms) + 250ms); }
+@keyframes m-bar { from { transform: scaleX(0); } }
+
+/* Emotion chart: the curve is drawn left to right, then each face pops in */
+.emotion-chart.m-hook .emotion-curve { clip-path: inset(0 100% 0 0); }
+.emotion-chart.m-hook.m-in .emotion-curve { clip-path: inset(0); animation: m-wipe 1200ms var(--ease) backwards 150ms; }
+@keyframes m-wipe { from { clip-path: inset(0 100% 0 0); } }
+.emotion-chart.m-hook .emotion-face { opacity: 0; }
+.emotion-chart.m-hook.m-in .emotion-face { opacity: 1; animation: m-pop 450ms var(--ease) backwards; animation-delay: var(--d, 0ms); }
+@keyframes m-pop { from { opacity: 0; transform: scale(.6); } }
+.emotion-point-1 .emotion-face { --d: 250ms; }
+.emotion-point-2 .emotion-face { --d: 450ms; }
+.emotion-point-3 .emotion-face { --d: 650ms; }
+.emotion-point-4 .emotion-face { --d: 850ms; }
+.emotion-point-5 .emotion-face { --d: 1050ms; }
+
+/* Hover lift for cards that behave like objects (not for dense reading cards) */
+.palette-chip, .feature-card, .opportunity-card, .finding-card, .insight-card, .persona-takeaway, .emotion-bubble-a, .emotion-bubble-b { transition: transform 200ms var(--ease), box-shadow 200ms var(--ease); }
+@media (hover: hover) {
+  /* A / B bubbles are the key moment in the emotion chart, so they swell slightly on hover */
+  .emotion-bubble-a:hover, .emotion-bubble-b:hover { z-index: 2; transform: scale(1.07); box-shadow: 0 8px 16px rgb(0 0 0 / 16%); }
+  .palette-chip:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 10px 18px rgb(0 0 0 / 12%); }
+  .feature-card:hover { transform: translateY(-3px); box-shadow: 0 10px 18px rgb(0 0 0 / 10%); }
+  /* Research cards: a gentle lift marks the card being read */
+  .opportunity-card:hover, .finding-card:hover, .insight-card:hover, .persona-takeaway:hover { transform: translateY(-4px); box-shadow: 0 12px 20px rgb(0 0 0 / 12%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .palette-chip, .feature-card, .opportunity-card, .finding-card, .insight-card, .persona-takeaway, .emotion-bubble-a, .emotion-bubble-b { transition: none; }
+  .palette-chip:hover, .feature-card:hover, .opportunity-card:hover, .finding-card:hover, .insight-card:hover, .persona-takeaway:hover, .emotion-bubble-a:hover, .emotion-bubble-b:hover { transform: none; }
+}
+
+/* Design-page logo: a soft jelly bounce on entrance, replayed on hover or tap */
+.design .brand-logo img { transform-origin: 50% 100%; }
+.m-logo { opacity: 0; }
+.m-logo.m-in { opacity: 1; }
+.m-logo.m-drop { animation: m-drop 900ms linear backwards; }
+.m-logo.m-bounce { animation: m-jelly 800ms linear; }
+@keyframes m-drop {
+  0% { opacity: 0; transform: translateY(-28px) scale(.92, 1.08); animation-timing-function: cubic-bezier(.5,0,.9,.6); }
+  30% { opacity: 1; transform: translateY(0) scale(1.14, .86); animation-timing-function: var(--ease); }
+  52% { transform: translateY(-8px) scale(.94, 1.07); animation-timing-function: var(--ease); }
+  72% { transform: translateY(0) scale(1.05, .96); animation-timing-function: var(--ease); }
+  88% { transform: scale(.99, 1.01); }
+  100% { transform: scale(1); }
+}
+@keyframes m-jelly {
+  0% { transform: scale(1); }
+  22% { transform: scale(1.12, .88); }
+  44% { transform: translateY(-8px) scale(.94, 1.07); }
+  66% { transform: scale(1.05, .96); }
+  84% { transform: scale(.99, 1.01); }
+  100% { transform: scale(1); }
+}

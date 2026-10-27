@@ -125,6 +125,17 @@ body:has(.image-dialog[open]) { overflow: hidden; }
 .strategy-icon img { display: block; width: 68px; height: 68px; }
 .strategy-card h3 { color: var(--bubu-dark); font-size: 28px; line-height: 40px; font-weight: 700; }
 .strategy-copy { color: var(--bubu-secondary); font-size: 24px; line-height: 36px; font-weight: 400; }
+/* Strategy cards: light hover lift (entrance lives in motion.css) */
+.strategy-card { transition: transform 200ms var(--ease), box-shadow 200ms var(--ease); }
+.strategy-icon { transition: transform 200ms var(--ease); }
+@media (hover: hover) {
+  .strategy-card:hover { transform: translateY(-4px); box-shadow: 0 12px 20px rgb(0 0 0 / 12%); }
+  .strategy-card:hover .strategy-icon { transform: scale(1.06); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .strategy-card, .strategy-icon { transition: none; }
+  .strategy-card:hover, .strategy-card:hover .strategy-icon { transform: none; }
+}
 @media (max-width: 1100px) { .strategy-grid { grid-template-columns: minmax(0,1fr); } .strategy-card { min-height: 0; } }
 @media (max-width: 700px) { .strategy-card { padding: 28px 24px; } .strategy-copy { font-size: 20px; line-height: 32px; } }
 

@@ -514,7 +514,6 @@ main section { scroll-margin-top: 96px; }
 
 /* Every block fills one viewport below the sticky header (matches section scroll-margin-top). */
 main :is(.research-panel, .insights-panel, .solution-panel, .iteration-panel, .design-panel, .results-panel, .demo) { min-height: calc(100svh - 96px); justify-content: center; }
-main .research-competition { justify-content: flex-start; }
 @media (max-width: 900px) { main :is(.research-panel, .insights-panel, .solution-panel, .iteration-panel, .design-panel, .results-panel, .demo) { min-height: calc(100svh - 150px); } }
 
 /* Competition page: compact so the open table, or the table with two rows collapsed plus both opportunities, fits one screen. */
